@@ -12,12 +12,12 @@ This website compiles a collection of FEniCSx finite element codes for a wide ar
 
 A selection of example codes are provided for: 
 1. Finite elasticity
-7. Finite deformation viscoelasticity with inertial effects
-2. Finite thermo-elasticity
-3. Gel mechanics
-4. Gel thermo-mechanics
-5. Chemo-mechanically coupled Cahn-Hilliard
-6. Electro-elasticity of dielectric elastomers
+2. Finite deformation viscoelasticity with inertial effects
+3. Finite thermo-elasticity
+4. Gel mechanics
+5. Gel thermo-mechanics
+6. Chemo-mechanically coupled Cahn-Hilliard
+7. Electro-elasticity of dielectric elastomers
 8. Electro-viscoelasticity of dielectric elastomers with inertial effects
 9. Electro-chemo-elasticity of ionic polymers
 10. Magneto-viscoelasticity of hard-magnetic soft-elastomers
