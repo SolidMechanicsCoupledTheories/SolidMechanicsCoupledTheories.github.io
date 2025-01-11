@@ -1,0 +1,4281 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Un-coupled phase separation &#8212; Example Codes for Coupled Theories in Solid Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_Cahn_Hilliard/CH01_uncoupled_2D_evolution';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Slow-ramp lithiation" href="CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html" />
+    <link rel="prev" title="VI. Cahn-Hilliard" href="../part6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Example Codes for Coupled Theories in Solid Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Example codes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1.html">I. Finite elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D01_uniaxial_tension_v0p8.html">Uniaxial tension of a 3D cube</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D02_simple_shear_v0p8.html">Simple shear of a 3D cube</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D03_fixed_end_torsion_v0p8.html">Torsion of a 3D cylinder</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D04_hole_in_plate_v0p8.html">Tension of a 3D plate with a hole</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D05_cylinder_inflation_v0p8.html">Inflation of a 3D cylinder by an internal pressure</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D06_sphere_inflation_v0p8.html">Inflation of a sphere by an internal pressure</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D07_cube_footing_v0p8.html">A cube under pressure on a part of its face</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D08_beam_buckling_v0p8.html">Buckling of a column with square cross-section</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D09_spherical_inclusion_v0p8.html">Uniaxial tension of a 3D cube with a spherical inclusion</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D10_column_twist_v0p8.html">Twisting of a column with square cross-section</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2.html">II. Finite viscoelasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV01_VHB_uniaxial_tension_eq.html">Equilibrium uniaxial tension</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV02_VHB_uniaxial_tension_neq.html">Rate-dependent uniaxial tension</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV03_VHB_stress_relaxation.html">Stress relaxation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV04_VHB_creep.html">Creep</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV05_VHB_stretch_hold.html">Stretch-hold study</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV06_VHB_sinusoidal_tension.html">Hysteresis in tension</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV07_VHB_sinusoidal_shear.html">Hysteresis in shear</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV08_NBR_cube_footing.html">Cube “footing”</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV09_NBR_bushing_shear.html">Shear of a bushing</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV10_NBR_beam_impulse_oscillation.html">Beam impulse response</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV11_NBR_beam_buckle.html">Visco-dynamic beam buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV12_NBR_sphere_indentation_coarse.html">Spherical indenter</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part3.html">III. Finite thermo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE01_pe_constrained_heating.html">Constrained heating</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE02_axi_thermoelas_stretch_adiabatic.html">Stretch-induced heating</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE03_axi_thermoelas_steps.html">Heating-induced contraction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE04_pe_bilayer.html">Thermoelastic bilayer bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE05_axi_circular_plate_flux.html">Surface heat flux bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE06_solar_sail.html">“Solar sail” wrinkling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part4.html">IV. Gel mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL01_axi_swell.html">Axisymmetric cylinder swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL02_3d_swell.html">Cube swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL03_pe_bilayer_beam.html">Bilayer beam swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL04_thin_cylinder_buckling.html">Thin cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL05_thick_cylinder_buckling.html">Thick cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL06_thin_corona.html">Thin corona buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL07_pe_elliptical_inclusion.html">Elliptical inclusion swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL08_sphere_swell.html">Sphere swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL09_compression.html">Swollen cylinder compression</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL10_preSwollenCompression.html">Pre-swollen cylinder compression</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part5.html">V. Gel thermo-mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL01_pe_square_swell.html">Thermal de-swelling of a square</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL03_sphere_swell.html">Thermal de-swelling of a sphere</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL05_axi_packer.html">Swelling of a cylindrical packer</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../part6.html">VI. Cahn-Hilliard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Un-coupled phase separation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html">Slow-ramp lithiation</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part7.html">VII. Electro-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE00_3D_pullin_instability.html">3D pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE02_2D_pe_pullin_instability.html">Plane strain pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE04_3D_helix_actuator.html">Helical actuator</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE05_3D_Gripper.html">Four-arm gripper</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE06_AXI_preStretch_membrane.html">Pre-stretched electro-elastic actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part8.html">VIII. Electro-visco-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV01_3D_pullin_instability.html">3D pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_pullin_instability_rate_sweep.html">Rate-dependent pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV04_3D_helix_viscodynamic_actuation_step.html">Step-change helix actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV07_3D_cylinder_buckle.html">Electro-elastic cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV08_3D_six_arm_gripper.html">Six-arm gripper actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV09_PE_crease.html">Electro-elastic “creasing” instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV10_3D_blister.html">Electro-elastic “blister” instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part9.html">IX. Electro-chemo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_01_pe_beam_free_curling.html">Free curling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_02_pe_beam_blocking_force.html">Blocking force</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_03_pe_beam_sinusoidal_actuation.html">Sinusoidal actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part10.html">X. Hard-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM01_beam_bending.html">90-degree beam bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM02_beam_reversal.html">180-degree beam bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM03_cross_actuator.html">Cross-shaped actuator</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM04_mechanical_impulse.html">Bistable arch impulse response</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM05_bfield_ramp.html">Linear ramp arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM06_bfield_constant.html">Constant field arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM07_bfield_triangle.html">Triangle-wave arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM08_hemisphere_eversion.html">Hemisphere eversion snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part11.html">XI. Soft-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM01a_axi_sphere_5mm_ideal.html">“Ideal” sphere magnetostriction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM01b_axi_sphere_5mm.html">Sphere magnetostriction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02a_axi_cyl_0p80.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.80\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02b_axi_cyl_0p33.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.33\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02c_axi_cyl_1p46.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 1.46\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM03_trilayer_beam.html">Tri-layer beam actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes/issues/new?title=Issue%20on%20page%20%2F06_Cahn_Hilliard/CH01_uncoupled_2D_evolution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/06_Cahn_Hilliard/CH01_uncoupled_2D_evolution.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Un-coupled phase separation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Un-coupled phase separation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-modules">Import modules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-geometry">Define geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-boundary-and-volume-integration-measure">Define boundary and volume integration measure</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parmeters">Material parmeters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-for-cbar">Initial conditions for cBar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-for-degrees-of-freedom-c-and-mu">Initial conditions for degrees of freedom c and mu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-output-files">Set-up output files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-step">Analysis Step</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-nonlinear-variational-problem">Define the nonlinear variational problem</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-arrays-for-storing-output-history">Initialize arrays for storing output history</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-calculation-loop">Start calculation loop</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="un-coupled-phase-separation">
+<h1>Un-coupled phase separation<a class="headerlink" href="#un-coupled-phase-separation" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Code for Cahn-Hilliard phase separation without mechanical coupling</p></li>
+<li><p>This is a two-dimensional simulation</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="degrees-of-freedom">
+<h1>Degrees of freedom<a class="headerlink" href="#degrees-of-freedom" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>chemical potential: mu</p></li>
+<li><p>concentration: c</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="units">
+<h1>Units<a class="headerlink" href="#units" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Length: um</p></li>
+<li><p>Mass: kg</p></li>
+<li><p>Time: s</p></li>
+<li><p>Amount of substance: pmol</p></li>
+<li><p>Temperature: K</p></li>
+<li><p>Mass density: kg/um^3</p></li>
+<li><p>Force: uN</p></li>
+<li><p>Stress: MPa</p></li>
+<li><p>Energy: pJ</p></li>
+<li><p>Species concentration: pmol/um^3</p></li>
+<li><p>Chemical potential: pJ/pmol</p></li>
+<li><p>Molar volume: um^3/pmol</p></li>
+<li><p>Species diffusivity: um^2/s</p></li>
+<li><p>Boltzmann Constant: 1.38E-11 pJ/K</p></li>
+<li><p>Gas constant: 8.3145  pJ/(pmol K)</p></li>
+</ul>
+<section id="software">
+<h2>Software:<a class="headerlink" href="#software" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dolfinx v0.8.0</p></li>
+</ul>
+<p>Eric Stewart and Lallit Anand</p>
+<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a> and <a class="reference external" href="mailto:anand&#37;&#52;&#48;mit&#46;edu">anand<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
+<p>June 2024</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-modules">
+<h1>Import modules<a class="headerlink" href="#import-modules" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import FEniCSx/dolfinx</span>
+<span class="kn">import</span> <span class="nn">dolfinx</span>
+
+<span class="c1"># For numerical arrays</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># For MPI-based parallelization</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">()</span>
+
+<span class="c1"># PETSc solvers</span>
+<span class="kn">from</span> <span class="nn">petsc4py</span> <span class="kn">import</span> <span class="n">PETSc</span>
+
+<span class="c1"># specific functions from dolfinx modules</span>
+<span class="kn">from</span> <span class="nn">dolfinx</span> <span class="kn">import</span> <span class="n">fem</span><span class="p">,</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">dolfinx.fem</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Constant</span><span class="p">,</span> <span class="n">dirichletbc</span><span class="p">,</span> <span class="n">Function</span><span class="p">,</span> <span class="n">functionspace</span><span class="p">,</span> <span class="n">Expression</span> <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dolfinx.fem.petsc</span> <span class="kn">import</span> <span class="n">NonlinearProblem</span>
+<span class="kn">from</span> <span class="nn">dolfinx.nls.petsc</span> <span class="kn">import</span> <span class="n">NewtonSolver</span>
+<span class="kn">from</span> <span class="nn">dolfinx.io</span> <span class="kn">import</span> <span class="n">VTXWriter</span><span class="p">,</span> <span class="n">XDMFFile</span>
+
+<span class="c1"># specific functions from ufl modules</span>
+<span class="kn">import</span> <span class="nn">ufl</span>
+<span class="kn">from</span> <span class="nn">ufl</span> <span class="kn">import</span> <span class="p">(</span><span class="n">TestFunctions</span><span class="p">,</span> <span class="n">TrialFunction</span><span class="p">,</span> <span class="n">Identity</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">det</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">tr</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">conditional</span> <span class="p">,</span>\
+                 <span class="n">lt</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">inner</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">dot</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">eq</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">acos</span><span class="p">,</span> <span class="n">ge</span><span class="p">,</span> <span class="n">le</span><span class="p">,</span> <span class="n">outer</span><span class="p">,</span> <span class="n">tanh</span><span class="p">,</span>\
+                 <span class="n">cosh</span><span class="p">,</span> <span class="n">atan</span><span class="p">,</span> <span class="n">atan2</span><span class="p">)</span>
+
+<span class="c1"># basix finite elements (necessary for dolfinx v0.8.0)</span>
+<span class="kn">import</span> <span class="nn">basix</span>
+<span class="kn">from</span> <span class="nn">basix.ufl</span> <span class="kn">import</span> <span class="n">element</span><span class="p">,</span> <span class="n">mixed_element</span>
+
+<span class="c1"># Matplotlib for plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="c1"># For timing the code</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># Set level of detail for log messages (integer)</span>
+<span class="c1"># Guide:</span>
+<span class="c1"># CRITICAL  = 50, // errors that may lead to data corruption</span>
+<span class="c1"># ERROR     = 40, // things that HAVE gone wrong</span>
+<span class="c1"># WARNING   = 30, // things that MAY go wrong later</span>
+<span class="c1"># INFO      = 20, // information of general interest (includes solver info)</span>
+<span class="c1"># PROGRESS  = 16, // what&#39;s happening (broadly)</span>
+<span class="c1"># TRACE     = 13, // what&#39;s happening (in detail)</span>
+<span class="c1"># DBG       = 10  // sundry</span>
+<span class="c1">#</span>
+<span class="n">log</span><span class="o">.</span><span class="n">set_log_level</span><span class="p">(</span><span class="n">log</span><span class="o">.</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="define-geometry">
+<h1>Define geometry<a class="headerlink" href="#define-geometry" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create square mesh </span>
+<span class="n">L0</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="c1"># 800 nm box. After Di Leo et al. (2014) </span>
+
+<span class="c1"># Number of elements along each side</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">domain</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">create_rectangle</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="n">L0</span><span class="p">,</span><span class="n">L0</span><span class="p">]],</span>\
+                         <span class="p">[</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">quadrilateral</span><span class="p">)</span>
+
+<span class="c1"># domain = mesh.create_rectangle(MPI.COMM_WORLD, [[0.0,0.0], [L0,L0]],\</span>
+<span class="c1">#                          [N,N], mesh.CellType.triangle, diagonal=mesh.DiagonalType.crossed)</span>
+                         
+<span class="n">x</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">SpatialCoordinate</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Identify the boundaries of the domain</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the boundaries of the  rectangle mesh</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">xBot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">xTop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">L0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">yBot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">yTop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">L0</span><span class="p">)</span>
+    
+<span class="c1"># Mark the sub-domains</span>
+<span class="n">boundaries</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="n">xBot</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="n">xTop</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="n">yBot</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="n">yTop</span><span class="p">)]</span>
+
+<span class="c1"># Build collections of facets on each subdomain and mark them appropriately.</span>
+<span class="n">facet_indices</span><span class="p">,</span> <span class="n">facet_markers</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span> <span class="c1"># initalize empty collections of indices and markers.</span>
+<span class="n">fdim</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span>        <span class="c1"># geometric dimension of the facet (mesh dimension - 1)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">marker</span><span class="p">,</span> <span class="n">locator</span><span class="p">)</span> <span class="ow">in</span> <span class="n">boundaries</span><span class="p">:</span>
+    <span class="n">facets</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">locate_entities</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">locator</span><span class="p">)</span> <span class="c1"># an array of all the facets in a </span>
+                                                         <span class="c1"># given subdomain (&quot;locator&quot;)</span>
+    <span class="n">facet_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">facets</span><span class="p">)</span>                         <span class="c1"># add these facets to the collection.</span>
+    <span class="n">facet_markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">facets</span><span class="p">,</span> <span class="n">marker</span><span class="p">))</span>   <span class="c1"># mark them with the appropriate index.</span>
+
+<span class="c1"># Format the facet indices and markers as required for use in dolfinx.</span>
+<span class="n">facet_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">facet_markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">facet_markers</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">sorted_facets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">)</span>
+<span class="c1"># </span>
+<span class="c1"># Add these marked facets as &quot;mesh tags&quot; for later use in BCs.</span>
+<span class="n">facet_tags</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">meshtags</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">facet_indices</span><span class="p">[</span><span class="n">sorted_facets</span><span class="p">],</span> <span class="n">facet_markers</span><span class="p">[</span><span class="n">sorted_facets</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Visualize the reference configuration</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dolfinx.plot</span> <span class="kn">import</span> <span class="n">vtk_mesh</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">start_xvfb</span><span class="p">()</span>
+
+<span class="c1"># initialize a plotter</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+
+<span class="c1"># Add the mesh.</span>
+<span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#, opacity=0.25) </span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">view_xy</span><span class="p">()</span>
+
+<span class="c1">#labels = dict(xlabel=&#39;X&#39;, ylabel=&#39;Y&#39;,zlabel=&#39;Z&#39;)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/square_mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/square_mesh.png&#39;</span><span class="p">)</span> 
+
+<span class="c1"># # Use the following  commands for a  zoom-able  view</span>
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#     plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#     plotter.screenshot(&quot;square_mesh.png&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18accb73831870fcdd435854b59ddd7ae45ce08e73afa9fe151a4f3ac77302b0.png" src="../_images/18accb73831870fcdd435854b59ddd7ae45ce08e73afa9fe151a4f3ac77302b0.png" />
+</div>
+</div>
+<section id="define-boundary-and-volume-integration-measure">
+<h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
+<span class="c1"># also specify the number of surface quadrature points.</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+
+<span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
+<span class="c1"># also specify the number of volume quadrature points.</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+
+<span class="c1"># Create facet to cell connectivity required to determine boundary facets.</span>
+<span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+<span class="c1"># #  Define facet normal</span>
+<span class="n">n2D</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">FacetNormal</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">as_vector</span><span class="p">([</span><span class="n">n2D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n2D</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">])</span> <span class="c1"># define n as a 3D vector for later use</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="material-parmeters">
+<h1>Material parmeters<a class="headerlink" href="#material-parmeters" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Material parameters after Di Leo et al. (2014)</span>
+<span class="c1">#</span>
+<span class="n">Omega</span>    <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">4.05</span><span class="p">))</span>      <span class="c1"># Molar volume, um^3/pmol </span>
+<span class="n">D</span>        <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">))</span>      <span class="c1"># Diffusivity, um^2/s </span>
+<span class="n">chi</span>      <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>         <span class="c1"># Phase parameter, (-)</span>
+<span class="n">cMax</span>     <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">2.29e-2</span><span class="p">))</span>   <span class="c1"># Saturation concentration, pmol/um^3</span>
+<span class="n">lam</span>      <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">5.5749e-1</span><span class="p">))</span> <span class="c1"># Interface parameter, (pJ/pmol) um^2</span>
+<span class="c1">#</span>
+<span class="n">theta0</span>   <span class="o">=</span><span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mi">298</span><span class="p">))</span>        <span class="c1"># Reference temperature, K</span>
+<span class="n">R_gas</span>    <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">8.3145</span><span class="p">))</span>    <span class="c1"># Gas constant, pJ/(pmol K)</span>
+<span class="n">RT</span>       <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">R_gas</span><span class="o">*</span><span class="n">theta0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="simulation-time-control-related-parameters">
+<h1>Simulation time-control related parameters<a class="headerlink" href="#simulation-time-control-related-parameters" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>    <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># Initialization of time</span>
+<span class="n">Ttot</span> <span class="o">=</span> <span class="mi">2000</span>  <span class="c1"># Total time</span>
+<span class="n">dt</span>   <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Initial time step size, here we will use adaptive time-stepping</span>
+
+<span class="c1"># Time step field, constant within body</span>
+<span class="n">dk</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="function-spaces">
+<h1>Function spaces<a class="headerlink" href="#function-spaces" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define function space, scalar</span>
+<span class="c1"># </span>
+<span class="n">P1</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;Lagrange&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># For chemical potential and species concentration </span>
+<span class="c1">#                                      </span>
+<span class="n">TH</span> <span class="o">=</span> <span class="n">mixed_element</span><span class="p">([</span><span class="n">P1</span><span class="p">,</span> <span class="n">P1</span><span class="p">])</span>     <span class="c1"># Mixed element</span>
+<span class="n">ME</span> <span class="o">=</span> <span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">TH</span><span class="p">)</span>   <span class="c1"># Total space for all DOFs</span>
+
+<span class="c1"># Define actual functions with the required DOFs</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>  <span class="c1"># chemical potential mu and concentration c</span>
+
+<span class="c1"># A copy of functions to store values in the previous step for time-stepping</span>
+<span class="n">w_old</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>
+<span class="n">mu_old</span><span class="p">,</span> <span class="n">c_old</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">w_old</span><span class="p">)</span>   
+
+<span class="c1"># Define test functions    </span>
+<span class="n">mu_test</span><span class="p">,</span> <span class="n">c_test</span>  <span class="o">=</span> <span class="n">TestFunctions</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>  
+
+<span class="c1"># Define trial functions needed for automatic differentiation</span>
+<span class="n">dw</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>                  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions-for-cbar">
+<h1>Initial conditions for cBar<a class="headerlink" href="#initial-conditions-for-cbar" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct a function for specifying a  random spatially-varying normalized concentration field &quot;cBar&quot;</span>
+<span class="c1">#</span>
+<span class="n">Vmat</span> <span class="o">=</span> <span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># Create a DG0 function space on the domain</span>
+
+<span class="c1">#  Define a  function for assigning different value  at each coordinate of the domain,</span>
+<span class="c1">#  including  a randomly-generated variance </span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">rand_cBar</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+
+    <span class="c1"># initialize the random number generator</span>
+    <span class="c1">#</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="c1"># Define an empty &quot;cBar&quot; function,</span>
+    <span class="c1"># which lives on the target DG0 function space</span>
+    <span class="c1">#</span>
+    <span class="n">cBar</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">Vmat</span><span class="p">)</span>
+    
+    <span class="c1"># Now, actualy assign the desired values of the concentration to the new field</span>
+    <span class="c1">#</span>
+    <span class="c1"># First identify the coordinates of the domain</span>
+    <span class="c1">#</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">Vmat</span><span class="o">.</span><span class="n">tabulate_dof_coordinates</span><span class="p">()</span>
+    <span class="c1">#</span>
+    <span class="c1"># Then loop over the coordinates and assign a randomly-generated value</span>
+    <span class="c1">#</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        
+            <span class="n">cBar_val</span> <span class="o">=</span> <span class="n">avg</span> <span class="o">+</span> <span class="n">var</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">-</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+            <span class="n">cBar</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">setValueLocal</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cBar_val</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">cBar</span>
+
+<span class="c1"># Specify a random distribution of intial values of  cBar.</span>
+<span class="c1"># Note that in the example below, the mean value of cBar will be 0.63 and</span>
+<span class="c1"># the maximum variation will be \pm (var*0.5)=0.05</span>
+<span class="c1">#</span>
+<span class="n">cBar_init</span> <span class="o">=</span> <span class="n">rand_cBar</span><span class="p">(</span><span class="mf">0.63</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions-for-degrees-of-freedom-c-and-mu">
+<h1>Initial conditions for degrees of freedom c and mu<a class="headerlink" href="#initial-conditions-for-degrees-of-freedom-c-and-mu" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a scalar function space for interpolating initial conditions.</span>
+<span class="n">V1</span> <span class="o">=</span> <span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">P1</span><span class="p">)</span> 
+
+<span class="c1"># write and interpolate the expression for initial normalized concentration c</span>
+<span class="c1">#</span>
+<span class="n">c_init_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">cMax</span><span class="o">*</span><span class="n">cBar_init</span><span class="p">,</span> <span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+<span class="c1">#</span>
+<span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">c_init_expr</span><span class="p">)</span>
+<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">c_init_expr</span><span class="p">)</span>
+
+<span class="c1"># Write and inteprolate the expression for initial  normalized chemical potential</span>
+<span class="c1">#</span>
+<span class="n">mu_init_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">ln</span><span class="p">(</span><span class="n">cBar_init</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cBar_init</span><span class="p">))</span> <span class="o">+</span> <span class="n">chi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">cBar_init</span><span class="p">),</span> <span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">()</span> <span class="p">)</span>
+<span class="c1">#</span>
+<span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">mu_init_expr</span><span class="p">)</span>
+<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">mu_init_expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="subroutines-for-kinematics-and-constitutive-equations">
+<h1>Subroutines for kinematics and constitutive equations<a class="headerlink" href="#subroutines-for-kinematics-and-constitutive-equations" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Special gradient operators for plane strain </span>
+<span class="c1"># The plane strain forms are actually not needed for thsi problem,</span>
+<span class="c1"># but we might need such forms if we were to do am chemo-mechanically coupled simualtion later</span>
+<span class="c1">#</span>
+<span class="c1"># Gradient of vector field u   </span>
+<span class="k">def</span> <span class="nf">pe_grad_vector</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    
+    <span class="n">grad_u</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    
+    <span class="n">pe_grad_u</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">([</span> <span class="p">[</span><span class="n">grad_u</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">grad_u</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">],</span>
+                                <span class="p">[</span><span class="n">grad_u</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">grad_u</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">],</span>
+                                <span class="p">[</span>        <span class="mf">0.0</span><span class="p">,</span>         <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="p">])</span> 
+    <span class="k">return</span> <span class="n">pe_grad_u</span>
+
+<span class="c1"># Gradient of scalar field y</span>
+<span class="c1"># (just need an extra zero for dimensions to work out)</span>
+<span class="k">def</span> <span class="nf">pe_grad_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    
+    <span class="n">grad_y</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="n">pe_grad_y</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">as_vector</span><span class="p">([</span><span class="n">grad_y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">grad_y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">pe_grad_y</span>
+
+
+    <span class="k">return</span> <span class="n">Piola</span>
+
+<span class="c1"># Species flux</span>
+<span class="k">def</span> <span class="nf">Flux_calc</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="c1">#</span>
+    <span class="n">cBar</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">cMax</span><span class="p">)</span> <span class="c1"># normalized concentration</span>
+    <span class="c1">#</span>
+    <span class="n">Mob</span> <span class="o">=</span> <span class="p">(</span><span class="n">D</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">RT</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cBar</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">Jmat</span> <span class="o">=</span> <span class="o">-</span> <span class="n">RT</span><span class="o">*</span> <span class="n">Mob</span> <span class="o">*</span> <span class="n">pe_grad_scalar</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Jmat</span>
+
+<span class="c1"># Calculate the f^c term</span>
+<span class="k">def</span> <span class="nf">fc_calc</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="c1">#</span>
+    <span class="n">cBar</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">cMax</span><span class="p">)</span> <span class="c1"># normalized concentration</span>
+    <span class="c1">#</span>
+    <span class="n">fc</span>   <span class="o">=</span> <span class="n">RT</span><span class="o">*</span><span class="p">(</span><span class="n">ln</span><span class="p">(</span><span class="n">cBar</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cBar</span><span class="p">))</span> <span class="o">+</span> <span class="n">chi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">cBar</span><span class="p">)</span> <span class="p">)</span> 
+    <span class="c1">#</span>
+    <span class="k">return</span> <span class="n">fc</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="evaluate-kinematics-and-constitutive-relations">
+<h1>Evaluate kinematics and constitutive relations<a class="headerlink" href="#evaluate-kinematics-and-constitutive-relations" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the normalized concentration cBar</span>
+<span class="n">cBar</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">cMax</span><span class="p">)</span>  
+
+<span class="c1"># Calculate the Species flux</span>
+<span class="n">Jmat</span> <span class="o">=</span> <span class="n">Flux_calc</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="c1"># Calculate the f^c term </span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">fc_calc</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="weak-forms">
+<h1>Weak forms<a class="headerlink" href="#weak-forms" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Residuals:</span>
+<span class="c1"># Res_0: Balance of mass   (test fxn: mu)</span>
+<span class="c1"># Res_1: chemical potential (test fxn: c)</span>
+
+<span class="c1"># The weak form for the mass balance of mobile species    </span>
+<span class="n">Res_0</span> <span class="o">=</span> <span class="n">dot</span><span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_old</span><span class="p">)</span><span class="o">/</span><span class="n">dk</span><span class="p">,</span> <span class="n">mu_test</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> \
+        <span class="o">-</span>  <span class="n">Omega</span><span class="o">*</span><span class="n">dot</span><span class="p">(</span><span class="n">Jmat</span> <span class="p">,</span> <span class="n">pe_grad_scalar</span><span class="p">(</span><span class="n">mu_test</span><span class="p">)</span> <span class="p">)</span><span class="o">*</span><span class="n">dx</span>      
+
+<span class="c1"># The weak form for the concentration</span>
+<span class="n">Res_1</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="n">fc</span><span class="o">/</span><span class="n">RT</span><span class="p">,</span> <span class="n">c_test</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> \
+        <span class="o">-</span>  <span class="n">dot</span><span class="p">(</span> <span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="n">RT</span><span class="p">)</span><span class="o">*</span><span class="n">pe_grad_scalar</span><span class="p">(</span><span class="n">cBar</span><span class="p">),</span> <span class="n">pe_grad_scalar</span><span class="p">(</span><span class="n">c_test</span><span class="p">))</span><span class="o">*</span><span class="n">dx</span>
+        
+<span class="c1"># Total weak form</span>
+<span class="n">Res</span> <span class="o">=</span> <span class="n">Res_0</span> <span class="o">+</span> <span class="n">Res_1</span>
+
+<span class="c1"># Automatic differentiation tangent:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">derivative</span><span class="p">(</span><span class="n">Res</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">dw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="set-up-output-files">
+<h1>Set-up output files<a class="headerlink" href="#set-up-output-files" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Results file name</span>
+<span class="n">results_name</span> <span class="o">=</span> <span class="s2">&quot;2D_uncoupled_phase_separation&quot;</span>
+
+<span class="c1"># Function space for projection of results</span>
+<span class="n">P0</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># For  chemical potential, and concentration </span>
+ 
+<span class="n">V1</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">P0</span><span class="p">)</span>         <span class="c1"># Scalar function space</span>
+ 
+
+<span class="c1"># Basic fields to write to output file</span>
+<span class="n">mu_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">mu_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mu&quot;</span>
+
+<span class="n">c_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">c_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;c&quot;</span>
+
+<span class="c1"># Calculated field to write to output file</span>
+<span class="n">cBar_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">cBar_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;cBar&quot;</span>
+<span class="n">cBar_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">cBar</span><span class="p">,</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+
+<span class="c1"># Set up the output VTX files.</span>
+<span class="n">file_results</span> <span class="o">=</span> <span class="n">VTXWriter</span><span class="p">(</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span>
+    <span class="s2">&quot;results/&quot;</span> <span class="o">+</span> <span class="n">results_name</span> <span class="o">+</span> <span class="s2">&quot;.bp&quot;</span><span class="p">,</span>
+    <span class="p">[</span>  <span class="c1"># put the functions here you wish to write to output</span>
+        <span class="n">mu_vis</span><span class="p">,</span> <span class="n">c_vis</span><span class="p">,</span> <span class="n">cBar_vis</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;BP4&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">writeResults</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+       <span class="c1"># Output field interpolation </span>
+       <span class="n">mu_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+       <span class="n">c_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+       <span class="n">cBar_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">cBar_expr</span><span class="p">)</span>
+       <span class="c1"># Write output fields</span>
+       <span class="n">file_results</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>        
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analysis-step">
+<h1>Analysis Step<a class="headerlink" href="#analysis-step" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give the step a descriptive name</span>
+<span class="n">step</span> <span class="o">=</span> <span class="s2">&quot;Phase-separate&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="boundary-conditions">
+<h2>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nothing! Just let the system evolve on its own.</span>
+<span class="n">bcs</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-nonlinear-variational-problem">
+<h2>Define the nonlinear variational problem<a class="headerlink" href="#define-the-nonlinear-variational-problem" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up nonlinear problem</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="n">NonlinearProblem</span><span class="p">(</span><span class="n">Res</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">bcs</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># The global newton solver and params</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">NewtonSolver</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">convergence_criterion</span> <span class="o">=</span> <span class="s2">&quot;incremental&quot;</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">max_it</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">report</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">error_on_nonconvergence</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1">#  The Krylov solver parameters.</span>
+<span class="n">ksp</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">krylov_solver</span>
+<span class="n">opts</span> <span class="o">=</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
+<span class="n">option_prefix</span> <span class="o">=</span> <span class="n">ksp</span><span class="o">.</span><span class="n">getOptionsPrefix</span><span class="p">()</span>
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">ksp_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;preonly&quot;</span>  
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">pc_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;lu&quot;</span> <span class="c1"># do not use &#39;gamg&#39; pre-conditioner</span>
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">pc_factor_mat_solver_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mumps&quot;</span>
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">ksp_max_it&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">ksp</span><span class="o">.</span><span class="n">setFromOptions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initialize-arrays-for-storing-output-history">
+<h1>Initialize arrays for storing output history<a class="headerlink" href="#initialize-arrays-for-storing-output-history" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Arrays for storing output history</span>
+<span class="c1"># # totSteps = 100000</span>
+<span class="c1"># # timeHist0 = np.zeros(shape=[totSteps])</span>
+<span class="c1"># # timeHist1 = np.zeros(shape=[totSteps]) </span>
+<span class="c1"># # timeHist2 = np.zeros(shape=[totSteps]) </span>
+<span class="c1"># # timeHist3 = np.zeros(shape=[totSteps])</span>
+<span class="c1"># # #</span>
+<span class="c1"># # timeHist3[0] = mu0 # Initialize the chemical potential</span>
+
+<span class="c1"># Initialize a counter for reporting data</span>
+<span class="n">ii</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Write initial state to file</span>
+<span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="start-calculation-loop">
+<h2>Start calculation loop<a class="headerlink" href="#start-calculation-loop" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulation start&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="c1"># Store start time </span>
+<span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># Time-stepping solution procedure loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">Ttot</span><span class="p">):</span>
+     
+    <span class="c1"># increment time</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span> 
+    <span class="c1"># increment counter</span>
+    <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
+       
+    <span class="c1"># Solve the problem</span>
+    <span class="p">(</span><span class="nb">iter</span><span class="p">,</span> <span class="n">converged</span><span class="p">)</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    
+    <span class="c1"># Now we start the adaptive time-stepping procedure</span>
+    <span class="c1">#</span>
+    <span class="c1"># First, we check if the newton solver actually converged.</span>
+    <span class="k">if</span> <span class="n">converged</span><span class="p">:</span> 
+
+        <span class="c1"># Collect results from MPI ghost processes</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">scatter_forward</span><span class="p">()</span>
+        
+        <span class="c1"># Write output to file</span>
+        <span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="c1"># If the solver converged, we print the status of the solver, </span>
+        <span class="c1"># perform adaptive time-stepping updates, output results, and </span>
+        <span class="c1"># update degrees of freedom for the next step, w_old &lt;- w.</span>
+        
+        <span class="c1"># print progress of calculation periodically</span>
+        <span class="k">if</span> <span class="n">ii</span><span class="o">%</span><span class="k">1</span> == 0:      
+            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step: </span><span class="si">{}</span><span class="s2"> |   Increment: </span><span class="si">{}</span><span class="s2"> | Iterations: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="nb">iter</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulation Time: </span><span class="si">{}</span><span class="s2"> s | dt: </span><span class="si">{}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+            <span class="nb">print</span><span class="p">()</span>   
+        
+        <span class="c1"># Iteration-based adaptive time-stepping</span>
+        <span class="c1">#</span>
+        <span class="c1"># If the newton solver takes 2 or less iterations, </span>
+        <span class="c1"># increase the time step by a factor of 1.5:</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nb">iter</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">dt</span><span class="o">&lt;</span><span class="mi">25</span><span class="p">)):</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">dt</span>
+            <span class="n">dk</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">dt</span>
+        <span class="c1"># If the newton solver takes 8 or more iterations, </span>
+        <span class="c1"># decrease the time step by a factor of 2:</span>
+        <span class="k">elif</span> <span class="nb">iter</span><span class="o">&gt;=</span><span class="mi">8</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">dk</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">dt</span>
+        <span class="c1"># otherwise the newton solver took 3-4 iterations,</span>
+        <span class="c1"># in which case leave the time step alone</span>
+
+        <span class="c1"># update the DOFs for the next step.</span>
+        <span class="n">w_old</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span>
+    
+    <span class="c1"># If the solver doesn&#39;t converge we have to back up in time,</span>
+    <span class="c1"># cut the size of the time step, and try solving again.</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># not(converged)</span>
+        
+        <span class="c1"># first, we back up in time</span>
+        <span class="c1"># ( to undo the current time step )</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">dk</span><span class="p">)</span>
+        
+        <span class="c1"># Then, we cut back on the time step we&#39;re attempting.</span>
+        <span class="c1"># (by a factor of 2)</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">dk</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">dt</span> 
+
+        <span class="c1"># Re-set the DOFs to their value before the failed step.</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">w_old</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span>
+
+        <span class="c1"># Set up nonlinear problem</span>
+        <span class="n">problem</span> <span class="o">=</span> <span class="n">NonlinearProblem</span><span class="p">(</span><span class="n">Res</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">bcs</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+        <span class="c1"># The global newton solver and params</span>
+        <span class="n">solver</span> <span class="o">=</span> <span class="n">NewtonSolver</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">convergence_criterion</span> <span class="o">=</span> <span class="s2">&quot;incremental&quot;</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">max_it</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">report</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">solver</span><span class="o">.</span><span class="n">error_on_nonconvergence</span> <span class="o">=</span> <span class="kc">False</span>
+    
+<span class="c1"># close the output file.</span>
+<span class="n">file_results</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         
+<span class="c1"># End analysis</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End computation&quot;</span><span class="p">)</span>                 
+<span class="c1"># Report elapsed real time for the analysis</span>
+<span class="n">endTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">elapseTime</span> <span class="o">=</span> <span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elapsed real time:  </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapseTime</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------
+Simulation start
+------------------------------------
+Step: Phase-separate |   Increment: 1 | Iterations: 4
+Simulation Time: 0.01 s | dt: 0.01 s
+
+Step: Phase-separate |   Increment: 2 | Iterations: 3
+Simulation Time: 0.03 s | dt: 0.015 s
+
+Step: Phase-separate |   Increment: 3 | Iterations: 3
+Simulation Time: 0.05 s | dt: 0.022 s
+
+Step: Phase-separate |   Increment: 4 | Iterations: 4
+Simulation Time: 0.08 s | dt: 0.034 s
+
+Step: Phase-separate |   Increment: 5 | Iterations: 4
+Simulation Time: 0.13 s | dt: 0.051 s
+
+Step: Phase-separate |   Increment: 6 | Iterations: 4
+Simulation Time: 0.21 s | dt: 0.076 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:05:22.548 (37319.373s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 8 | Iterations: 4
+Simulation Time: 0.26 s | dt: 0.057 s
+
+Step: Phase-separate |   Increment: 9 | Iterations: 7
+Simulation Time: 0.35 s | dt: 0.085 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:05:23.935 (37320.760s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 11 | Iterations: 5
+Simulation Time: 0.39 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 12 | Iterations: 5
+Simulation Time: 0.44 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 13 | Iterations: 5
+Simulation Time: 0.48 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 14 | Iterations: 5
+Simulation Time: 0.52 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 15 | Iterations: 5
+Simulation Time: 0.56 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 16 | Iterations: 5
+Simulation Time: 0.61 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 17 | Iterations: 5
+Simulation Time: 0.65 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 18 | Iterations: 5
+Simulation Time: 0.69 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 19 | Iterations: 5
+Simulation Time: 0.73 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 20 | Iterations: 5
+Simulation Time: 0.78 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 21 | Iterations: 5
+Simulation Time: 0.82 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 22 | Iterations: 5
+Simulation Time: 0.86 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 23 | Iterations: 5
+Simulation Time: 0.91 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 24 | Iterations: 5
+Simulation Time: 0.95 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 25 | Iterations: 4
+Simulation Time: 0.99 s | dt: 0.043 s
+
+Step: Phase-separate |   Increment: 26 | Iterations: 5
+Simulation Time: 1.05 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 27 | Iterations: 5
+Simulation Time: 1.12 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 28 | Iterations: 5
+Simulation Time: 1.18 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 29 | Iterations: 5
+Simulation Time: 1.25 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 30 | Iterations: 5
+Simulation Time: 1.31 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 31 | Iterations: 5
+Simulation Time: 1.38 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 32 | Iterations: 5
+Simulation Time: 1.44 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 33 | Iterations: 5
+Simulation Time: 1.5 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 34 | Iterations: 5
+Simulation Time: 1.57 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 35 | Iterations: 5
+Simulation Time: 1.63 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 36 | Iterations: 5
+Simulation Time: 1.7 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 37 | Iterations: 5
+Simulation Time: 1.76 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 38 | Iterations: 5
+Simulation Time: 1.82 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 39 | Iterations: 5
+Simulation Time: 1.89 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 40 | Iterations: 5
+Simulation Time: 1.95 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 41 | Iterations: 5
+Simulation Time: 2.02 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 42 | Iterations: 5
+Simulation Time: 2.08 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 43 | Iterations: 5
+Simulation Time: 2.14 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 44 | Iterations: 5
+Simulation Time: 2.21 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 45 | Iterations: 5
+Simulation Time: 2.27 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 46 | Iterations: 5
+Simulation Time: 2.34 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 47 | Iterations: 5
+Simulation Time: 2.4 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 48 | Iterations: 5
+Simulation Time: 2.46 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 49 | Iterations: 5
+Simulation Time: 2.53 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 50 | Iterations: 4
+Simulation Time: 2.59 s | dt: 0.064 s
+
+Step: Phase-separate |   Increment: 51 | Iterations: 5
+Simulation Time: 2.69 s | dt: 0.096 s
+
+Step: Phase-separate |   Increment: 52 | Iterations: 5
+Simulation Time: 2.78 s | dt: 0.096 s
+
+Step: Phase-separate |   Increment: 53 | Iterations: 5
+Simulation Time: 2.88 s | dt: 0.096 s
+
+Step: Phase-separate |   Increment: 54 | Iterations: 5
+Simulation Time: 2.98 s | dt: 0.096 s
+
+Step: Phase-separate |   Increment: 55 | Iterations: 5
+Simulation Time: 3.07 s | dt: 0.096 s
+
+Step: Phase-separate |   Increment: 56 | Iterations: 4
+Simulation Time: 3.17 s | dt: 0.096 s
+
+Step: Phase-separate |   Increment: 57 | Iterations: 5
+Simulation Time: 3.31 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 58 | Iterations: 5
+Simulation Time: 3.46 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 59 | Iterations: 6
+Simulation Time: 3.6 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 60 | Iterations: 6
+Simulation Time: 3.75 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 61 | Iterations: 6
+Simulation Time: 3.89 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 62 | Iterations: 6
+Simulation Time: 4.03 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 63 | Iterations: 7
+Simulation Time: 4.18 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 64 | Iterations: 6
+Simulation Time: 4.32 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 65 | Iterations: 5
+Simulation Time: 4.47 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 66 | Iterations: 5
+Simulation Time: 4.61 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 67 | Iterations: 5
+Simulation Time: 4.76 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 68 | Iterations: 5
+Simulation Time: 4.9 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 69 | Iterations: 5
+Simulation Time: 5.04 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 70 | Iterations: 5
+Simulation Time: 5.19 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 71 | Iterations: 5
+Simulation Time: 5.33 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 72 | Iterations: 5
+Simulation Time: 5.48 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 73 | Iterations: 5
+Simulation Time: 5.62 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 74 | Iterations: 5
+Simulation Time: 5.76 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 75 | Iterations: 6
+Simulation Time: 5.91 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 76 | Iterations: 6
+Simulation Time: 6.05 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 77 | Iterations: 5
+Simulation Time: 6.2 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 78 | Iterations: 5
+Simulation Time: 6.34 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 79 | Iterations: 6
+Simulation Time: 6.49 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 80 | Iterations: 6
+Simulation Time: 6.63 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 81 | Iterations: 5
+Simulation Time: 6.77 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 82 | Iterations: 5
+Simulation Time: 6.92 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 83 | Iterations: 5
+Simulation Time: 7.06 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 84 | Iterations: 5
+Simulation Time: 7.21 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 85 | Iterations: 5
+Simulation Time: 7.35 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 86 | Iterations: 6
+Simulation Time: 7.49 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 87 | Iterations: 6
+Simulation Time: 7.64 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 88 | Iterations: 6
+Simulation Time: 7.78 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 89 | Iterations: 5
+Simulation Time: 7.93 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 90 | Iterations: 5
+Simulation Time: 8.07 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 91 | Iterations: 5
+Simulation Time: 8.22 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 92 | Iterations: 5
+Simulation Time: 8.36 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 93 | Iterations: 5
+Simulation Time: 8.5 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 94 | Iterations: 5
+Simulation Time: 8.65 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 95 | Iterations: 5
+Simulation Time: 8.79 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 96 | Iterations: 5
+Simulation Time: 8.94 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 97 | Iterations: 4
+Simulation Time: 9.08 s | dt: 0.144 s
+
+Step: Phase-separate |   Increment: 98 | Iterations: 5
+Simulation Time: 9.3 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 99 | Iterations: 5
+Simulation Time: 9.51 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 100 | Iterations: 5
+Simulation Time: 9.73 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 101 | Iterations: 5
+Simulation Time: 9.95 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 102 | Iterations: 5
+Simulation Time: 10.16 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 103 | Iterations: 5
+Simulation Time: 10.38 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 104 | Iterations: 5
+Simulation Time: 10.59 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 105 | Iterations: 5
+Simulation Time: 10.81 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 106 | Iterations: 5
+Simulation Time: 11.03 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 107 | Iterations: 7
+Simulation Time: 11.24 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 108 | Iterations: 7
+Simulation Time: 11.46 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 109 | Iterations: 5
+Simulation Time: 11.67 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 110 | Iterations: 7
+Simulation Time: 11.89 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 111 | Iterations: 6
+Simulation Time: 12.11 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 112 | Iterations: 5
+Simulation Time: 12.32 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 113 | Iterations: 5
+Simulation Time: 12.54 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 114 | Iterations: 4
+Simulation Time: 12.76 s | dt: 0.216 s
+
+Step: Phase-separate |   Increment: 115 | Iterations: 4
+Simulation Time: 13.08 s | dt: 0.324 s
+
+Step: Phase-separate |   Increment: 116 | Iterations: 5
+Simulation Time: 13.57 s | dt: 0.487 s
+
+Step: Phase-separate |   Increment: 117 | Iterations: 5
+Simulation Time: 14.05 s | dt: 0.487 s
+
+Step: Phase-separate |   Increment: 118 | Iterations: 5
+Simulation Time: 14.54 s | dt: 0.487 s
+
+Step: Phase-separate |   Increment: 119 | Iterations: 5
+Simulation Time: 15.03 s | dt: 0.487 s
+
+Step: Phase-separate |   Increment: 120 | Iterations: 6
+Simulation Time: 15.51 s | dt: 0.487 s
+
+Step: Phase-separate |   Increment: 121 | Iterations: 7
+Simulation Time: 16.0 s | dt: 0.487 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:05:54.624 (37351.449s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 123 | Iterations: 7
+Simulation Time: 16.24 s | dt: 0.243 s
+
+Step: Phase-separate |   Increment: 124 | Iterations: 5
+Simulation Time: 16.49 s | dt: 0.243 s
+
+Step: Phase-separate |   Increment: 125 | Iterations: 4
+Simulation Time: 16.73 s | dt: 0.243 s
+
+Step: Phase-separate |   Increment: 126 | Iterations: 4
+Simulation Time: 17.09 s | dt: 0.365 s
+
+Step: Phase-separate |   Increment: 127 | Iterations: 5
+Simulation Time: 17.64 s | dt: 0.547 s
+
+Step: Phase-separate |   Increment: 128 | Iterations: 5
+Simulation Time: 18.19 s | dt: 0.547 s
+
+Step: Phase-separate |   Increment: 129 | Iterations: 5
+Simulation Time: 18.74 s | dt: 0.547 s
+
+Step: Phase-separate |   Increment: 130 | Iterations: 5
+Simulation Time: 19.28 s | dt: 0.547 s
+
+Step: Phase-separate |   Increment: 131 | Iterations: 7
+Simulation Time: 19.83 s | dt: 0.547 s
+
+Step: Phase-separate |   Increment: 132 | Iterations: 8
+Simulation Time: 20.38 s | dt: 0.547 s
+
+Step: Phase-separate |   Increment: 133 | Iterations: 6
+Simulation Time: 20.65 s | dt: 0.274 s
+
+Step: Phase-separate |   Increment: 134 | Iterations: 5
+Simulation Time: 20.93 s | dt: 0.274 s
+
+Step: Phase-separate |   Increment: 135 | Iterations: 4
+Simulation Time: 21.2 s | dt: 0.274 s
+
+Step: Phase-separate |   Increment: 136 | Iterations: 5
+Simulation Time: 21.61 s | dt: 0.411 s
+
+Step: Phase-separate |   Increment: 137 | Iterations: 5
+Simulation Time: 22.02 s | dt: 0.411 s
+
+Step: Phase-separate |   Increment: 138 | Iterations: 5
+Simulation Time: 22.43 s | dt: 0.411 s
+
+Step: Phase-separate |   Increment: 139 | Iterations: 5
+Simulation Time: 22.84 s | dt: 0.411 s
+
+Step: Phase-separate |   Increment: 140 | Iterations: 5
+Simulation Time: 23.25 s | dt: 0.411 s
+
+Step: Phase-separate |   Increment: 141 | Iterations: 8
+Simulation Time: 23.66 s | dt: 0.411 s
+
+Step: Phase-separate |   Increment: 142 | Iterations: 6
+Simulation Time: 23.87 s | dt: 0.205 s
+
+Step: Phase-separate |   Increment: 143 | Iterations: 7
+Simulation Time: 24.07 s | dt: 0.205 s
+
+Step: Phase-separate |   Increment: 144 | Iterations: 6
+Simulation Time: 24.28 s | dt: 0.205 s
+
+Step: Phase-separate |   Increment: 145 | Iterations: 5
+Simulation Time: 24.48 s | dt: 0.205 s
+
+Step: Phase-separate |   Increment: 146 | Iterations: 4
+Simulation Time: 24.69 s | dt: 0.205 s
+
+Step: Phase-separate |   Increment: 147 | Iterations: 5
+Simulation Time: 25.0 s | dt: 0.308 s
+
+Step: Phase-separate |   Increment: 148 | Iterations: 5
+Simulation Time: 25.31 s | dt: 0.308 s
+
+Step: Phase-separate |   Increment: 149 | Iterations: 5
+Simulation Time: 25.61 s | dt: 0.308 s
+
+Step: Phase-separate |   Increment: 150 | Iterations: 5
+Simulation Time: 25.92 s | dt: 0.308 s
+
+Step: Phase-separate |   Increment: 151 | Iterations: 5
+Simulation Time: 26.23 s | dt: 0.308 s
+
+Step: Phase-separate |   Increment: 152 | Iterations: 6
+Simulation Time: 26.54 s | dt: 0.308 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:03.818 (37360.643s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 154 | Iterations: 5
+Simulation Time: 26.69 s | dt: 0.154 s
+
+Step: Phase-separate |   Increment: 155 | Iterations: 6
+Simulation Time: 26.84 s | dt: 0.154 s
+
+Step: Phase-separate |   Increment: 156 | Iterations: 5
+Simulation Time: 27.0 s | dt: 0.154 s
+
+Step: Phase-separate |   Increment: 157 | Iterations: 5
+Simulation Time: 27.15 s | dt: 0.154 s
+
+Step: Phase-separate |   Increment: 158 | Iterations: 4
+Simulation Time: 27.31 s | dt: 0.154 s
+
+Step: Phase-separate |   Increment: 159 | Iterations: 4
+Simulation Time: 27.54 s | dt: 0.231 s
+
+Step: Phase-separate |   Increment: 160 | Iterations: 4
+Simulation Time: 27.88 s | dt: 0.346 s
+
+Step: Phase-separate |   Increment: 161 | Iterations: 4
+Simulation Time: 28.4 s | dt: 0.52 s
+
+Step: Phase-separate |   Increment: 162 | Iterations: 4
+Simulation Time: 29.18 s | dt: 0.779 s
+
+Step: Phase-separate |   Increment: 163 | Iterations: 5
+Simulation Time: 30.35 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 164 | Iterations: 5
+Simulation Time: 31.52 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 165 | Iterations: 5
+Simulation Time: 32.69 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 166 | Iterations: 5
+Simulation Time: 33.86 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 167 | Iterations: 5
+Simulation Time: 35.03 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 168 | Iterations: 5
+Simulation Time: 36.2 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 169 | Iterations: 5
+Simulation Time: 37.37 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 170 | Iterations: 5
+Simulation Time: 38.53 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 171 | Iterations: 4
+Simulation Time: 39.7 s | dt: 1.169 s
+
+Step: Phase-separate |   Increment: 172 | Iterations: 5
+Simulation Time: 41.46 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 173 | Iterations: 5
+Simulation Time: 43.21 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 174 | Iterations: 5
+Simulation Time: 44.96 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 175 | Iterations: 5
+Simulation Time: 46.72 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 176 | Iterations: 5
+Simulation Time: 48.47 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 177 | Iterations: 5
+Simulation Time: 50.23 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 178 | Iterations: 5
+Simulation Time: 51.98 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 179 | Iterations: 6
+Simulation Time: 53.73 s | dt: 1.754 s
+
+Step: Phase-separate |   Increment: 180 | Iterations: 7
+Simulation Time: 55.49 s | dt: 1.754 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:11.574 (37368.398s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+2024-06-20 16:06:12.436 (37369.260s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 183 | Iterations: 5
+Simulation Time: 55.92 s | dt: 0.438 s
+
+Step: Phase-separate |   Increment: 184 | Iterations: 7
+Simulation Time: 56.36 s | dt: 0.438 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:13.876 (37370.700s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 186 | Iterations: 6
+Simulation Time: 56.58 s | dt: 0.219 s
+
+Step: Phase-separate |   Increment: 187 | Iterations: 6
+Simulation Time: 56.8 s | dt: 0.219 s
+
+Step: Phase-separate |   Increment: 188 | Iterations: 5
+Simulation Time: 57.02 s | dt: 0.219 s
+
+Step: Phase-separate |   Increment: 189 | Iterations: 5
+Simulation Time: 57.24 s | dt: 0.219 s
+
+Step: Phase-separate |   Increment: 190 | Iterations: 4
+Simulation Time: 57.46 s | dt: 0.219 s
+
+Step: Phase-separate |   Increment: 191 | Iterations: 5
+Simulation Time: 57.79 s | dt: 0.329 s
+
+Step: Phase-separate |   Increment: 192 | Iterations: 5
+Simulation Time: 58.12 s | dt: 0.329 s
+
+Step: Phase-separate |   Increment: 193 | Iterations: 6
+Simulation Time: 58.45 s | dt: 0.329 s
+
+Step: Phase-separate |   Increment: 194 | Iterations: 6
+Simulation Time: 58.77 s | dt: 0.329 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:17.119 (37373.942s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 196 | Iterations: 6
+Simulation Time: 58.94 s | dt: 0.164 s
+
+Step: Phase-separate |   Increment: 197 | Iterations: 5
+Simulation Time: 59.1 s | dt: 0.164 s
+
+Step: Phase-separate |   Increment: 198 | Iterations: 5
+Simulation Time: 59.27 s | dt: 0.164 s
+
+Step: Phase-separate |   Increment: 199 | Iterations: 4
+Simulation Time: 59.43 s | dt: 0.164 s
+
+Step: Phase-separate |   Increment: 200 | Iterations: 4
+Simulation Time: 59.68 s | dt: 0.247 s
+
+Step: Phase-separate |   Increment: 201 | Iterations: 4
+Simulation Time: 60.05 s | dt: 0.37 s
+
+Step: Phase-separate |   Increment: 202 | Iterations: 4
+Simulation Time: 60.6 s | dt: 0.555 s
+
+Step: Phase-separate |   Increment: 203 | Iterations: 5
+Simulation Time: 61.44 s | dt: 0.832 s
+
+Step: Phase-separate |   Increment: 204 | Iterations: 5
+Simulation Time: 62.27 s | dt: 0.832 s
+
+Step: Phase-separate |   Increment: 205 | Iterations: 5
+Simulation Time: 63.1 s | dt: 0.832 s
+
+Step: Phase-separate |   Increment: 206 | Iterations: 5
+Simulation Time: 63.93 s | dt: 0.832 s
+
+Step: Phase-separate |   Increment: 207 | Iterations: 5
+Simulation Time: 64.76 s | dt: 0.832 s
+
+Step: Phase-separate |   Increment: 208 | Iterations: 6
+Simulation Time: 65.6 s | dt: 0.832 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:21.145 (37377.969s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 210 | Iterations: 6
+Simulation Time: 66.01 s | dt: 0.416 s
+
+Step: Phase-separate |   Increment: 211 | Iterations: 6
+Simulation Time: 66.43 s | dt: 0.416 s
+
+Step: Phase-separate |   Increment: 212 | Iterations: 7
+Simulation Time: 66.84 s | dt: 0.416 s
+
+Step: Phase-separate |   Increment: 213 | Iterations: 5
+Simulation Time: 67.26 s | dt: 0.416 s
+
+Step: Phase-separate |   Increment: 214 | Iterations: 4
+Simulation Time: 67.68 s | dt: 0.416 s
+
+Step: Phase-separate |   Increment: 215 | Iterations: 4
+Simulation Time: 68.3 s | dt: 0.624 s
+
+Step: Phase-separate |   Increment: 216 | Iterations: 5
+Simulation Time: 69.24 s | dt: 0.936 s
+
+Step: Phase-separate |   Increment: 217 | Iterations: 5
+Simulation Time: 70.17 s | dt: 0.936 s
+
+Step: Phase-separate |   Increment: 218 | Iterations: 5
+Simulation Time: 71.11 s | dt: 0.936 s
+
+Step: Phase-separate |   Increment: 219 | Iterations: 7
+Simulation Time: 72.05 s | dt: 0.936 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:24.731 (37381.554s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 221 | Iterations: 6
+Simulation Time: 72.51 s | dt: 0.468 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:25.801 (37382.625s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 223 | Iterations: 6
+Simulation Time: 72.75 s | dt: 0.234 s
+
+Step: Phase-separate |   Increment: 224 | Iterations: 5
+Simulation Time: 72.98 s | dt: 0.234 s
+
+Step: Phase-separate |   Increment: 225 | Iterations: 5
+Simulation Time: 73.22 s | dt: 0.234 s
+
+Step: Phase-separate |   Increment: 226 | Iterations: 4
+Simulation Time: 73.45 s | dt: 0.234 s
+
+Step: Phase-separate |   Increment: 227 | Iterations: 4
+Simulation Time: 73.8 s | dt: 0.351 s
+
+Step: Phase-separate |   Increment: 228 | Iterations: 5
+Simulation Time: 74.33 s | dt: 0.527 s
+
+Step: Phase-separate |   Increment: 229 | Iterations: 6
+Simulation Time: 74.86 s | dt: 0.527 s
+
+Step: Phase-separate |   Increment: 230 | Iterations: 8
+Simulation Time: 75.38 s | dt: 0.527 s
+
+Step: Phase-separate |   Increment: 231 | Iterations: 7
+Simulation Time: 75.65 s | dt: 0.263 s
+
+Step: Phase-separate |   Increment: 232 | Iterations: 5
+Simulation Time: 75.91 s | dt: 0.263 s
+
+Step: Phase-separate |   Increment: 233 | Iterations: 5
+Simulation Time: 76.17 s | dt: 0.263 s
+
+Step: Phase-separate |   Increment: 234 | Iterations: 4
+Simulation Time: 76.44 s | dt: 0.263 s
+
+Step: Phase-separate |   Increment: 235 | Iterations: 4
+Simulation Time: 76.83 s | dt: 0.395 s
+
+Step: Phase-separate |   Increment: 236 | Iterations: 4
+Simulation Time: 77.42 s | dt: 0.592 s
+
+Step: Phase-separate |   Increment: 237 | Iterations: 4
+Simulation Time: 78.31 s | dt: 0.889 s
+
+Step: Phase-separate |   Increment: 238 | Iterations: 5
+Simulation Time: 79.64 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 239 | Iterations: 5
+Simulation Time: 80.98 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 240 | Iterations: 5
+Simulation Time: 82.31 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 241 | Iterations: 5
+Simulation Time: 83.64 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 242 | Iterations: 5
+Simulation Time: 84.98 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 243 | Iterations: 5
+Simulation Time: 86.31 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 244 | Iterations: 5
+Simulation Time: 87.64 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 245 | Iterations: 6
+Simulation Time: 88.98 s | dt: 1.333 s
+
+Step: Phase-separate |   Increment: 246 | Iterations: 6
+Simulation Time: 90.31 s | dt: 1.333 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:33.053 (37389.877s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 248 | Iterations: 6
+Simulation Time: 90.98 s | dt: 0.667 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:34.201 (37391.025s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 250 | Iterations: 6
+Simulation Time: 91.31 s | dt: 0.333 s
+
+Step: Phase-separate |   Increment: 251 | Iterations: 8
+Simulation Time: 91.64 s | dt: 0.333 s
+
+Step: Phase-separate |   Increment: 252 | Iterations: 6
+Simulation Time: 91.81 s | dt: 0.167 s
+
+Step: Phase-separate |   Increment: 253 | Iterations: 5
+Simulation Time: 91.98 s | dt: 0.167 s
+
+Step: Phase-separate |   Increment: 254 | Iterations: 4
+Simulation Time: 92.14 s | dt: 0.167 s
+
+Step: Phase-separate |   Increment: 255 | Iterations: 4
+Simulation Time: 92.39 s | dt: 0.25 s
+
+Step: Phase-separate |   Increment: 256 | Iterations: 4
+Simulation Time: 92.77 s | dt: 0.375 s
+
+Step: Phase-separate |   Increment: 257 | Iterations: 4
+Simulation Time: 93.33 s | dt: 0.562 s
+
+Step: Phase-separate |   Increment: 258 | Iterations: 4
+Simulation Time: 94.17 s | dt: 0.844 s
+
+Step: Phase-separate |   Increment: 259 | Iterations: 4
+Simulation Time: 95.44 s | dt: 1.265 s
+
+Step: Phase-separate |   Increment: 260 | Iterations: 4
+Simulation Time: 97.34 s | dt: 1.898 s
+
+Step: Phase-separate |   Increment: 261 | Iterations: 5
+Simulation Time: 100.18 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 262 | Iterations: 5
+Simulation Time: 103.03 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 263 | Iterations: 5
+Simulation Time: 105.88 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 264 | Iterations: 5
+Simulation Time: 108.73 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 265 | Iterations: 5
+Simulation Time: 111.57 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 266 | Iterations: 5
+Simulation Time: 114.42 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 267 | Iterations: 5
+Simulation Time: 117.27 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 268 | Iterations: 5
+Simulation Time: 120.11 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 269 | Iterations: 5
+Simulation Time: 122.96 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 270 | Iterations: 5
+Simulation Time: 125.81 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 271 | Iterations: 5
+Simulation Time: 128.66 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 272 | Iterations: 5
+Simulation Time: 131.5 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 273 | Iterations: 5
+Simulation Time: 134.35 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 274 | Iterations: 5
+Simulation Time: 137.2 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 275 | Iterations: 5
+Simulation Time: 140.04 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 276 | Iterations: 5
+Simulation Time: 142.89 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 277 | Iterations: 6
+Simulation Time: 145.74 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 278 | Iterations: 6
+Simulation Time: 148.59 s | dt: 2.847 s
+
+Step: Phase-separate |   Increment: 279 | Iterations: 7
+Simulation Time: 151.43 s | dt: 2.847 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:42.873 (37399.697s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 281 | Iterations: 6
+Simulation Time: 152.86 s | dt: 1.424 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:43.992 (37400.816s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 283 | Iterations: 6
+Simulation Time: 153.57 s | dt: 0.712 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:45.103 (37401.927s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 285 | Iterations: 6
+Simulation Time: 153.92 s | dt: 0.356 s
+
+Step: Phase-separate |   Increment: 286 | Iterations: 6
+Simulation Time: 154.28 s | dt: 0.356 s
+
+Step: Phase-separate |   Increment: 287 | Iterations: 7
+Simulation Time: 154.64 s | dt: 0.356 s
+
+Step: Phase-separate |   Increment: 288 | Iterations: 5
+Simulation Time: 154.99 s | dt: 0.356 s
+
+Step: Phase-separate |   Increment: 289 | Iterations: 4
+Simulation Time: 155.35 s | dt: 0.356 s
+
+Step: Phase-separate |   Increment: 290 | Iterations: 4
+Simulation Time: 155.88 s | dt: 0.534 s
+
+Step: Phase-separate |   Increment: 291 | Iterations: 4
+Simulation Time: 156.68 s | dt: 0.801 s
+
+Step: Phase-separate |   Increment: 292 | Iterations: 4
+Simulation Time: 157.88 s | dt: 1.201 s
+
+Step: Phase-separate |   Increment: 293 | Iterations: 4
+Simulation Time: 159.69 s | dt: 1.802 s
+
+Step: Phase-separate |   Increment: 294 | Iterations: 5
+Simulation Time: 162.39 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 295 | Iterations: 5
+Simulation Time: 165.09 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 296 | Iterations: 5
+Simulation Time: 167.79 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 297 | Iterations: 5
+Simulation Time: 170.5 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 298 | Iterations: 5
+Simulation Time: 173.2 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 299 | Iterations: 5
+Simulation Time: 175.9 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 300 | Iterations: 5
+Simulation Time: 178.6 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 301 | Iterations: 5
+Simulation Time: 181.31 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 302 | Iterations: 5
+Simulation Time: 184.01 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 303 | Iterations: 5
+Simulation Time: 186.71 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 304 | Iterations: 5
+Simulation Time: 189.41 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 305 | Iterations: 5
+Simulation Time: 192.12 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 306 | Iterations: 5
+Simulation Time: 194.82 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 307 | Iterations: 5
+Simulation Time: 197.52 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 308 | Iterations: 5
+Simulation Time: 200.22 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 309 | Iterations: 5
+Simulation Time: 202.93 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 310 | Iterations: 6
+Simulation Time: 205.63 s | dt: 2.703 s
+
+Step: Phase-separate |   Increment: 311 | Iterations: 6
+Simulation Time: 208.33 s | dt: 2.703 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:52.944 (37409.767s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 313 | Iterations: 6
+Simulation Time: 209.68 s | dt: 1.351 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:54.074 (37410.898s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 315 | Iterations: 7
+Simulation Time: 210.36 s | dt: 0.676 s
+
+Step: Phase-separate |   Increment: 316 | Iterations: 7
+Simulation Time: 211.03 s | dt: 0.676 s
+
+Step: Phase-separate |   Increment: 317 | Iterations: 7
+Simulation Time: 211.71 s | dt: 0.676 s
+
+Step: Phase-separate |   Increment: 318 | Iterations: 5
+Simulation Time: 212.39 s | dt: 0.676 s
+
+Step: Phase-separate |   Increment: 319 | Iterations: 4
+Simulation Time: 213.06 s | dt: 0.676 s
+
+Step: Phase-separate |   Increment: 320 | Iterations: 4
+Simulation Time: 214.08 s | dt: 1.013 s
+
+Step: Phase-separate |   Increment: 321 | Iterations: 5
+Simulation Time: 215.6 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 322 | Iterations: 5
+Simulation Time: 217.12 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 323 | Iterations: 5
+Simulation Time: 218.64 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 324 | Iterations: 5
+Simulation Time: 220.16 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 325 | Iterations: 5
+Simulation Time: 221.68 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 326 | Iterations: 5
+Simulation Time: 223.2 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 327 | Iterations: 5
+Simulation Time: 224.72 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 328 | Iterations: 5
+Simulation Time: 226.24 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 329 | Iterations: 5
+Simulation Time: 227.76 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 330 | Iterations: 6
+Simulation Time: 229.28 s | dt: 1.52 s
+
+Step: Phase-separate |   Increment: 331 | Iterations: 6
+Simulation Time: 230.8 s | dt: 1.52 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:06:59.677 (37416.501s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+2024-06-20 16:07:02.310 (37419.133s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 334 | Iterations: 5
+Simulation Time: 231.18 s | dt: 0.38 s
+
+Step: Phase-separate |   Increment: 335 | Iterations: 5
+Simulation Time: 231.56 s | dt: 0.38 s
+
+Step: Phase-separate |   Increment: 336 | Iterations: 6
+Simulation Time: 231.94 s | dt: 0.38 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:03.974 (37420.797s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 338 | Iterations: 6
+Simulation Time: 232.13 s | dt: 0.19 s
+
+Step: Phase-separate |   Increment: 339 | Iterations: 6
+Simulation Time: 232.32 s | dt: 0.19 s
+
+Step: Phase-separate |   Increment: 340 | Iterations: 5
+Simulation Time: 232.51 s | dt: 0.19 s
+
+Step: Phase-separate |   Increment: 341 | Iterations: 5
+Simulation Time: 232.7 s | dt: 0.19 s
+
+Step: Phase-separate |   Increment: 342 | Iterations: 4
+Simulation Time: 232.89 s | dt: 0.19 s
+
+Step: Phase-separate |   Increment: 343 | Iterations: 4
+Simulation Time: 233.17 s | dt: 0.285 s
+
+Step: Phase-separate |   Increment: 344 | Iterations: 4
+Simulation Time: 233.6 s | dt: 0.428 s
+
+Step: Phase-separate |   Increment: 345 | Iterations: 5
+Simulation Time: 234.24 s | dt: 0.641 s
+
+Step: Phase-separate |   Increment: 346 | Iterations: 4
+Simulation Time: 234.88 s | dt: 0.641 s
+
+Step: Phase-separate |   Increment: 347 | Iterations: 4
+Simulation Time: 235.84 s | dt: 0.962 s
+
+Step: Phase-separate |   Increment: 348 | Iterations: 4
+Simulation Time: 237.29 s | dt: 1.443 s
+
+Step: Phase-separate |   Increment: 349 | Iterations: 4
+Simulation Time: 239.45 s | dt: 2.165 s
+
+Step: Phase-separate |   Increment: 350 | Iterations: 4
+Simulation Time: 242.7 s | dt: 3.247 s
+
+Step: Phase-separate |   Increment: 351 | Iterations: 4
+Simulation Time: 247.57 s | dt: 4.87 s
+
+Step: Phase-separate |   Increment: 352 | Iterations: 5
+Simulation Time: 254.87 s | dt: 7.305 s
+
+Step: Phase-separate |   Increment: 353 | Iterations: 4
+Simulation Time: 262.18 s | dt: 7.305 s
+
+Step: Phase-separate |   Increment: 354 | Iterations: 5
+Simulation Time: 273.14 s | dt: 10.958 s
+
+Step: Phase-separate |   Increment: 355 | Iterations: 4
+Simulation Time: 284.1 s | dt: 10.958 s
+
+Step: Phase-separate |   Increment: 356 | Iterations: 5
+Simulation Time: 300.53 s | dt: 16.437 s
+
+Step: Phase-separate |   Increment: 357 | Iterations: 5
+Simulation Time: 316.97 s | dt: 16.437 s
+
+Step: Phase-separate |   Increment: 358 | Iterations: 5
+Simulation Time: 333.41 s | dt: 16.437 s
+
+Step: Phase-separate |   Increment: 359 | Iterations: 5
+Simulation Time: 349.84 s | dt: 16.437 s
+
+Step: Phase-separate |   Increment: 360 | Iterations: 5
+Simulation Time: 366.28 s | dt: 16.437 s
+
+Step: Phase-separate |   Increment: 361 | Iterations: 5
+Simulation Time: 382.72 s | dt: 16.437 s
+
+Step: Phase-separate |   Increment: 362 | Iterations: 5
+Simulation Time: 399.15 s | dt: 16.437 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:11.161 (37427.984s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 364 | Iterations: 5
+Simulation Time: 407.37 s | dt: 8.218 s
+
+Step: Phase-separate |   Increment: 365 | Iterations: 5
+Simulation Time: 415.59 s | dt: 8.218 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:12.682 (37429.506s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 367 | Iterations: 5
+Simulation Time: 419.7 s | dt: 4.109 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:14.644 (37431.467s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 369 | Iterations: 5
+Simulation Time: 421.75 s | dt: 2.055 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:16.194 (37433.018s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 371 | Iterations: 4
+Simulation Time: 422.78 s | dt: 1.027 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:17.614 (37434.437s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 373 | Iterations: 4
+Simulation Time: 423.55 s | dt: 0.77 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:20.238 (37437.061s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 375 | Iterations: 4
+Simulation Time: 424.13 s | dt: 0.578 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:22.647 (37439.470s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 377 | Iterations: 4
+Simulation Time: 424.56 s | dt: 0.433 s
+
+Step: Phase-separate |   Increment: 378 | Iterations: 6
+Simulation Time: 425.21 s | dt: 0.65 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:23.959 (37440.782s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 380 | Iterations: 5
+Simulation Time: 425.54 s | dt: 0.325 s
+
+Step: Phase-separate |   Increment: 381 | Iterations: 5
+Simulation Time: 425.86 s | dt: 0.325 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:25.240 (37442.063s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 383 | Iterations: 5
+Simulation Time: 426.03 s | dt: 0.163 s
+
+Step: Phase-separate |   Increment: 384 | Iterations: 5
+Simulation Time: 426.19 s | dt: 0.163 s
+
+Step: Phase-separate |   Increment: 385 | Iterations: 5
+Simulation Time: 426.35 s | dt: 0.163 s
+
+Step: Phase-separate |   Increment: 386 | Iterations: 5
+Simulation Time: 426.51 s | dt: 0.163 s
+
+Step: Phase-separate |   Increment: 387 | Iterations: 4
+Simulation Time: 426.68 s | dt: 0.163 s
+
+Step: Phase-separate |   Increment: 388 | Iterations: 5
+Simulation Time: 426.92 s | dt: 0.244 s
+
+Step: Phase-separate |   Increment: 389 | Iterations: 4
+Simulation Time: 427.16 s | dt: 0.244 s
+
+Step: Phase-separate |   Increment: 390 | Iterations: 5
+Simulation Time: 427.53 s | dt: 0.366 s
+
+Step: Phase-separate |   Increment: 391 | Iterations: 5
+Simulation Time: 427.89 s | dt: 0.366 s
+
+Step: Phase-separate |   Increment: 392 | Iterations: 4
+Simulation Time: 428.26 s | dt: 0.366 s
+
+Step: Phase-separate |   Increment: 393 | Iterations: 5
+Simulation Time: 428.81 s | dt: 0.549 s
+
+Step: Phase-separate |   Increment: 394 | Iterations: 5
+Simulation Time: 429.36 s | dt: 0.549 s
+
+Step: Phase-separate |   Increment: 395 | Iterations: 5
+Simulation Time: 429.91 s | dt: 0.549 s
+
+Step: Phase-separate |   Increment: 396 | Iterations: 4
+Simulation Time: 430.45 s | dt: 0.549 s
+
+Step: Phase-separate |   Increment: 397 | Iterations: 5
+Simulation Time: 431.28 s | dt: 0.823 s
+
+Step: Phase-separate |   Increment: 398 | Iterations: 5
+Simulation Time: 432.1 s | dt: 0.823 s
+
+Step: Phase-separate |   Increment: 399 | Iterations: 5
+Simulation Time: 432.92 s | dt: 0.823 s
+
+Step: Phase-separate |   Increment: 400 | Iterations: 5
+Simulation Time: 433.75 s | dt: 0.823 s
+
+Step: Phase-separate |   Increment: 401 | Iterations: 4
+Simulation Time: 434.57 s | dt: 0.823 s
+
+Step: Phase-separate |   Increment: 402 | Iterations: 5
+Simulation Time: 435.8 s | dt: 1.234 s
+
+Step: Phase-separate |   Increment: 403 | Iterations: 5
+Simulation Time: 437.04 s | dt: 1.234 s
+
+Step: Phase-separate |   Increment: 404 | Iterations: 5
+Simulation Time: 438.27 s | dt: 1.234 s
+
+Step: Phase-separate |   Increment: 405 | Iterations: 5
+Simulation Time: 439.5 s | dt: 1.234 s
+
+Step: Phase-separate |   Increment: 406 | Iterations: 4
+Simulation Time: 440.74 s | dt: 1.234 s
+
+Step: Phase-separate |   Increment: 407 | Iterations: 5
+Simulation Time: 442.59 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 408 | Iterations: 5
+Simulation Time: 444.44 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 409 | Iterations: 5
+Simulation Time: 446.29 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 410 | Iterations: 5
+Simulation Time: 448.14 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 411 | Iterations: 5
+Simulation Time: 449.99 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 412 | Iterations: 5
+Simulation Time: 451.85 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 413 | Iterations: 5
+Simulation Time: 453.7 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 414 | Iterations: 5
+Simulation Time: 455.55 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 415 | Iterations: 5
+Simulation Time: 457.4 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 416 | Iterations: 5
+Simulation Time: 459.25 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 417 | Iterations: 5
+Simulation Time: 461.1 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 418 | Iterations: 5
+Simulation Time: 462.95 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 419 | Iterations: 5
+Simulation Time: 464.8 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 420 | Iterations: 5
+Simulation Time: 466.66 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 421 | Iterations: 5
+Simulation Time: 468.51 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 422 | Iterations: 5
+Simulation Time: 470.36 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 423 | Iterations: 4
+Simulation Time: 472.21 s | dt: 1.851 s
+
+Step: Phase-separate |   Increment: 424 | Iterations: 5
+Simulation Time: 474.99 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 425 | Iterations: 5
+Simulation Time: 477.76 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 426 | Iterations: 5
+Simulation Time: 480.54 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 427 | Iterations: 5
+Simulation Time: 483.32 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 428 | Iterations: 5
+Simulation Time: 486.09 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 429 | Iterations: 5
+Simulation Time: 488.87 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 430 | Iterations: 5
+Simulation Time: 491.65 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 431 | Iterations: 5
+Simulation Time: 494.42 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 432 | Iterations: 5
+Simulation Time: 497.2 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 433 | Iterations: 5
+Simulation Time: 499.98 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 434 | Iterations: 5
+Simulation Time: 502.75 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 435 | Iterations: 5
+Simulation Time: 505.53 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 436 | Iterations: 4
+Simulation Time: 508.31 s | dt: 2.777 s
+
+Step: Phase-separate |   Increment: 437 | Iterations: 5
+Simulation Time: 512.47 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 438 | Iterations: 5
+Simulation Time: 516.64 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 439 | Iterations: 5
+Simulation Time: 520.8 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 440 | Iterations: 5
+Simulation Time: 524.97 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 441 | Iterations: 5
+Simulation Time: 529.13 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 442 | Iterations: 5
+Simulation Time: 533.3 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 443 | Iterations: 5
+Simulation Time: 537.47 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 444 | Iterations: 5
+Simulation Time: 541.63 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 445 | Iterations: 5
+Simulation Time: 545.8 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 446 | Iterations: 5
+Simulation Time: 549.96 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 447 | Iterations: 5
+Simulation Time: 554.13 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 448 | Iterations: 5
+Simulation Time: 558.29 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 449 | Iterations: 5
+Simulation Time: 562.46 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 450 | Iterations: 5
+Simulation Time: 566.62 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 451 | Iterations: 5
+Simulation Time: 570.79 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 452 | Iterations: 5
+Simulation Time: 574.95 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 453 | Iterations: 5
+Simulation Time: 579.12 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 454 | Iterations: 6
+Simulation Time: 583.28 s | dt: 4.165 s
+
+Step: Phase-separate |   Increment: 455 | Iterations: 6
+Simulation Time: 587.45 s | dt: 4.165 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:44.837 (37461.660s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 457 | Iterations: 6
+Simulation Time: 589.53 s | dt: 2.083 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:46.247 (37463.070s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 459 | Iterations: 5
+Simulation Time: 590.57 s | dt: 1.041 s
+
+Step: Phase-separate |   Increment: 460 | Iterations: 6
+Simulation Time: 591.61 s | dt: 1.041 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:07:47.641 (37464.463s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 462 | Iterations: 6
+Simulation Time: 592.13 s | dt: 0.521 s
+
+Step: Phase-separate |   Increment: 463 | Iterations: 10
+Simulation Time: 592.65 s | dt: 0.521 s
+
+Step: Phase-separate |   Increment: 464 | Iterations: 6
+Simulation Time: 592.92 s | dt: 0.26 s
+
+Step: Phase-separate |   Increment: 465 | Iterations: 5
+Simulation Time: 593.18 s | dt: 0.26 s
+
+Step: Phase-separate |   Increment: 466 | Iterations: 4
+Simulation Time: 593.44 s | dt: 0.26 s
+
+Step: Phase-separate |   Increment: 467 | Iterations: 4
+Simulation Time: 593.83 s | dt: 0.39 s
+
+Step: Phase-separate |   Increment: 468 | Iterations: 5
+Simulation Time: 594.41 s | dt: 0.586 s
+
+Step: Phase-separate |   Increment: 469 | Iterations: 5
+Simulation Time: 595.0 s | dt: 0.586 s
+
+Step: Phase-separate |   Increment: 470 | Iterations: 5
+Simulation Time: 595.58 s | dt: 0.586 s
+
+Step: Phase-separate |   Increment: 471 | Iterations: 5
+Simulation Time: 596.17 s | dt: 0.586 s
+
+Step: Phase-separate |   Increment: 472 | Iterations: 5
+Simulation Time: 596.76 s | dt: 0.586 s
+
+Step: Phase-separate |   Increment: 473 | Iterations: 11
+Simulation Time: 597.34 s | dt: 0.586 s
+
+Step: Phase-separate |   Increment: 474 | Iterations: 7
+Simulation Time: 597.63 s | dt: 0.293 s
+
+Step: Phase-separate |   Increment: 475 | Iterations: 5
+Simulation Time: 597.93 s | dt: 0.293 s
+
+Step: Phase-separate |   Increment: 476 | Iterations: 5
+Simulation Time: 598.22 s | dt: 0.293 s
+
+Step: Phase-separate |   Increment: 477 | Iterations: 4
+Simulation Time: 598.51 s | dt: 0.293 s
+
+Step: Phase-separate |   Increment: 478 | Iterations: 4
+Simulation Time: 598.95 s | dt: 0.439 s
+
+Step: Phase-separate |   Increment: 479 | Iterations: 4
+Simulation Time: 599.61 s | dt: 0.659 s
+
+Step: Phase-separate |   Increment: 480 | Iterations: 4
+Simulation Time: 600.6 s | dt: 0.988 s
+
+Step: Phase-separate |   Increment: 481 | Iterations: 4
+Simulation Time: 602.08 s | dt: 1.483 s
+
+Step: Phase-separate |   Increment: 482 | Iterations: 4
+Simulation Time: 604.31 s | dt: 2.224 s
+
+Step: Phase-separate |   Increment: 483 | Iterations: 4
+Simulation Time: 607.64 s | dt: 3.336 s
+
+Step: Phase-separate |   Increment: 484 | Iterations: 4
+Simulation Time: 612.65 s | dt: 5.004 s
+
+Step: Phase-separate |   Increment: 485 | Iterations: 4
+Simulation Time: 620.15 s | dt: 7.506 s
+
+Step: Phase-separate |   Increment: 486 | Iterations: 5
+Simulation Time: 631.41 s | dt: 11.259 s
+
+Step: Phase-separate |   Increment: 487 | Iterations: 4
+Simulation Time: 642.67 s | dt: 11.259 s
+
+Step: Phase-separate |   Increment: 488 | Iterations: 5
+Simulation Time: 659.56 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 489 | Iterations: 5
+Simulation Time: 676.45 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 490 | Iterations: 5
+Simulation Time: 693.33 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 491 | Iterations: 5
+Simulation Time: 710.22 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 492 | Iterations: 5
+Simulation Time: 727.11 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 493 | Iterations: 5
+Simulation Time: 744.0 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 494 | Iterations: 5
+Simulation Time: 760.89 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 495 | Iterations: 5
+Simulation Time: 777.78 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 496 | Iterations: 5
+Simulation Time: 794.66 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 497 | Iterations: 5
+Simulation Time: 811.55 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 498 | Iterations: 5
+Simulation Time: 828.44 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 499 | Iterations: 5
+Simulation Time: 845.33 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 500 | Iterations: 6
+Simulation Time: 862.22 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 501 | Iterations: 6
+Simulation Time: 879.11 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 502 | Iterations: 6
+Simulation Time: 895.99 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 503 | Iterations: 6
+Simulation Time: 912.88 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 504 | Iterations: 6
+Simulation Time: 929.77 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 505 | Iterations: 7
+Simulation Time: 946.66 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 506 | Iterations: 8
+Simulation Time: 963.55 s | dt: 16.888 s
+
+Step: Phase-separate |   Increment: 507 | Iterations: 6
+Simulation Time: 971.99 s | dt: 8.444 s
+
+Step: Phase-separate |   Increment: 508 | Iterations: 7
+Simulation Time: 980.44 s | dt: 8.444 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:01.640 (37478.462s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 510 | Iterations: 6
+Simulation Time: 984.66 s | dt: 4.222 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:02.879 (37479.702s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 512 | Iterations: 6
+Simulation Time: 986.77 s | dt: 2.111 s
+
+Step: Phase-separate |   Increment: 513 | Iterations: 6
+Simulation Time: 988.88 s | dt: 2.111 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:04.357 (37481.180s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 515 | Iterations: 6
+Simulation Time: 989.94 s | dt: 1.056 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:05.491 (37482.314s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 517 | Iterations: 10
+Simulation Time: 990.46 s | dt: 0.528 s
+
+Step: Phase-separate |   Increment: 518 | Iterations: 8
+Simulation Time: 990.73 s | dt: 0.264 s
+
+Step: Phase-separate |   Increment: 519 | Iterations: 5
+Simulation Time: 990.86 s | dt: 0.132 s
+
+Step: Phase-separate |   Increment: 520 | Iterations: 5
+Simulation Time: 990.99 s | dt: 0.132 s
+
+Step: Phase-separate |   Increment: 521 | Iterations: 4
+Simulation Time: 991.12 s | dt: 0.132 s
+
+Step: Phase-separate |   Increment: 522 | Iterations: 4
+Simulation Time: 991.32 s | dt: 0.198 s
+
+Step: Phase-separate |   Increment: 523 | Iterations: 4
+Simulation Time: 991.62 s | dt: 0.297 s
+
+Step: Phase-separate |   Increment: 524 | Iterations: 4
+Simulation Time: 992.06 s | dt: 0.445 s
+
+Step: Phase-separate |   Increment: 525 | Iterations: 4
+Simulation Time: 992.73 s | dt: 0.668 s
+
+Step: Phase-separate |   Increment: 526 | Iterations: 4
+Simulation Time: 993.73 s | dt: 1.002 s
+
+Step: Phase-separate |   Increment: 527 | Iterations: 4
+Simulation Time: 995.24 s | dt: 1.503 s
+
+Step: Phase-separate |   Increment: 528 | Iterations: 4
+Simulation Time: 997.49 s | dt: 2.254 s
+
+Step: Phase-separate |   Increment: 529 | Iterations: 4
+Simulation Time: 1000.87 s | dt: 3.381 s
+
+Step: Phase-separate |   Increment: 530 | Iterations: 4
+Simulation Time: 1005.94 s | dt: 5.072 s
+
+Step: Phase-separate |   Increment: 531 | Iterations: 4
+Simulation Time: 1013.55 s | dt: 7.608 s
+
+Step: Phase-separate |   Increment: 532 | Iterations: 5
+Simulation Time: 1024.97 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 533 | Iterations: 5
+Simulation Time: 1036.38 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 534 | Iterations: 5
+Simulation Time: 1047.79 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 535 | Iterations: 5
+Simulation Time: 1059.2 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 536 | Iterations: 5
+Simulation Time: 1070.62 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 537 | Iterations: 5
+Simulation Time: 1082.03 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 538 | Iterations: 5
+Simulation Time: 1093.44 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 539 | Iterations: 5
+Simulation Time: 1104.85 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 540 | Iterations: 5
+Simulation Time: 1116.27 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 541 | Iterations: 5
+Simulation Time: 1127.68 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 542 | Iterations: 5
+Simulation Time: 1139.09 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 543 | Iterations: 5
+Simulation Time: 1150.5 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 544 | Iterations: 5
+Simulation Time: 1161.92 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 545 | Iterations: 5
+Simulation Time: 1173.33 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 546 | Iterations: 5
+Simulation Time: 1184.74 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 547 | Iterations: 5
+Simulation Time: 1196.15 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 548 | Iterations: 5
+Simulation Time: 1207.57 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 549 | Iterations: 5
+Simulation Time: 1218.98 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 550 | Iterations: 5
+Simulation Time: 1230.39 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 551 | Iterations: 5
+Simulation Time: 1241.8 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 552 | Iterations: 5
+Simulation Time: 1253.22 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 553 | Iterations: 5
+Simulation Time: 1264.63 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 554 | Iterations: 5
+Simulation Time: 1276.04 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 555 | Iterations: 5
+Simulation Time: 1287.45 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 556 | Iterations: 5
+Simulation Time: 1298.87 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 557 | Iterations: 5
+Simulation Time: 1310.28 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 558 | Iterations: 5
+Simulation Time: 1321.69 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 559 | Iterations: 5
+Simulation Time: 1333.1 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 560 | Iterations: 5
+Simulation Time: 1344.52 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 561 | Iterations: 5
+Simulation Time: 1355.93 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 562 | Iterations: 5
+Simulation Time: 1367.34 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 563 | Iterations: 5
+Simulation Time: 1378.75 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 564 | Iterations: 6
+Simulation Time: 1390.17 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 565 | Iterations: 6
+Simulation Time: 1401.58 s | dt: 11.413 s
+
+Step: Phase-separate |   Increment: 566 | Iterations: 7
+Simulation Time: 1412.99 s | dt: 11.413 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:19.459 (37496.281s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 568 | Iterations: 6
+Simulation Time: 1418.7 s | dt: 5.706 s
+
+Step: Phase-separate |   Increment: 569 | Iterations: 7
+Simulation Time: 1424.4 s | dt: 5.706 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:20.922 (37497.744s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+2024-06-20 16:08:21.809 (37498.631s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 572 | Iterations: 5
+Simulation Time: 1425.83 s | dt: 1.427 s
+
+Step: Phase-separate |   Increment: 573 | Iterations: 8
+Simulation Time: 1427.26 s | dt: 1.427 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:23.374 (37500.196s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 575 | Iterations: 6
+Simulation Time: 1427.61 s | dt: 0.357 s
+
+Step: Phase-separate |   Increment: 576 | Iterations: 6
+Simulation Time: 1427.97 s | dt: 0.357 s
+
+Step: Phase-separate |   Increment: 577 | Iterations: 8
+Simulation Time: 1428.33 s | dt: 0.357 s
+
+Step: Phase-separate |   Increment: 578 | Iterations: 5
+Simulation Time: 1428.5 s | dt: 0.178 s
+
+Step: Phase-separate |   Increment: 579 | Iterations: 4
+Simulation Time: 1428.68 s | dt: 0.178 s
+
+Step: Phase-separate |   Increment: 580 | Iterations: 4
+Simulation Time: 1428.95 s | dt: 0.267 s
+
+Step: Phase-separate |   Increment: 581 | Iterations: 4
+Simulation Time: 1429.35 s | dt: 0.401 s
+
+Step: Phase-separate |   Increment: 582 | Iterations: 4
+Simulation Time: 1429.95 s | dt: 0.602 s
+
+Step: Phase-separate |   Increment: 583 | Iterations: 4
+Simulation Time: 1430.86 s | dt: 0.903 s
+
+Step: Phase-separate |   Increment: 584 | Iterations: 4
+Simulation Time: 1432.21 s | dt: 1.354 s
+
+Step: Phase-separate |   Increment: 585 | Iterations: 4
+Simulation Time: 1434.24 s | dt: 2.031 s
+
+Step: Phase-separate |   Increment: 586 | Iterations: 4
+Simulation Time: 1437.29 s | dt: 3.047 s
+
+Step: Phase-separate |   Increment: 587 | Iterations: 5
+Simulation Time: 1441.86 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 588 | Iterations: 5
+Simulation Time: 1446.43 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 589 | Iterations: 5
+Simulation Time: 1451.0 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 590 | Iterations: 5
+Simulation Time: 1455.57 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 591 | Iterations: 5
+Simulation Time: 1460.14 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 592 | Iterations: 5
+Simulation Time: 1464.71 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 593 | Iterations: 5
+Simulation Time: 1469.28 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 594 | Iterations: 5
+Simulation Time: 1473.85 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 595 | Iterations: 5
+Simulation Time: 1478.42 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 596 | Iterations: 5
+Simulation Time: 1482.99 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 597 | Iterations: 5
+Simulation Time: 1487.56 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 598 | Iterations: 5
+Simulation Time: 1492.13 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 599 | Iterations: 5
+Simulation Time: 1496.7 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 600 | Iterations: 5
+Simulation Time: 1501.27 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 601 | Iterations: 6
+Simulation Time: 1505.84 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 602 | Iterations: 6
+Simulation Time: 1510.41 s | dt: 4.57 s
+
+Step: Phase-separate |   Increment: 603 | Iterations: 6
+Simulation Time: 1514.98 s | dt: 4.57 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:32.262 (37509.084s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 605 | Iterations: 6
+Simulation Time: 1517.27 s | dt: 2.285 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:33.513 (37510.335s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 607 | Iterations: 5
+Simulation Time: 1518.41 s | dt: 1.143 s
+
+Step: Phase-separate |   Increment: 608 | Iterations: 6
+Simulation Time: 1519.55 s | dt: 1.143 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:34.964 (37511.786s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 610 | Iterations: 6
+Simulation Time: 1520.12 s | dt: 0.571 s
+
+Step: Phase-separate |   Increment: 611 | Iterations: 7
+Simulation Time: 1520.69 s | dt: 0.571 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 16:08:36.458 (37513.280s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Phase-separate |   Increment: 613 | Iterations: 6
+Simulation Time: 1520.98 s | dt: 0.286 s
+
+Step: Phase-separate |   Increment: 614 | Iterations: 5
+Simulation Time: 1521.26 s | dt: 0.286 s
+
+Step: Phase-separate |   Increment: 615 | Iterations: 4
+Simulation Time: 1521.55 s | dt: 0.286 s
+
+Step: Phase-separate |   Increment: 616 | Iterations: 4
+Simulation Time: 1521.98 s | dt: 0.428 s
+
+Step: Phase-separate |   Increment: 617 | Iterations: 4
+Simulation Time: 1522.62 s | dt: 0.643 s
+
+Step: Phase-separate |   Increment: 618 | Iterations: 4
+Simulation Time: 1523.59 s | dt: 0.964 s
+
+Step: Phase-separate |   Increment: 619 | Iterations: 4
+Simulation Time: 1525.03 s | dt: 1.446 s
+
+Step: Phase-separate |   Increment: 620 | Iterations: 4
+Simulation Time: 1527.2 s | dt: 2.169 s
+
+Step: Phase-separate |   Increment: 621 | Iterations: 4
+Simulation Time: 1530.45 s | dt: 3.254 s
+
+Step: Phase-separate |   Increment: 622 | Iterations: 4
+Simulation Time: 1535.33 s | dt: 4.88 s
+
+Step: Phase-separate |   Increment: 623 | Iterations: 4
+Simulation Time: 1542.65 s | dt: 7.321 s
+
+Step: Phase-separate |   Increment: 624 | Iterations: 4
+Simulation Time: 1553.64 s | dt: 10.981 s
+
+Step: Phase-separate |   Increment: 625 | Iterations: 4
+Simulation Time: 1570.11 s | dt: 16.471 s
+
+Step: Phase-separate |   Increment: 626 | Iterations: 5
+Simulation Time: 1594.81 s | dt: 24.707 s
+
+Step: Phase-separate |   Increment: 627 | Iterations: 4
+Simulation Time: 1619.52 s | dt: 24.707 s
+
+Step: Phase-separate |   Increment: 628 | Iterations: 4
+Simulation Time: 1656.58 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 629 | Iterations: 4
+Simulation Time: 1693.64 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 630 | Iterations: 4
+Simulation Time: 1730.7 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 631 | Iterations: 4
+Simulation Time: 1767.76 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 632 | Iterations: 4
+Simulation Time: 1804.82 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 633 | Iterations: 4
+Simulation Time: 1841.88 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 634 | Iterations: 4
+Simulation Time: 1878.94 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 635 | Iterations: 4
+Simulation Time: 1916.0 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 636 | Iterations: 4
+Simulation Time: 1953.06 s | dt: 37.06 s
+
+Step: Phase-separate |   Increment: 637 | Iterations: 4
+Simulation Time: 1990.12 s | dt: 37.06 s
+
+-----------------------------------------
+End computation
+------------------------------------------
+Elapsed real time:  0:03:21.804365
+------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./06_Cahn_Hilliard"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../part6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">VI. Cahn-Hilliard</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Slow-ramp lithiation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Un-coupled phase separation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-modules">Import modules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-geometry">Define geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-boundary-and-volume-integration-measure">Define boundary and volume integration measure</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parmeters">Material parmeters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-for-cbar">Initial conditions for cBar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions-for-degrees-of-freedom-c-and-mu">Initial conditions for degrees of freedom c and mu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-output-files">Set-up output files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-step">Analysis Step</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-nonlinear-variational-problem">Define the nonlinear variational problem</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-arrays-for-storing-output-history">Initialize arrays for storing output history</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-calculation-loop">Start calculation loop</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lallit Anand, Eric M. Stewart, Shawn A. Chester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,2936 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Thin cylinder buckling &#8212; Example Codes for Coupled Theories in Solid Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_gel_mechanics/GEL04_thin_cylinder_buckling';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Thick cylinder buckling" href="GEL05_thick_cylinder_buckling.html" />
+    <link rel="prev" title="Bilayer beam swelling" href="GEL03_pe_bilayer_beam.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Example Codes for Coupled Theories in Solid Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Example codes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1.html">I. Finite elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D01_uniaxial_tension_v0p8.html">Uniaxial tension of a 3D cube</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D02_simple_shear_v0p8.html">Simple shear of a 3D cube</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D03_fixed_end_torsion_v0p8.html">Torsion of a 3D cylinder</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D04_hole_in_plate_v0p8.html">Tension of a 3D plate with a hole</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D05_cylinder_inflation_v0p8.html">Inflation of a 3D cylinder by an internal pressure</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D06_sphere_inflation_v0p8.html">Inflation of a sphere by an internal pressure</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D07_cube_footing_v0p8.html">A cube under pressure on a part of its face</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D08_beam_buckling_v0p8.html">Buckling of a column with square cross-section</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D09_spherical_inclusion_v0p8.html">Uniaxial tension of a 3D cube with a spherical inclusion</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D10_column_twist_v0p8.html">Twisting of a column with square cross-section</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2.html">II. Finite viscoelasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV01_VHB_uniaxial_tension_eq.html">Equilibrium uniaxial tension</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV02_VHB_uniaxial_tension_neq.html">Rate-dependent uniaxial tension</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV03_VHB_stress_relaxation.html">Stress relaxation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV04_VHB_creep.html">Creep</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV05_VHB_stretch_hold.html">Stretch-hold study</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV06_VHB_sinusoidal_tension.html">Hysteresis in tension</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV07_VHB_sinusoidal_shear.html">Hysteresis in shear</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV08_NBR_cube_footing.html">Cube “footing”</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV09_NBR_bushing_shear.html">Shear of a bushing</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV10_NBR_beam_impulse_oscillation.html">Beam impulse response</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV11_NBR_beam_buckle.html">Visco-dynamic beam buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV12_NBR_sphere_indentation_coarse.html">Spherical indenter</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part3.html">III. Finite thermo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE01_pe_constrained_heating.html">Constrained heating</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE02_axi_thermoelas_stretch_adiabatic.html">Stretch-induced heating</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE03_axi_thermoelas_steps.html">Heating-induced contraction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE04_pe_bilayer.html">Thermoelastic bilayer bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE05_axi_circular_plate_flux.html">Surface heat flux bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE06_solar_sail.html">“Solar sail” wrinkling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../part4.html">IV. Gel mechanics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GEL01_axi_swell.html">Axisymmetric cylinder swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL02_3d_swell.html">Cube swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL03_pe_bilayer_beam.html">Bilayer beam swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Thin cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL05_thick_cylinder_buckling.html">Thick cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL06_thin_corona.html">Thin corona buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL07_pe_elliptical_inclusion.html">Elliptical inclusion swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL08_sphere_swell.html">Sphere swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL09_compression.html">Swollen cylinder compression</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="GEL10_preSwollenCompression.html">Pre-swollen cylinder compression</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part5.html">V. Gel thermo-mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL01_pe_square_swell.html">Thermal de-swelling of a square</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL03_sphere_swell.html">Thermal de-swelling of a sphere</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL05_axi_packer.html">Swelling of a cylindrical packer</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part6.html">VI. Cahn-Hilliard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH01_uncoupled_2D_evolution.html">Un-coupled phase separation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html">Slow-ramp lithiation</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part7.html">VII. Electro-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE00_3D_pullin_instability.html">3D pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE02_2D_pe_pullin_instability.html">Plane strain pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE04_3D_helix_actuator.html">Helical actuator</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE05_3D_Gripper.html">Four-arm gripper</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE06_AXI_preStretch_membrane.html">Pre-stretched electro-elastic actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part8.html">VIII. Electro-visco-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV01_3D_pullin_instability.html">3D pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_pullin_instability_rate_sweep.html">Rate-dependent pull-in instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV04_3D_helix_viscodynamic_actuation_step.html">Step-change helix actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV07_3D_cylinder_buckle.html">Electro-elastic cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV08_3D_six_arm_gripper.html">Six-arm gripper actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV09_PE_crease.html">Electro-elastic “creasing” instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV10_3D_blister.html">Electro-elastic “blister” instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part9.html">IX. Electro-chemo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_01_pe_beam_free_curling.html">Free curling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_02_pe_beam_blocking_force.html">Blocking force</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_03_pe_beam_sinusoidal_actuation.html">Sinusoidal actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part10.html">X. Hard-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM01_beam_bending.html">90-degree beam bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM02_beam_reversal.html">180-degree beam bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM03_cross_actuator.html">Cross-shaped actuator</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM04_mechanical_impulse.html">Bistable arch impulse response</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM05_bfield_ramp.html">Linear ramp arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM06_bfield_constant.html">Constant field arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM07_bfield_triangle.html">Triangle-wave arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM08_hemisphere_eversion.html">Hemisphere eversion snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part11.html">XI. Soft-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM01a_axi_sphere_5mm_ideal.html">“Ideal” sphere magnetostriction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM01b_axi_sphere_5mm.html">Sphere magnetostriction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02a_axi_cyl_0p80.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.80\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02b_axi_cyl_0p33.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.33\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02c_axi_cyl_1p46.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 1.46\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM03_trilayer_beam.html">Tri-layer beam actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes/issues/new?title=Issue%20on%20page%20%2F04_gel_mechanics/GEL04_thin_cylinder_buckling.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/04_gel_mechanics/GEL04_thin_cylinder_buckling.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Thin cylinder buckling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Thin cylinder buckling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-modules">Import modules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-geometry">Define geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-boundary-and-volume-integration-measure">Define boundary and volume integration measure</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-output-files">Set-up output files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-step">Analysis Step</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-nonlinear-variational-problem">Define the nonlinear variational problem</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-arrays-for-storing-output-history">Initialize arrays for storing output history</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-calculation-loop">Start calculation loop</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="thin-cylinder-buckling">
+<h1>Thin cylinder buckling<a class="headerlink" href="#thin-cylinder-buckling" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Buckling of a thin cylinder</p></li>
+<li><p>This is a three-dimensional simulation</p></li>
+</ul>
+<p>Accompanies the book,</p>
+<ul class="simple">
+<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="degrees-of-freedom">
+<h1>Degrees of freedom<a class="headerlink" href="#degrees-of-freedom" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Displacement: u</p></li>
+<li><p>pressure: p</p></li>
+<li><p>chemical potential: mu</p></li>
+<li><p>concentration: c</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="units">
+<h1>Units<a class="headerlink" href="#units" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Length: mm</p></li>
+<li><p>Mass: kg</p></li>
+<li><p>Time: s</p></li>
+<li><p>Mass density: kg/mm^3</p></li>
+<li><p>Force: milliN</p></li>
+<li><p>Stress: kPa</p></li>
+<li><p>Energy: microJ</p></li>
+<li><p>Temperature: K</p></li>
+<li><p>Amount of substance: mol</p></li>
+<li><p>Species concentration: mol/mm^3</p></li>
+<li><p>Chemical potential: milliJ/mol</p></li>
+<li><p>Molar volume: mm^3/mol</p></li>
+<li><p>Species diffusivity: mm^2/s</p></li>
+<li><p>Gas constant: microJ/(mol K)</p></li>
+</ul>
+<section id="software">
+<h2>Software:<a class="headerlink" href="#software" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dolfinx v0.8.0</p></li>
+</ul>
+<p>Eric Stewart and Lallit Anand</p>
+<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a> and <a class="reference external" href="mailto:anand&#37;&#52;&#48;mit&#46;edu">anand<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
+<p>June 2024</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-modules">
+<h1>Import modules<a class="headerlink" href="#import-modules" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import FEnicSx/dolfinx</span>
+<span class="kn">import</span> <span class="nn">dolfinx</span>
+
+<span class="c1"># For numerical arrays</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># For MPI-based parallelization</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">()</span>
+
+<span class="c1"># PETSc solvers</span>
+<span class="kn">from</span> <span class="nn">petsc4py</span> <span class="kn">import</span> <span class="n">PETSc</span>
+
+<span class="c1"># specific functions from dolfinx modules</span>
+<span class="kn">from</span> <span class="nn">dolfinx</span> <span class="kn">import</span> <span class="n">fem</span><span class="p">,</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">dolfinx.fem</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Constant</span><span class="p">,</span> <span class="n">dirichletbc</span><span class="p">,</span> <span class="n">Function</span><span class="p">,</span> <span class="n">functionspace</span><span class="p">,</span> <span class="n">Expression</span> <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dolfinx.fem.petsc</span> <span class="kn">import</span> <span class="n">NonlinearProblem</span>
+<span class="kn">from</span> <span class="nn">dolfinx.nls.petsc</span> <span class="kn">import</span> <span class="n">NewtonSolver</span>
+<span class="kn">from</span> <span class="nn">dolfinx.io</span> <span class="kn">import</span> <span class="n">VTXWriter</span><span class="p">,</span> <span class="n">XDMFFile</span>
+
+<span class="c1"># specific functions from ufl modules</span>
+<span class="kn">import</span> <span class="nn">ufl</span>
+<span class="kn">from</span> <span class="nn">ufl</span> <span class="kn">import</span> <span class="p">(</span><span class="n">TestFunctions</span><span class="p">,</span> <span class="n">TrialFunction</span><span class="p">,</span> <span class="n">Identity</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">det</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">tr</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">conditional</span> <span class="p">,</span>\
+                 <span class="n">gt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">inner</span><span class="p">,</span> <span class="n">derivative</span><span class="p">,</span> <span class="n">dot</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">eq</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">acos</span><span class="p">,</span> <span class="n">ge</span><span class="p">,</span> <span class="n">le</span><span class="p">,</span> <span class="n">outer</span><span class="p">,</span> <span class="n">tanh</span><span class="p">,</span>\
+                 <span class="n">cosh</span><span class="p">,</span> <span class="n">atan</span><span class="p">,</span> <span class="n">atan2</span><span class="p">)</span>
+
+<span class="c1"># basix finite elements (necessary for dolfinx v0.8.0)</span>
+<span class="kn">import</span> <span class="nn">basix</span>
+<span class="kn">from</span> <span class="nn">basix.ufl</span> <span class="kn">import</span> <span class="n">element</span><span class="p">,</span> <span class="n">mixed_element</span>
+
+<span class="c1"># Matplotlib for plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="c1"># For timing the code</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># Set level of detail for log messages (integer)</span>
+<span class="c1"># Guide:</span>
+<span class="c1"># CRITICAL  = 50, // errors that may lead to data corruption</span>
+<span class="c1"># ERROR     = 40, // things that HAVE gone wrong</span>
+<span class="c1"># WARNING   = 30, // things that MAY go wrong later</span>
+<span class="c1"># INFO      = 20, // information of general interest (includes solver info)</span>
+<span class="c1"># PROGRESS  = 16, // what&#39;s happening (broadly)</span>
+<span class="c1"># TRACE     = 13, // what&#39;s happening (in detail)</span>
+<span class="c1"># DBG       = 10  // sundry</span>
+<span class="c1">#</span>
+<span class="n">log</span><span class="o">.</span><span class="n">set_log_level</span><span class="p">(</span><span class="n">log</span><span class="o">.</span><span class="n">LogLevel</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="define-geometry">
+<h1>Define geometry<a class="headerlink" href="#define-geometry" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thin cylinder parameters in mm </span>
+<span class="n">H0</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">D0</span> <span class="o">=</span> <span class="mf">4.636</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="mf">0.206</span>
+
+<span class="c1"># Read in the 3D mesh and cell tags</span>
+<span class="k">with</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span><span class="s2">&quot;meshes/3D_thin_cyl_mesh.xdmf&quot;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read_mesh</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Grid&quot;</span><span class="p">,</span><span class="n">xpath</span><span class="o">=</span><span class="s2">&quot;/Xdmf/Domain&quot;</span><span class="p">)</span>
+    <span class="n">cell_tags</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">read_meshtags</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Grid&quot;</span><span class="p">)</span>
+<span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">SpatialCoordinate</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Identify boundaries of the domain</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the planar boundaries of the domain</span>
+<span class="k">def</span> <span class="nf">xBot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">yBot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">zBot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">zTop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">H0</span><span class="p">)</span> 
+
+<span class="c1"># Mark the sub-domains</span>
+<span class="n">boundaries</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="n">xBot</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="n">yBot</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="n">zBot</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="n">zTop</span><span class="p">)]</span>
+
+<span class="c1"># build collections of facets on each subdomain and mark them appropriately.</span>
+<span class="n">facet_indices</span><span class="p">,</span> <span class="n">facet_markers</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span> <span class="c1"># initalize empty collections of indices and markers.</span>
+<span class="n">fdim</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># geometric dimension of the facet (mesh dimension - 1)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">marker</span><span class="p">,</span> <span class="n">locator</span><span class="p">)</span> <span class="ow">in</span> <span class="n">boundaries</span><span class="p">:</span>
+    <span class="n">facets</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">locate_entities</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">locator</span><span class="p">)</span> <span class="c1"># an array of all the facets in a </span>
+                                                         <span class="c1"># given subdomain (&quot;locator&quot;)</span>
+    <span class="n">facet_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">facets</span><span class="p">)</span>                         <span class="c1"># add these facets to the collection.</span>
+    <span class="n">facet_markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">facets</span><span class="p">,</span> <span class="n">marker</span><span class="p">))</span>   <span class="c1"># mark them with the appropriate index.</span>
+
+<span class="c1"># Format the facet indices and markers as required for use in dolfinx.</span>
+<span class="n">facet_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">facet_markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">facet_markers</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">sorted_facets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">)</span>
+<span class="c1"># </span>
+<span class="c1"># Add these marked facets as &quot;mesh tags&quot; for later use in BCs.</span>
+<span class="n">facet_tags</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">meshtags</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">facet_indices</span><span class="p">[</span><span class="n">sorted_facets</span><span class="p">],</span> <span class="n">facet_markers</span><span class="p">[</span><span class="n">sorted_facets</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Print out the unique facet index numbers</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_imap</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">index_map</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>      <span class="c1"># index map of 2D entities in domain (facets)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">top_imap</span><span class="o">.</span><span class="n">size_global</span><span class="p">)</span>      <span class="c1"># an array of zeros of the same size as number of 2D entities</span>
+<span class="n">values</span><span class="p">[</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">indices</span><span class="p">]</span><span class="o">=</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">values</span> <span class="c1"># populating the array with facet tag index numbers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>          <span class="c1"># printing the unique indices</span>
+
+<span class="c1"># Surface numbering:</span>
+<span class="c1">#boundaries = [(1,xBot),(2,yBot),(3,zBot),(4,zTop)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Visualize reference configuration</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dolfinx.plot</span> <span class="kn">import</span> <span class="n">vtk_mesh</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">start_xvfb</span><span class="p">()</span>
+
+<span class="c1"># initialize a plotter</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+
+<span class="c1"># Add the mesh.</span>
+<span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1">#, opacity=0.25) </span>
+
+<span class="c1"># Add colored 2D surfaces for the named surfaces</span>
+<span class="n">xBot_surf</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="o">*</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span>
+<span class="n">yBot_surf</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="o">*</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="mi">2</span><span class="p">])</span> <span class="p">)</span>
+<span class="n">zBot_surf</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="o">*</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="mi">3</span><span class="p">])</span> <span class="p">)</span>
+<span class="n">zTop_surf</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="o">*</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">facet_tags</span><span class="o">.</span><span class="n">values</span><span class="o">==</span><span class="mi">4</span><span class="p">])</span> <span class="p">)</span>
+<span class="c1">#</span>
+<span class="n">actor</span>  <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">xBot_surf</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>    <span class="c1"># xBot face is blue</span>
+<span class="n">actor2</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">yBot_surf</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>     <span class="c1"># yBot is red</span>
+<span class="n">actor3</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">zBot_surf</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>   <span class="c1"># zBot is green</span>
+<span class="n">actor3</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">zTop_surf</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">)</span> <span class="c1"># zTop is yellow</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># plotter.screenshot(&quot;results/thin_cylinder_mesh.png&quot;)</span>
+
+<span class="c1"># from IPython.display import Image</span>
+<span class="c1"># Image(filename=&#39;results/thin_cylinder_mesh.png&#39;) </span>
+
+<span class="c1">#Use the following  commands for a  zoom-able  view</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;thin_cylinder_mesh.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "76ed8be86589428e912f534b09ee75a3", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<section id="define-boundary-and-volume-integration-measure">
+<h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
+<span class="c1"># also specify the number of surface quadrature points.</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+
+<span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
+<span class="c1"># also specify the number of volume quadrature points.</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+
+<span class="c1">#  Define facet normal</span>
+<span class="c1"># n = ufl.FacetNormal(domain)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">FacetNormal</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="material-parameters">
+<h1>Material parameters<a class="headerlink" href="#material-parameters" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the locking stretch to a large number to model a Neo-Hookean material</span>
+<span class="c1">#</span>
+<span class="n">Gshear_0</span><span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">))</span>         <span class="c1"># Shear modulus, kPa</span>
+<span class="n">lambdaL</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>            <span class="c1"># Locking stretch, Neo-Hookean material</span>
+<span class="n">Kbulk</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">Gshear_0</span><span class="p">))</span>  <span class="c1"># Bulk modulus, kPa</span>
+<span class="n">Omega</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1.00e5</span><span class="p">))</span>         <span class="c1"># Molar volume of fluid</span>
+<span class="n">D</span>       <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">5.00e-3</span><span class="p">))</span>        <span class="c1"># Diffusivity</span>
+<span class="n">chi</span>     <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>            <span class="c1"># Flory-Huggins mixing parameter</span>
+<span class="n">theta0</span>  <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mi">298</span><span class="p">)</span> <span class="p">)</span>           <span class="c1"># Reference temperature</span>
+<span class="n">R_gas</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">8.3145e6</span><span class="p">))</span>       <span class="c1"># Gas constant</span>
+<span class="n">RT</span>      <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">8.3145e6</span><span class="o">*</span><span class="n">theta0</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">phi0</span>    <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">0.999</span><span class="p">))</span>                               <span class="c1"># Initial polymer volume fraction</span>
+<span class="n">mu0</span>     <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">ln</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">phi0</span><span class="p">)</span> <span class="o">+</span> <span class="n">phi0</span> <span class="o">+</span> <span class="n">chi</span><span class="o">*</span><span class="n">phi0</span><span class="o">*</span><span class="n">phi0</span><span class="p">))</span> <span class="c1"># Initial chemical potential</span>
+<span class="n">c0</span>      <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">phi0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>                        <span class="c1"># Initial concentration</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="simulation-time-control-related-parameters">
+<h1>Simulation time-control related parameters<a class="headerlink" href="#simulation-time-control-related-parameters" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>    <span class="o">=</span> <span class="mf">0.0</span>        <span class="c1"># initialization of time</span>
+<span class="n">Ttot</span> <span class="o">=</span> <span class="mi">900</span>    <span class="c1"># total simulation time </span>
+<span class="n">ttd</span>  <span class="o">=</span> <span class="mi">60</span>       <span class="c1"># Decay time constant</span>
+<span class="n">dt</span>   <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># Fixed step size</span>
+
+<span class="c1"># Boundary condition expression for increasing  the chemical potential</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">muRamp</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">mu0</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="n">ttd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="function-spaces">
+<h1>Function spaces<a class="headerlink" href="#function-spaces" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define function space, both vectorial and scalar</span>
+<span class="c1"># </span>
+<span class="n">U2</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;Lagrange&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span> <span class="c1"># For displacement</span>
+<span class="n">P1</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;Lagrange&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># For pressure, chemical potential and  species concentration</span>
+<span class="c1">#                                      </span>
+<span class="n">TH</span> <span class="o">=</span> <span class="n">mixed_element</span><span class="p">([</span><span class="n">U2</span><span class="p">,</span> <span class="n">P1</span><span class="p">,</span> <span class="n">P1</span><span class="p">,</span> <span class="n">P1</span><span class="p">])</span>  <span class="c1"># Taylor-Hood style mixed element</span>
+<span class="n">ME</span> <span class="o">=</span> <span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">TH</span><span class="p">)</span>        <span class="c1"># Total space for all DOFs</span>
+
+<span class="c1"># Define actual functions with the required DOFs</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>  <span class="c1"># displacement u, pressure p, chemical potential mu, and concentration c</span>
+
+<span class="c1"># A copy of functions to store values in the previous step for time-stepping</span>
+<span class="n">w_old</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>
+<span class="n">u_old</span><span class="p">,</span>  <span class="n">p_old</span><span class="p">,</span> <span class="n">mu_old</span><span class="p">,</span> <span class="n">c_old</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">w_old</span><span class="p">)</span>   
+
+<span class="c1"># Define test functions    </span>
+<span class="n">u_test</span><span class="p">,</span> <span class="n">p_test</span><span class="p">,</span>  <span class="n">mu_test</span><span class="p">,</span> <span class="n">c_test</span> <span class="o">=</span> <span class="n">TestFunctions</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>  
+
+<span class="c1"># Define trial functions needed for automatic differentiation</span>
+<span class="n">dw</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>                  
+
+<span class="c1"># Assign initial  normalized chemical potential  mu0 to the domain</span>
+<span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">mu0</span><span class="p">))</span>
+<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">mu0</span><span class="p">))</span>  
+
+<span class="c1"># Assign initial  value of normalized concentration  c0 to the domain</span>
+<span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">c0</span><span class="p">))</span>
+<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">c0</span><span class="p">))</span>     
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="subroutines-for-kinematics-and-constitutive-equations">
+<h1>Subroutines for kinematics and constitutive equations<a class="headerlink" href="#subroutines-for-kinematics-and-constitutive-equations" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#---------------------------------------------------</span>
+<span class="c1"># Deformation gradient </span>
+<span class="c1">#---------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">F_calc</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    
+    <span class="n">Id</span> <span class="o">=</span> <span class="n">Identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>          <span class="c1"># 3D Identity tensor</span>
+    
+    <span class="n">F</span> <span class="o">=</span> <span class="n">Id</span> <span class="o">+</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>            <span class="c1"># 3D Deformation gradient</span>
+    
+    <span class="k">return</span> <span class="n">F</span>
+
+<span class="c1">#---------------------------------------------------</span>
+<span class="c1"># Effective stretch lambdaBar</span>
+<span class="c1">#---------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">lambdaBar_calc</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">F_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">F</span>
+    <span class="n">I1</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">lambdaBar</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">I1</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lambdaBar</span>
+
+<span class="c1">#---------------------------------------------------</span>
+<span class="c1"># Calculate zeta</span>
+<span class="c1">#---------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">zeta_calc</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="n">lambdaBar</span> <span class="o">=</span> <span class="n">lambdaBar_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="c1"># Use Pade approximation of Langevin inverse</span>
+    <span class="n">z</span>    <span class="o">=</span> <span class="n">lambdaBar</span><span class="o">/</span><span class="n">lambdaL</span>
+    <span class="n">z</span>    <span class="o">=</span> <span class="n">conditional</span><span class="p">(</span><span class="n">gt</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mf">0.95</span><span class="p">),</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="c1"># Keep simulation from blowing up</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">zeta</span> <span class="o">=</span> <span class="p">(</span><span class="n">lambdaL</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">lambdaBar</span><span class="p">))</span><span class="o">*</span><span class="n">beta</span>
+    <span class="k">return</span> <span class="n">zeta</span>
+
+<span class="c1">#---------------------------------------------------</span>
+<span class="c1"># Calculate zeta0</span>
+<span class="c1">#---------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">zeta0_calc</span><span class="p">():</span>
+    <span class="c1"># Use Pade approximation of Langevin inverse (A. Cohen, 1991)</span>
+    <span class="n">z</span>    <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">lambdaL</span>
+    <span class="n">z</span>    <span class="o">=</span> <span class="n">conditional</span><span class="p">(</span><span class="n">gt</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mf">0.95</span><span class="p">),</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="c1"># Keep from blowing up</span>
+    <span class="n">beta0</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">zeta0</span> <span class="o">=</span> <span class="p">(</span><span class="n">lambdaL</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">beta0</span>
+    <span class="k">return</span> <span class="n">zeta0</span>
+
+<span class="c1">#---------------------------------------------------</span>
+<span class="c1"># Subroutine for calculating the elastic jacobian Je</span>
+<span class="c1">#---------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">Je_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">F_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>  
+    <span class="n">detF</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>   
+    <span class="c1">#</span>
+    <span class="n">detFs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">c</span>          <span class="c1"># = Js</span>
+    <span class="n">Je</span>    <span class="o">=</span> <span class="p">(</span><span class="n">detF</span><span class="o">/</span><span class="n">detFs</span><span class="p">)</span>     <span class="c1"># = Je</span>
+    <span class="k">return</span>   <span class="n">Je</span>    
+
+<span class="c1">#----------------------------------------------</span>
+<span class="c1"># Subroutine for calculating the Piola  stress</span>
+<span class="c1">#----------------------------------------------</span>
+<span class="k">def</span> <span class="nf">Piola_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">F</span>     <span class="o">=</span> <span class="n">F_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">zeta</span>  <span class="o">=</span> <span class="n">zeta_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">zeta0</span> <span class="o">=</span> <span class="n">zeta0_calc</span><span class="p">()</span>
+    <span class="n">Piola</span> <span class="o">=</span> <span class="p">(</span><span class="n">zeta</span><span class="o">*</span><span class="n">F</span> <span class="o">-</span> <span class="n">zeta0</span><span class="o">*</span><span class="n">inv</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="n">J</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">inv</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">/</span><span class="n">Gshear_0</span>
+    <span class="k">return</span> <span class="n">Piola</span>
+
+<span class="c1">#--------------------------------------------------------------</span>
+<span class="c1"># Subroutine for calculating the normalized species flux</span>
+<span class="c1">#--------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">Flux_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">F_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> 
+    <span class="c1">#</span>
+    <span class="n">Cinv</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">F</span><span class="p">)</span> 
+    <span class="c1">#</span>
+    <span class="n">Mob</span> <span class="o">=</span> <span class="p">(</span><span class="n">D</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">RT</span><span class="p">)</span><span class="o">*</span><span class="n">Cinv</span>
+    <span class="c1">#</span>
+    <span class="n">Jmat</span> <span class="o">=</span> <span class="o">-</span> <span class="n">RT</span><span class="o">*</span> <span class="n">Mob</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Jmat</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="evaluate-kinematics-and-constitutive-relations">
+<h1>Evaluate kinematics and constitutive relations<a class="headerlink" href="#evaluate-kinematics-and-constitutive-relations" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kinematics</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">F_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="n">J</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>  <span class="c1"># Total volumetric jacobian</span>
+<span class="c1">#</span>
+<span class="n">lambdaBar</span> <span class="o">=</span> <span class="n">lambdaBar_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Elastic volumetric Jacobian</span>
+<span class="n">Je</span>     <span class="o">=</span> <span class="n">Je_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>                    
+<span class="n">Je_old</span> <span class="o">=</span> <span class="n">Je_calc</span><span class="p">(</span><span class="n">u_old</span><span class="p">,</span><span class="n">c_old</span><span class="p">)</span>
+
+<span class="c1">#  Normalized Piola stress</span>
+<span class="n">Piola</span> <span class="o">=</span> <span class="n">Piola_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1">#  Normalized species  flux</span>
+<span class="n">Jmat</span> <span class="o">=</span> <span class="n">Flux_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="weak-forms">
+<h1>Weak forms<a class="headerlink" href="#weak-forms" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Residuals:</span>
+<span class="c1"># Res_0: Balance of forces (test fxn: u)</span>
+<span class="c1"># Res_1: Pressure variable (test fxn: p)</span>
+<span class="c1"># Res_2: Balance of mass   (test fxn: mu)</span>
+<span class="c1"># Res_3: Auxiliary variable (test fxn: c)</span>
+
+<span class="c1"># Time step field, constant within body</span>
+<span class="n">dk</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+
+<span class="c1"># The weak form for the equilibrium equation</span>
+<span class="n">Res_0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Piola</span><span class="p">,</span> <span class="n">grad</span><span class="p">(</span><span class="n">u_test</span><span class="p">)</span> <span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+
+<span class="c1"># The weak form for the auxiliary pressure variable definition</span>
+<span class="n">Res_1</span> <span class="o">=</span> <span class="n">dot</span><span class="p">((</span><span class="n">p</span><span class="o">*</span><span class="n">Je</span><span class="o">/</span><span class="n">Kbulk</span> <span class="o">+</span> <span class="n">ln</span><span class="p">(</span><span class="n">Je</span><span class="p">))</span> <span class="p">,</span> <span class="n">p_test</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+
+<span class="c1"># The weak form for the mass balance of solvent      </span>
+<span class="n">Res_2</span> <span class="o">=</span> <span class="n">dot</span><span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_old</span><span class="p">)</span><span class="o">/</span><span class="n">dk</span><span class="p">,</span> <span class="n">mu_test</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span> \
+        <span class="o">-</span>  <span class="n">Omega</span><span class="o">*</span><span class="n">dot</span><span class="p">(</span><span class="n">Jmat</span> <span class="p">,</span> <span class="n">grad</span><span class="p">(</span><span class="n">mu_test</span><span class="p">)</span> <span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+
+<span class="c1"># The weak form for the concentration</span>
+<span class="n">fac</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+<span class="n">fac1</span> <span class="o">=</span>  <span class="n">mu</span> <span class="o">-</span> <span class="p">(</span> <span class="n">ln</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">fac</span><span class="p">)</span><span class="o">+</span> <span class="n">fac</span> <span class="o">+</span> <span class="n">chi</span><span class="o">*</span><span class="n">fac</span><span class="o">*</span><span class="n">fac</span><span class="p">)</span>
+<span class="n">fac2</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">Omega</span><span class="o">*</span><span class="n">Je</span><span class="o">/</span><span class="n">RT</span><span class="p">)</span><span class="o">*</span><span class="n">p</span>  
+<span class="n">fac3</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Omega</span><span class="o">/</span><span class="p">(</span><span class="n">Kbulk</span><span class="o">*</span><span class="n">RT</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span><span class="o">*</span><span class="n">Je</span><span class="p">)</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">fac4</span> <span class="o">=</span> <span class="n">fac1</span> <span class="o">+</span> <span class="n">fac2</span> <span class="o">+</span> <span class="n">fac3</span>
+<span class="c1">#</span>
+<span class="n">Res_3</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">fac4</span><span class="p">,</span> <span class="n">c_test</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+       
+<span class="c1"># Total weak form</span>
+<span class="n">Res</span> <span class="o">=</span> <span class="n">Res_0</span> <span class="o">+</span> <span class="n">Res_1</span> <span class="o">+</span> <span class="n">Res_2</span> <span class="o">+</span> <span class="n">Res_3</span>
+
+<span class="c1"># Automatic differentiation tangent:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">derivative</span><span class="p">(</span><span class="n">Res</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">dw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="set-up-output-files">
+<h1>Set-up output files<a class="headerlink" href="#set-up-output-files" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># results file name</span>
+<span class="n">results_name</span> <span class="o">=</span> <span class="s2">&quot;gel_thin_cylinder_swell&quot;</span>
+
+<span class="c1"># Function space for projection of results</span>
+<span class="n">U1</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>  <span class="c1"># For displacement</span>
+<span class="n">P0</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>              <span class="c1"># For  pressure, chemical potential, and concentration </span>
+<span class="n">T1</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># For stress tensor</span>
+
+<span class="n">V1</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">P0</span><span class="p">)</span> <span class="c1"># Scalar function space</span>
+<span class="n">V2</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">U1</span><span class="p">)</span> <span class="c1"># Vector function space</span>
+<span class="n">V3</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">T1</span><span class="p">)</span> <span class="c1"># Tensor function space</span>
+
+<span class="c1"># basic fields to write to output file</span>
+<span class="n">u_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
+<span class="n">u_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;disp&quot;</span>
+
+<span class="n">p_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">p_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;p&quot;</span>
+
+<span class="n">mu_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">mu_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;mu&quot;</span>
+
+<span class="n">c_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">c_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;c&quot;</span>
+
+<span class="c1"># calculated fields to write to output file</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+<span class="n">phi_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">phi_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;phi&quot;</span>
+<span class="n">phi_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+
+<span class="n">J_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">J_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;J&quot;</span>
+<span class="n">J_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+
+<span class="n">lambdaBar_vis</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">lambdaBar_vis</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;lambdaBar&quot;</span>
+<span class="n">lambdaBar_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">lambdaBar</span><span class="p">,</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+
+<span class="n">P11</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">P11</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;P11&quot;</span>
+<span class="n">P11_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">Piola</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+<span class="c1">#</span>
+<span class="n">P22</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">P22</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;P22&quot;</span>
+<span class="n">P22_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">Piola</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+<span class="c1">#</span>
+<span class="n">P33</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
+<span class="n">P33</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;P33&quot;</span>
+<span class="n">P33_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">Piola</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+
+<span class="c1"># Mises stress</span>
+<span class="n">T</span>   <span class="o">=</span> <span class="n">Piola</span><span class="o">*</span><span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="o">/</span><span class="n">J</span>
+<span class="n">T0</span>   <span class="o">=</span> <span class="n">T</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">tr</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">Identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Mises</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">inner</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">T0</span><span class="p">))</span>
+<span class="n">Mises_vis</span><span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mises&quot;</span><span class="p">)</span>
+<span class="n">Mises_expr</span> <span class="o">=</span> <span class="n">Expression</span><span class="p">(</span><span class="n">Mises</span><span class="p">,</span><span class="n">V1</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">interpolation_points</span><span class="p">())</span>
+
+<span class="c1"># set up the output VTX files.</span>
+<span class="n">file_results</span> <span class="o">=</span> <span class="n">VTXWriter</span><span class="p">(</span>
+    <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span>
+    <span class="s2">&quot;results/&quot;</span> <span class="o">+</span> <span class="n">results_name</span> <span class="o">+</span> <span class="s2">&quot;.bp&quot;</span><span class="p">,</span>
+    <span class="p">[</span>  <span class="c1"># put the functions here you wish to write to output</span>
+        <span class="n">u_vis</span><span class="p">,</span> <span class="n">p_vis</span><span class="p">,</span> <span class="n">mu_vis</span><span class="p">,</span> <span class="n">c_vis</span><span class="p">,</span> <span class="n">phi_vis</span><span class="p">,</span> <span class="n">J_vis</span><span class="p">,</span> <span class="n">P11</span><span class="p">,</span> <span class="n">P22</span><span class="p">,</span> <span class="n">P33</span><span class="p">,</span> 
+        <span class="n">lambdaBar_vis</span><span class="p">,</span><span class="n">Mises_vis</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;BP4&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">writeResults</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+       <span class="c1"># Output field interpolation </span>
+       <span class="n">u_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+       <span class="n">p_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+       <span class="n">mu_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+       <span class="n">c_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+       <span class="n">phi_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">phi_expr</span><span class="p">)</span>
+       <span class="n">J_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">J_expr</span><span class="p">)</span>
+       <span class="n">P11</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">P11_expr</span><span class="p">)</span>
+       <span class="n">P22</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">P22_expr</span><span class="p">)</span>
+       <span class="n">P33</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">P33_expr</span><span class="p">)</span>
+       <span class="n">lambdaBar_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">lambdaBar_expr</span><span class="p">)</span>
+       <span class="n">Mises_vis</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">Mises_expr</span><span class="p">)</span>
+
+       <span class="c1"># Write output fields</span>
+       <span class="n">file_results</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> 
+        
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analysis-step">
+<h1>Analysis Step<a class="headerlink" href="#analysis-step" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give the step a descriptive name</span>
+<span class="n">step</span> <span class="o">=</span> <span class="s2">&quot;Swell&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="boundary-conditions">
+<h2>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Constant for applied  chemical potential</span>
+<span class="n">mu_cons</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">muRamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+
+<span class="c1"># Recall the sub-domains names and numbers</span>
+<span class="c1">#boundaries = [(1,xBot),(2,yBot),(3,zBot),(4,zTop)]</span>
+
+<span class="c1"># Find the specific DOFs which will be constrained.</span>
+<span class="n">xBot_u1_dofs</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_topological</span><span class="p">(</span><span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">yBot_u2_dofs</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_topological</span><span class="p">(</span><span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">zBot_u1_dofs</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_topological</span><span class="p">(</span><span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">zBot_u2_dofs</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_topological</span><span class="p">(</span><span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">zBot_u3_dofs</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_topological</span><span class="p">(</span><span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1">#</span>
+<span class="n">zTop_mu_dofs</span> <span class="o">=</span> <span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_topological</span><span class="p">(</span><span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">facet_tags</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Dirichlet BCs for displacement</span>
+<span class="n">bcs_1</span> <span class="o">=</span> <span class="n">dirichletbc</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xBot_u1_dofs</span><span class="p">,</span> <span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># u1 fix - xBot</span>
+<span class="c1">#</span>
+<span class="n">bcs_2</span> <span class="o">=</span> <span class="n">dirichletbc</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">yBot_u2_dofs</span><span class="p">,</span> <span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># u2 fix - yBot</span>
+<span class="c1">#</span>
+<span class="n">bcs_3</span> <span class="o">=</span> <span class="n">dirichletbc</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">zBot_u1_dofs</span><span class="p">,</span> <span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># u1 fix - zBot</span>
+<span class="n">bcs_4</span> <span class="o">=</span> <span class="n">dirichletbc</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">zBot_u2_dofs</span><span class="p">,</span> <span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># u1 fix - zBot</span>
+<span class="n">bcs_5</span> <span class="o">=</span> <span class="n">dirichletbc</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">zBot_u3_dofs</span><span class="p">,</span> <span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># u1 fix - zBot</span>
+<span class="c1">#</span>
+<span class="c1"># Dirichlet BCs for chemical potential</span>
+<span class="n">bcs_6</span> <span class="o">=</span> <span class="n">dirichletbc</span><span class="p">(</span><span class="n">mu_cons</span><span class="p">,</span> <span class="n">zTop_mu_dofs</span><span class="p">,</span> <span class="n">ME</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>     <span class="c1"># mu_cons - zTop</span>
+
+<span class="c1"># Complete set of Dirichlet bcs</span>
+<span class="n">bcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">bcs_1</span><span class="p">,</span> <span class="n">bcs_2</span><span class="p">,</span> <span class="n">bcs_3</span><span class="p">,</span> <span class="n">bcs_4</span><span class="p">,</span> <span class="n">bcs_5</span><span class="p">,</span> <span class="n">bcs_6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-nonlinear-variational-problem">
+<h2>Define the nonlinear variational problem<a class="headerlink" href="#define-the-nonlinear-variational-problem" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up nonlinear problem</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="n">NonlinearProblem</span><span class="p">(</span><span class="n">Res</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">bcs</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># the global newton solver and params</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">NewtonSolver</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">convergence_criterion</span> <span class="o">=</span> <span class="s2">&quot;incremental&quot;</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">max_it</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">report</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1">#  The Krylov solver parameters.</span>
+<span class="n">ksp</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">krylov_solver</span>
+<span class="n">opts</span> <span class="o">=</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
+<span class="n">option_prefix</span> <span class="o">=</span> <span class="n">ksp</span><span class="o">.</span><span class="n">getOptionsPrefix</span><span class="p">()</span>
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">ksp_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;preonly&quot;</span> 
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">pc_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;lu&quot;</span> <span class="c1"># do not use &#39;gamg&#39; pre-conditioner</span>
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">pc_factor_mat_solver_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mumps&quot;</span>
+<span class="n">opts</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">option_prefix</span><span class="si">}</span><span class="s2">ksp_max_it&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">ksp</span><span class="o">.</span><span class="n">setFromOptions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initialize-arrays-for-storing-output-history">
+<h1>Initialize arrays for storing output history<a class="headerlink" href="#initialize-arrays-for-storing-output-history" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Arrays for storing output history</span>
+<span class="c1"># totSteps = 100000</span>
+<span class="c1"># timeHist0 = np.zeros(shape=[totSteps])</span>
+<span class="c1"># timeHist1 = np.zeros(shape=[totSteps]) </span>
+<span class="c1"># timeHist2 = np.zeros(shape=[totSteps]) </span>
+<span class="c1"># timeHist3 = np.zeros(shape=[totSteps])</span>
+<span class="c1"># #</span>
+<span class="c1"># timeHist3[0] = mu0 # Initialize the chemical potential</span>
+
+<span class="c1"># Initialize a counter for reporting data</span>
+<span class="n">ii</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="c1"># Write initial state to file</span>
+<span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="start-calculation-loop">
+<h2>Start calculation loop<a class="headerlink" href="#start-calculation-loop" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print  message for simulation start</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulation Start&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="c1"># Store start time </span>
+<span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># Time-stepping solution procedure loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">Ttot</span><span class="p">):</span>
+    
+    <span class="c1"># # smaller time-step needed for initiation of buckling</span>
+    <span class="c1"># if (t&gt;=235 and t&lt;=300): </span>
+    <span class="c1">#     dt = 2.0</span>
+    <span class="c1">#     dk = Constant(domain, PETSc.ScalarType(dt))</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     dt = 10</span>
+    <span class="c1">#     dk = Constant(domain, PETSc.ScalarType(dt))</span>
+     
+    <span class="c1"># increment time</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span> 
+    <span class="c1"># increment counter</span>
+    <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="c1"># update time variables in time-dependent BCs </span>
+    <span class="n">mu_cons</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">muRamp</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+    <span class="c1"># Solve the problem</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="p">(</span><span class="nb">iter</span><span class="p">,</span> <span class="n">converged</span><span class="p">)</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span> <span class="c1"># Break the loop if solver fails</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ended Early&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    
+    <span class="c1"># Collect results from MPI ghost processes</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">scatter_forward</span><span class="p">()</span>
+    
+    <span class="c1"># Write output to file</span>
+    <span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    
+    <span class="c1"># Update DOFs for next step</span>
+    <span class="n">w_old</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span>
+   
+    <span class="c1"># Print progress of calculation</span>
+    <span class="k">if</span> <span class="n">ii</span><span class="o">%</span><span class="k">1</span> == 0:      
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step: </span><span class="si">{}</span><span class="s2"> | Increment: </span><span class="si">{}</span><span class="s2">, Iterations: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span>\
+              <span class="nb">format</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="nb">iter</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;      Simulation Time: </span><span class="si">{}</span><span class="s2"> s  of  </span><span class="si">{}</span><span class="s2"> s&quot;</span><span class="o">.</span>\
+              <span class="nb">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">Ttot</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">()</span>  
+    
+<span class="c1"># close the output file.</span>
+<span class="n">file_results</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         
+<span class="c1"># End analysis</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End computation&quot;</span><span class="p">)</span>                 
+<span class="c1"># Report elapsed real time for the analysis</span>
+<span class="n">endTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">elapseTime</span> <span class="o">=</span> <span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elapsed real time:  </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapseTime</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------
+Simulation Start
+------------------------------------
+Step: Swell | Increment: 1, Iterations: 5
+      Simulation Time: 5.0 s  of  900 s
+
+Step: Swell | Increment: 2, Iterations: 5
+      Simulation Time: 10.0 s  of  900 s
+
+Step: Swell | Increment: 3, Iterations: 5
+      Simulation Time: 15.0 s  of  900 s
+
+Step: Swell | Increment: 4, Iterations: 5
+      Simulation Time: 20.0 s  of  900 s
+
+Step: Swell | Increment: 5, Iterations: 5
+      Simulation Time: 25.0 s  of  900 s
+
+Step: Swell | Increment: 6, Iterations: 5
+      Simulation Time: 30.0 s  of  900 s
+
+Step: Swell | Increment: 7, Iterations: 5
+      Simulation Time: 35.0 s  of  900 s
+
+Step: Swell | Increment: 8, Iterations: 5
+      Simulation Time: 40.0 s  of  900 s
+
+Step: Swell | Increment: 9, Iterations: 5
+      Simulation Time: 45.0 s  of  900 s
+
+Step: Swell | Increment: 10, Iterations: 5
+      Simulation Time: 50.0 s  of  900 s
+
+Step: Swell | Increment: 11, Iterations: 5
+      Simulation Time: 55.0 s  of  900 s
+
+Step: Swell | Increment: 12, Iterations: 5
+      Simulation Time: 60.0 s  of  900 s
+
+Step: Swell | Increment: 13, Iterations: 5
+      Simulation Time: 65.0 s  of  900 s
+
+Step: Swell | Increment: 14, Iterations: 5
+      Simulation Time: 70.0 s  of  900 s
+
+Step: Swell | Increment: 15, Iterations: 5
+      Simulation Time: 75.0 s  of  900 s
+
+Step: Swell | Increment: 16, Iterations: 5
+      Simulation Time: 80.0 s  of  900 s
+
+Step: Swell | Increment: 17, Iterations: 5
+      Simulation Time: 85.0 s  of  900 s
+
+Step: Swell | Increment: 18, Iterations: 4
+      Simulation Time: 90.0 s  of  900 s
+
+Step: Swell | Increment: 19, Iterations: 4
+      Simulation Time: 95.0 s  of  900 s
+
+Step: Swell | Increment: 20, Iterations: 4
+      Simulation Time: 100.0 s  of  900 s
+
+Step: Swell | Increment: 21, Iterations: 4
+      Simulation Time: 105.0 s  of  900 s
+
+Step: Swell | Increment: 22, Iterations: 4
+      Simulation Time: 110.0 s  of  900 s
+
+Step: Swell | Increment: 23, Iterations: 4
+      Simulation Time: 115.0 s  of  900 s
+
+Step: Swell | Increment: 24, Iterations: 4
+      Simulation Time: 120.0 s  of  900 s
+
+Step: Swell | Increment: 25, Iterations: 4
+      Simulation Time: 125.0 s  of  900 s
+
+Step: Swell | Increment: 26, Iterations: 4
+      Simulation Time: 130.0 s  of  900 s
+
+Step: Swell | Increment: 27, Iterations: 4
+      Simulation Time: 135.0 s  of  900 s
+
+Step: Swell | Increment: 28, Iterations: 4
+      Simulation Time: 140.0 s  of  900 s
+
+Step: Swell | Increment: 29, Iterations: 4
+      Simulation Time: 145.0 s  of  900 s
+
+Step: Swell | Increment: 30, Iterations: 4
+      Simulation Time: 150.0 s  of  900 s
+
+Step: Swell | Increment: 31, Iterations: 4
+      Simulation Time: 155.0 s  of  900 s
+
+Step: Swell | Increment: 32, Iterations: 4
+      Simulation Time: 160.0 s  of  900 s
+
+Step: Swell | Increment: 33, Iterations: 4
+      Simulation Time: 165.0 s  of  900 s
+
+Step: Swell | Increment: 34, Iterations: 4
+      Simulation Time: 170.0 s  of  900 s
+
+Step: Swell | Increment: 35, Iterations: 4
+      Simulation Time: 175.0 s  of  900 s
+
+Step: Swell | Increment: 36, Iterations: 4
+      Simulation Time: 180.0 s  of  900 s
+
+Step: Swell | Increment: 37, Iterations: 4
+      Simulation Time: 185.0 s  of  900 s
+
+Step: Swell | Increment: 38, Iterations: 4
+      Simulation Time: 190.0 s  of  900 s
+
+Step: Swell | Increment: 39, Iterations: 4
+      Simulation Time: 195.0 s  of  900 s
+
+Step: Swell | Increment: 40, Iterations: 4
+      Simulation Time: 200.0 s  of  900 s
+
+Step: Swell | Increment: 41, Iterations: 4
+      Simulation Time: 205.0 s  of  900 s
+
+Step: Swell | Increment: 42, Iterations: 4
+      Simulation Time: 210.0 s  of  900 s
+
+Step: Swell | Increment: 43, Iterations: 4
+      Simulation Time: 215.0 s  of  900 s
+
+Step: Swell | Increment: 44, Iterations: 5
+      Simulation Time: 220.0 s  of  900 s
+
+Step: Swell | Increment: 45, Iterations: 8
+      Simulation Time: 225.0 s  of  900 s
+
+Step: Swell | Increment: 46, Iterations: 6
+      Simulation Time: 230.0 s  of  900 s
+
+Step: Swell | Increment: 47, Iterations: 6
+      Simulation Time: 235.0 s  of  900 s
+
+Step: Swell | Increment: 48, Iterations: 5
+      Simulation Time: 240.0 s  of  900 s
+
+Step: Swell | Increment: 49, Iterations: 5
+      Simulation Time: 245.0 s  of  900 s
+
+Step: Swell | Increment: 50, Iterations: 5
+      Simulation Time: 250.0 s  of  900 s
+
+Step: Swell | Increment: 51, Iterations: 5
+      Simulation Time: 255.0 s  of  900 s
+
+Step: Swell | Increment: 52, Iterations: 4
+      Simulation Time: 260.0 s  of  900 s
+
+Step: Swell | Increment: 53, Iterations: 4
+      Simulation Time: 265.0 s  of  900 s
+
+Step: Swell | Increment: 54, Iterations: 4
+      Simulation Time: 270.0 s  of  900 s
+
+Step: Swell | Increment: 55, Iterations: 4
+      Simulation Time: 275.0 s  of  900 s
+
+Step: Swell | Increment: 56, Iterations: 4
+      Simulation Time: 280.0 s  of  900 s
+
+Step: Swell | Increment: 57, Iterations: 4
+      Simulation Time: 285.0 s  of  900 s
+
+Step: Swell | Increment: 58, Iterations: 4
+      Simulation Time: 290.0 s  of  900 s
+
+Step: Swell | Increment: 59, Iterations: 4
+      Simulation Time: 295.0 s  of  900 s
+
+Step: Swell | Increment: 60, Iterations: 4
+      Simulation Time: 300.0 s  of  900 s
+
+Step: Swell | Increment: 61, Iterations: 4
+      Simulation Time: 305.0 s  of  900 s
+
+Step: Swell | Increment: 62, Iterations: 4
+      Simulation Time: 310.0 s  of  900 s
+
+Step: Swell | Increment: 63, Iterations: 4
+      Simulation Time: 315.0 s  of  900 s
+
+Step: Swell | Increment: 64, Iterations: 4
+      Simulation Time: 320.0 s  of  900 s
+
+Step: Swell | Increment: 65, Iterations: 4
+      Simulation Time: 325.0 s  of  900 s
+
+Step: Swell | Increment: 66, Iterations: 4
+      Simulation Time: 330.0 s  of  900 s
+
+Step: Swell | Increment: 67, Iterations: 4
+      Simulation Time: 335.0 s  of  900 s
+
+Step: Swell | Increment: 68, Iterations: 4
+      Simulation Time: 340.0 s  of  900 s
+
+Step: Swell | Increment: 69, Iterations: 4
+      Simulation Time: 345.0 s  of  900 s
+
+Step: Swell | Increment: 70, Iterations: 4
+      Simulation Time: 350.0 s  of  900 s
+
+Step: Swell | Increment: 71, Iterations: 4
+      Simulation Time: 355.0 s  of  900 s
+
+Step: Swell | Increment: 72, Iterations: 4
+      Simulation Time: 360.0 s  of  900 s
+
+Step: Swell | Increment: 73, Iterations: 4
+      Simulation Time: 365.0 s  of  900 s
+
+Step: Swell | Increment: 74, Iterations: 4
+      Simulation Time: 370.0 s  of  900 s
+
+Step: Swell | Increment: 75, Iterations: 4
+      Simulation Time: 375.0 s  of  900 s
+
+Step: Swell | Increment: 76, Iterations: 4
+      Simulation Time: 380.0 s  of  900 s
+
+Step: Swell | Increment: 77, Iterations: 4
+      Simulation Time: 385.0 s  of  900 s
+
+Step: Swell | Increment: 78, Iterations: 4
+      Simulation Time: 390.0 s  of  900 s
+
+Step: Swell | Increment: 79, Iterations: 4
+      Simulation Time: 395.0 s  of  900 s
+
+Step: Swell | Increment: 80, Iterations: 4
+      Simulation Time: 400.0 s  of  900 s
+
+Step: Swell | Increment: 81, Iterations: 4
+      Simulation Time: 405.0 s  of  900 s
+
+Step: Swell | Increment: 82, Iterations: 4
+      Simulation Time: 410.0 s  of  900 s
+
+Step: Swell | Increment: 83, Iterations: 4
+      Simulation Time: 415.0 s  of  900 s
+
+Step: Swell | Increment: 84, Iterations: 4
+      Simulation Time: 420.0 s  of  900 s
+
+Step: Swell | Increment: 85, Iterations: 4
+      Simulation Time: 425.0 s  of  900 s
+
+Step: Swell | Increment: 86, Iterations: 4
+      Simulation Time: 430.0 s  of  900 s
+
+Step: Swell | Increment: 87, Iterations: 4
+      Simulation Time: 435.0 s  of  900 s
+
+Step: Swell | Increment: 88, Iterations: 4
+      Simulation Time: 440.0 s  of  900 s
+
+Step: Swell | Increment: 89, Iterations: 4
+      Simulation Time: 445.0 s  of  900 s
+
+Step: Swell | Increment: 90, Iterations: 4
+      Simulation Time: 450.0 s  of  900 s
+
+Step: Swell | Increment: 91, Iterations: 4
+      Simulation Time: 455.0 s  of  900 s
+
+Step: Swell | Increment: 92, Iterations: 4
+      Simulation Time: 460.0 s  of  900 s
+
+Step: Swell | Increment: 93, Iterations: 4
+      Simulation Time: 465.0 s  of  900 s
+
+Step: Swell | Increment: 94, Iterations: 4
+      Simulation Time: 470.0 s  of  900 s
+
+Step: Swell | Increment: 95, Iterations: 4
+      Simulation Time: 475.0 s  of  900 s
+
+Step: Swell | Increment: 96, Iterations: 4
+      Simulation Time: 480.0 s  of  900 s
+
+Step: Swell | Increment: 97, Iterations: 4
+      Simulation Time: 485.0 s  of  900 s
+
+Step: Swell | Increment: 98, Iterations: 4
+      Simulation Time: 490.0 s  of  900 s
+
+Step: Swell | Increment: 99, Iterations: 4
+      Simulation Time: 495.0 s  of  900 s
+
+Step: Swell | Increment: 100, Iterations: 4
+      Simulation Time: 500.0 s  of  900 s
+
+Step: Swell | Increment: 101, Iterations: 4
+      Simulation Time: 505.0 s  of  900 s
+
+Step: Swell | Increment: 102, Iterations: 4
+      Simulation Time: 510.0 s  of  900 s
+
+Step: Swell | Increment: 103, Iterations: 4
+      Simulation Time: 515.0 s  of  900 s
+
+Step: Swell | Increment: 104, Iterations: 4
+      Simulation Time: 520.0 s  of  900 s
+
+Step: Swell | Increment: 105, Iterations: 4
+      Simulation Time: 525.0 s  of  900 s
+
+Step: Swell | Increment: 106, Iterations: 4
+      Simulation Time: 530.0 s  of  900 s
+
+Step: Swell | Increment: 107, Iterations: 4
+      Simulation Time: 535.0 s  of  900 s
+
+Step: Swell | Increment: 108, Iterations: 4
+      Simulation Time: 540.0 s  of  900 s
+
+Step: Swell | Increment: 109, Iterations: 4
+      Simulation Time: 545.0 s  of  900 s
+
+Step: Swell | Increment: 110, Iterations: 4
+      Simulation Time: 550.0 s  of  900 s
+
+Step: Swell | Increment: 111, Iterations: 4
+      Simulation Time: 555.0 s  of  900 s
+
+Step: Swell | Increment: 112, Iterations: 4
+      Simulation Time: 560.0 s  of  900 s
+
+Step: Swell | Increment: 113, Iterations: 4
+      Simulation Time: 565.0 s  of  900 s
+
+Step: Swell | Increment: 114, Iterations: 4
+      Simulation Time: 570.0 s  of  900 s
+
+Step: Swell | Increment: 115, Iterations: 4
+      Simulation Time: 575.0 s  of  900 s
+
+Step: Swell | Increment: 116, Iterations: 4
+      Simulation Time: 580.0 s  of  900 s
+
+Step: Swell | Increment: 117, Iterations: 4
+      Simulation Time: 585.0 s  of  900 s
+
+Step: Swell | Increment: 118, Iterations: 4
+      Simulation Time: 590.0 s  of  900 s
+
+Step: Swell | Increment: 119, Iterations: 4
+      Simulation Time: 595.0 s  of  900 s
+
+Step: Swell | Increment: 120, Iterations: 4
+      Simulation Time: 600.0 s  of  900 s
+
+Step: Swell | Increment: 121, Iterations: 4
+      Simulation Time: 605.0 s  of  900 s
+
+Step: Swell | Increment: 122, Iterations: 4
+      Simulation Time: 610.0 s  of  900 s
+
+Step: Swell | Increment: 123, Iterations: 4
+      Simulation Time: 615.0 s  of  900 s
+
+Step: Swell | Increment: 124, Iterations: 4
+      Simulation Time: 620.0 s  of  900 s
+
+Step: Swell | Increment: 125, Iterations: 4
+      Simulation Time: 625.0 s  of  900 s
+
+Step: Swell | Increment: 126, Iterations: 4
+      Simulation Time: 630.0 s  of  900 s
+
+Step: Swell | Increment: 127, Iterations: 4
+      Simulation Time: 635.0 s  of  900 s
+
+Step: Swell | Increment: 128, Iterations: 4
+      Simulation Time: 640.0 s  of  900 s
+
+Step: Swell | Increment: 129, Iterations: 4
+      Simulation Time: 645.0 s  of  900 s
+
+Step: Swell | Increment: 130, Iterations: 4
+      Simulation Time: 650.0 s  of  900 s
+
+Step: Swell | Increment: 131, Iterations: 4
+      Simulation Time: 655.0 s  of  900 s
+
+Step: Swell | Increment: 132, Iterations: 4
+      Simulation Time: 660.0 s  of  900 s
+
+Step: Swell | Increment: 133, Iterations: 4
+      Simulation Time: 665.0 s  of  900 s
+
+Step: Swell | Increment: 134, Iterations: 4
+      Simulation Time: 670.0 s  of  900 s
+
+Step: Swell | Increment: 135, Iterations: 4
+      Simulation Time: 675.0 s  of  900 s
+
+Step: Swell | Increment: 136, Iterations: 4
+      Simulation Time: 680.0 s  of  900 s
+
+Step: Swell | Increment: 137, Iterations: 4
+      Simulation Time: 685.0 s  of  900 s
+
+Step: Swell | Increment: 138, Iterations: 4
+      Simulation Time: 690.0 s  of  900 s
+
+Step: Swell | Increment: 139, Iterations: 4
+      Simulation Time: 695.0 s  of  900 s
+
+Step: Swell | Increment: 140, Iterations: 5
+      Simulation Time: 700.0 s  of  900 s
+
+Step: Swell | Increment: 141, Iterations: 5
+      Simulation Time: 705.0 s  of  900 s
+
+Step: Swell | Increment: 142, Iterations: 5
+      Simulation Time: 710.0 s  of  900 s
+
+Step: Swell | Increment: 143, Iterations: 5
+      Simulation Time: 715.0 s  of  900 s
+
+Step: Swell | Increment: 144, Iterations: 5
+      Simulation Time: 720.0 s  of  900 s
+
+Step: Swell | Increment: 145, Iterations: 5
+      Simulation Time: 725.0 s  of  900 s
+
+Step: Swell | Increment: 146, Iterations: 5
+      Simulation Time: 730.0 s  of  900 s
+
+Step: Swell | Increment: 147, Iterations: 5
+      Simulation Time: 735.0 s  of  900 s
+
+Step: Swell | Increment: 148, Iterations: 5
+      Simulation Time: 740.0 s  of  900 s
+
+Step: Swell | Increment: 149, Iterations: 5
+      Simulation Time: 745.0 s  of  900 s
+
+Step: Swell | Increment: 150, Iterations: 5
+      Simulation Time: 750.0 s  of  900 s
+
+Step: Swell | Increment: 151, Iterations: 5
+      Simulation Time: 755.0 s  of  900 s
+
+Step: Swell | Increment: 152, Iterations: 4
+      Simulation Time: 760.0 s  of  900 s
+
+Step: Swell | Increment: 153, Iterations: 4
+      Simulation Time: 765.0 s  of  900 s
+
+Step: Swell | Increment: 154, Iterations: 4
+      Simulation Time: 770.0 s  of  900 s
+
+Step: Swell | Increment: 155, Iterations: 4
+      Simulation Time: 775.0 s  of  900 s
+
+Step: Swell | Increment: 156, Iterations: 4
+      Simulation Time: 780.0 s  of  900 s
+
+Step: Swell | Increment: 157, Iterations: 4
+      Simulation Time: 785.0 s  of  900 s
+
+Step: Swell | Increment: 158, Iterations: 4
+      Simulation Time: 790.0 s  of  900 s
+
+Step: Swell | Increment: 159, Iterations: 4
+      Simulation Time: 795.0 s  of  900 s
+
+Step: Swell | Increment: 160, Iterations: 4
+      Simulation Time: 800.0 s  of  900 s
+
+Step: Swell | Increment: 161, Iterations: 4
+      Simulation Time: 805.0 s  of  900 s
+
+Step: Swell | Increment: 162, Iterations: 4
+      Simulation Time: 810.0 s  of  900 s
+
+Step: Swell | Increment: 163, Iterations: 4
+      Simulation Time: 815.0 s  of  900 s
+
+Step: Swell | Increment: 164, Iterations: 4
+      Simulation Time: 820.0 s  of  900 s
+
+Step: Swell | Increment: 165, Iterations: 4
+      Simulation Time: 825.0 s  of  900 s
+
+Step: Swell | Increment: 166, Iterations: 4
+      Simulation Time: 830.0 s  of  900 s
+
+Step: Swell | Increment: 167, Iterations: 4
+      Simulation Time: 835.0 s  of  900 s
+
+Step: Swell | Increment: 168, Iterations: 4
+      Simulation Time: 840.0 s  of  900 s
+
+Step: Swell | Increment: 169, Iterations: 4
+      Simulation Time: 845.0 s  of  900 s
+
+Step: Swell | Increment: 170, Iterations: 4
+      Simulation Time: 850.0 s  of  900 s
+
+Step: Swell | Increment: 171, Iterations: 4
+      Simulation Time: 855.0 s  of  900 s
+
+Step: Swell | Increment: 172, Iterations: 4
+      Simulation Time: 860.0 s  of  900 s
+
+Step: Swell | Increment: 173, Iterations: 4
+      Simulation Time: 865.0 s  of  900 s
+
+Step: Swell | Increment: 174, Iterations: 4
+      Simulation Time: 870.0 s  of  900 s
+
+Step: Swell | Increment: 175, Iterations: 4
+      Simulation Time: 875.0 s  of  900 s
+
+Step: Swell | Increment: 176, Iterations: 4
+      Simulation Time: 880.0 s  of  900 s
+
+Step: Swell | Increment: 177, Iterations: 4
+      Simulation Time: 885.0 s  of  900 s
+
+Step: Swell | Increment: 178, Iterations: 4
+      Simulation Time: 890.0 s  of  900 s
+
+Step: Swell | Increment: 179, Iterations: 4
+      Simulation Time: 895.0 s  of  900 s
+
+Step: Swell | Increment: 180, Iterations: 4
+      Simulation Time: 900.0 s  of  900 s
+
+-----------------------------------------
+End computation
+------------------------------------------
+Elapsed real time:  0:09:02.155548
+------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./04_gel_mechanics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="GEL03_pe_bilayer_beam.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bilayer beam swelling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="GEL05_thick_cylinder_buckling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Thick cylinder buckling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Thin cylinder buckling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-modules">Import modules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#define-geometry">Define geometry</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-boundary-and-volume-integration-measure">Define boundary and volume integration measure</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-output-files">Set-up output files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-step">Analysis Step</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-nonlinear-variational-problem">Define the nonlinear variational problem</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-arrays-for-storing-output-history">Initialize arrays for storing output history</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-calculation-loop">Start calculation loop</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lallit Anand, Eric M. Stewart, Shawn A. Chester
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
