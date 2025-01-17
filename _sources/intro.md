@@ -1,5 +1,5 @@
 <h1 style="text-align: center;">  Example Codes for Coupled Theories in Solid Mechanics </h1>
-<h3 style="text-align: center;" class="ignore-toc"> Lallit Anand, Eric M. Stewart, Shawn A. Chester </h3>
+<h3 style="text-align: center;" class="ignore-toc">  Eric M. Stewart, Shawn A. Chester, and Lallit Anand </h3>
 
 
 # Welcome
@@ -37,9 +37,35 @@ All codes were written for FEniCSx v0.8.0, so our instructions documents will di
 
 ## Citation
 
-If you use these codes in your own research, please cite:
 
-- L. Anand, E.M. Stewart, & S.A. Chester. _Introduction to coupled theories in solid mechanics_. 2025, in preparation.
+If you use these codes in your own research, please cite the software: 
+
+ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14680876.svg)](https://doi.org/10.5281/zenodo.14680876)
+
+as well as the associated textbook:
+
+- L. Anand, E. M. Stewart, and S. A. Chester. _Introduction to coupled theories in solid mechanics_. 2025, in preparation.
+
+
+BibTeX citations: 
+
+```
+@software{stewart2025,
+  author       = {Stewart, E. M. and Chester, S. A. and Anand, L.},
+  title        = {Example codes for coupled theories in solid mechanics},
+  month        = jan,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.14680876},
+  url          = {https://doi.org/10.5281/zenodo.14680876}
+}
+
+@book{anand2025,
+author={Anand, L. and Stewart, E. M. and Chester, S. A.},
+         title={Introduction to coupled theories in solid mechanics},
+         year={2025, in preparation.}
+     }
+```
 
 ## Legacy codes
 
