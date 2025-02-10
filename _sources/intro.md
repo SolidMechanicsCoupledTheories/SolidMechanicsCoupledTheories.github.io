@@ -24,8 +24,9 @@ A selection of example codes are provided for:
 11. Magneto-viscoelasticity of soft-magnetic soft-elastomers
 
 
-
 ## Running the codes
+
+We recommend downloading or cloning the entire collection of example codes (< 30 MB of files) from the [GitHub repository](https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes), and then running example codes locally on your machine using Docker and VSCode.
 
 A detailed guide for installing FEniCSx in a Docker container and running the notebooks using VSCode is provided both for [Mac](https://github.com/ericstewart36/finite_viscoelasticity/blob/main/FEniCSx_v08_Docker_install_mac.pdf) and [Windows](https://github.com/ericstewart36/finite_viscoelasticity/blob/main/FEniCSx_v08_Docker_install_windows.pdf). The installation process is essentially similar for the two operating systems, but the example screenshots in the instructions are from the relevant system.
 

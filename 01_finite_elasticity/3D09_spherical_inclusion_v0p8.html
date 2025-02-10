@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -1512,10 +1512,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
-<p>Accompanies the book,</p>
-<ul class="simple">
-<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
-</ul>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1686,15 +1685,16 @@
 <span class="c1"># turn the camera around so that the inclusion is visible</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">azimuth</span> <span class="o">=</span> <span class="mf">180.0</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mesh.png&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f1967dc9edbc4309b88d312789daec24", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/779fcae8063e015c5d21cbe4ccdd9cb157ae98ebf368b0dfa30988648bba065e.png" src="../_images/779fcae8063e015c5d21cbe4ccdd9cb157ae98ebf368b0dfa30988648bba065e.png" />
+</div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
 <h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
@@ -1759,6 +1759,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pyvista</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
 <span class="n">pyvista</span><span class="o">.</span><span class="n">start_xvfb</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
 <span class="c1"># Prepare the gshear field for plotting</span>
 <span class="n">V</span> <span class="o">=</span> <span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># for some reason, we need a degree 1 DG function space in order to plot in Pyvista.</span>
@@ -1767,7 +1768,7 @@
 <span class="c1"># </span>
 <span class="n">grid</span><span class="p">[</span><span class="s2">&quot;Gshear&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gshear_0</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span> <span class="c1"># interpolate the Gshear_0 data onto the DG1 space.</span>
 <span class="c1">#</span>
-<span class="n">grid</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s2">&quot;Gshear&quot;</span><span class="p">)</span>
+<span class="c1"># grid.set_active_scalars(&quot;Gshear&quot;)</span>
 <span class="n">actor</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># plot Gshear_0 values.</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
@@ -1776,15 +1777,16 @@
 <span class="c1"># turn the camera around so that the inclusion is visible</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">azimuth</span> <span class="o">=</span> <span class="mf">180.0</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mesh.png&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cb57dc5741ad414dac3782033a9bb3e4", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/a49ec52bbfcb7b6e9a2c49975059e7fabdb74145d8457443ba5a1a9f4fb57139.png" src="../_images/a49ec52bbfcb7b6e9a2c49975059e7fabdb74145d8457443ba5a1a9f4fb57139.png" />
+</div>
 </div>
 </section>
 </section>
@@ -2356,7 +2358,7 @@ Step: Stretch | Increment: 50, Iterations: 4
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:58.553599
+Elapsed real time:  0:00:51.468540
 ------------------------------------------
 </pre></div>
 </div>
@@ -2395,7 +2397,7 @@ Elapsed real time:  0:00:58.553599
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13767dc8c83140e9a15c091b853422fde98696bf911cb53fc608b16f00e77889.png" src="../_images/13767dc8c83140e9a15c091b853422fde98696bf911cb53fc608b16f00e77889.png" />
+<img alt="../_images/7a97ad3179801a769bf7a1af5526099ba2a72b3e01734b26a219e0b9744eae62.png" src="../_images/7a97ad3179801a769bf7a1af5526099ba2a72b3e01734b26a219e0b9744eae62.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 700x500 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -2511,7 +2513,7 @@ Elapsed real time:  0:00:58.553599
   <div class="footer-item">
     
 <p class="component-author">
-By Lallit Anand, Eric M. Stewart, Shawn A. Chester
+By Eric M. Stewart, Shawn A. Chester, and Lallit Anand
 </p>
 
   </div>
@@ -2521,7 +2523,7 @@ By Lallit Anand, Eric M. Stewart, Shawn A. Chester
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

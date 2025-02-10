@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -1509,10 +1509,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
-<p>Accompanies the book,</p>
-<ul class="simple">
-<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
-</ul>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1651,15 +1650,16 @@
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mesh.png&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2c95eda1dbb5445a805f7aae9b9ae93c", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/c3c83d65c5d3f04316f076466754b183f0db600a21abf3d4088e2fdcd224d990.png" src="../_images/c3c83d65c5d3f04316f076466754b183f0db600a21abf3d4088e2fdcd224d990.png" />
+</div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
 <h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
@@ -2344,7 +2344,7 @@ Ended Early
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:22.748205
+Elapsed real time:  0:00:19.735556
 ------------------------------------------
 </pre></div>
 </div>
@@ -2394,7 +2394,7 @@ Elapsed real time:  0:00:22.748205
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4d434849638a64d97d8c17e79a56283021b34aef3283d7e7e76438c07fcd787f.png" src="../_images/4d434849638a64d97d8c17e79a56283021b34aef3283d7e7e76438c07fcd787f.png" />
+<img alt="../_images/9df8478498c2f9bd726f7fe088e4c9ac2622ba133b569e9a8fe64ae186d78574.png" src="../_images/9df8478498c2f9bd726f7fe088e4c9ac2622ba133b569e9a8fe64ae186d78574.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 700x500 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -2507,7 +2507,7 @@ Elapsed real time:  0:00:22.748205
   <div class="footer-item">
     
 <p class="component-author">
-By Lallit Anand, Eric M. Stewart, Shawn A. Chester
+By Eric M. Stewart, Shawn A. Chester, and Lallit Anand
 </p>
 
   </div>
@@ -2517,7 +2517,7 @@ By Lallit Anand, Eric M. Stewart, Shawn A. Chester
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
