@@ -77,7 +77,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="VII. Electro-elasticity" href="../part7.html" />
-    <link rel="prev" title="Lithiation-delithiation" href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html" />
+    <link rel="prev" title="Lithiation-delithiation" href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -803,7 +803,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
 
 
 
@@ -1518,9 +1518,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
-<p>Eric Stewart and Lallit Anand</p>
-<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a> and <a class="reference external" href="mailto:anand&#37;&#52;&#48;mit&#46;edu">anand<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
-<p>June 2024</p>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1675,6 +1675,45 @@
 <span class="n">n</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">as_vector</span><span class="p">([</span><span class="n">n2D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n2D</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">])</span> <span class="c1"># define n as a 3D vector for later use</span>
 </pre></div>
 </div>
+</div>
+</div>
+<p><strong>Visualize the reference configuration</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dolfinx.plot</span> <span class="kn">import</span> <span class="n">vtk_mesh</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">start_xvfb</span><span class="p">()</span>
+
+<span class="c1"># initialize a plotter</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+
+<span class="c1"># Add the mesh.</span>
+<span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#, opacity=0.25) </span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">view_xy</span><span class="p">()</span>
+
+<span class="c1">#labels = dict(xlabel=&#39;X&#39;, ylabel=&#39;Y&#39;,zlabel=&#39;Z&#39;)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/ellipse_mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/ellipse_mesh.png&#39;</span><span class="p">)</span> 
+
+<span class="c1"># # Use the following  commands for a  zoom-able  view</span>
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#     plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#     plotter.screenshot(&quot;square_mesh.png&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" src="../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2595,7 +2634,7 @@ Simulation Time: 30.66 s | dt: 1.297 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:18.490527
+Elapsed real time:  0:00:13.833987
 ------------------------------------------
 ------------------------------------
 Simulation start
@@ -2649,7 +2688,7 @@ Step: Lithiate |   Increment: 15 | Iterations: 9
 Simulation Time: 0.69 s | dt: 0.051 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 16:12:33.260 (  25.772s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 16:34:35.257 (  22.866s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 16 | Iterations: 5
@@ -2994,7 +3033,7 @@ Simulation Time: 30.23 s | dt: 1.095 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:42.982322
+Elapsed real time:  0:00:32.702141
 ------------------------------------------
 ------------------------------------
 Simulation start
@@ -3045,7 +3084,7 @@ Step: Lithiate |   Increment: 14 | Iterations: 5
 Simulation Time: 0.64 s | dt: 0.051 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 16:13:15.726 (  68.238s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 16:35:07.340 (  54.949s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 15 | Iterations: 5
@@ -3055,7 +3094,7 @@ Step: Lithiate |   Increment: 16 | Iterations: 7
 Simulation Time: 0.69 s | dt: 0.025 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 16:13:17.818 (  70.330s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 16:35:08.874 (  56.483s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 17 | Iterations: 6
@@ -3568,7 +3607,7 @@ Simulation Time: 30.05 s | dt: 1.095 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:01:03.947125
+Elapsed real time:  0:00:48.803697
 ------------------------------------------
 </pre></div>
 </div>
@@ -3609,7 +3648,7 @@ Elapsed real time:  0:01:03.947125
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html"
+       href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">

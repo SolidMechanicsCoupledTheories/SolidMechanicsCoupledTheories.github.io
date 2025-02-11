@@ -76,7 +76,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '06_Cahn_Hilliard/CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lithiation-delithiation" href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html" />
+    <link rel="next" title="Lithiation-delithiation" href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html" />
     <link rel="prev" title="Un-coupled phase separation" href="CH01_uncoupled_2D_evolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -803,7 +803,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
 
 
 
@@ -1518,9 +1518,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
-<p>Eric Stewart and Lallit Anand</p>
-<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a> and <a class="reference external" href="mailto:anand&#37;&#52;&#48;mit&#46;edu">anand<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
-<p>June 2024</p>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1675,6 +1675,38 @@
 <span class="n">n</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">as_vector</span><span class="p">([</span><span class="n">n2D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n2D</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">])</span> <span class="c1"># define n as a 3D vector for later use</span>
 </pre></div>
 </div>
+</div>
+</div>
+<p><strong>Visualize reference configuration and boundary facets</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dolfinx.plot</span> <span class="kn">import</span> <span class="n">vtk_mesh</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">start_xvfb</span><span class="p">()</span>
+
+<span class="c1"># initialize a plotter</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+
+<span class="c1"># Add the mesh.</span>
+<span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">view_xy</span><span class="p">()</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mesh.png&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" src="../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4896,7 +4928,7 @@ Step: Lithiate |   Increment: 832 | Iterations: 5
 Simulation Time: 1067.79 s | dt: 1.297 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:31:51.322 ( 171.241s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:51:28.610 ( 186.425s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 833 | Iterations: 5
@@ -4906,14 +4938,14 @@ Step: Lithiate |   Increment: 834 | Iterations: 5
 Simulation Time: 1069.09 s | dt: 0.649 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:31:53.329 ( 173.248s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:51:30.083 ( 187.898s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 835 | Iterations: 5
 Simulation Time: 1069.41 s | dt: 0.324 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:31:55.528 ( 175.447s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:51:31.752 ( 189.567s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 836 | Iterations: 4
@@ -7115,7 +7147,7 @@ Simulation Time: 1800.46 s | dt: 1.169 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:05:37.953088
+Elapsed real time:  0:04:19.690781
 ------------------------------------------
 ------------------------------------
 Simulation start
@@ -9614,21 +9646,21 @@ Step: Lithiate |   Increment: 830 | Iterations: 5
 Simulation Time: 1065.2 s | dt: 1.297 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:37:25.882 ( 505.801s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:55:48.033 ( 445.847s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 831 | Iterations: 5
 Simulation Time: 1065.85 s | dt: 0.649 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:37:28.908 ( 508.826s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:55:50.428 ( 448.242s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 832 | Iterations: 4
 Simulation Time: 1066.17 s | dt: 0.324 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:37:32.401 ( 512.319s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:55:53.237 ( 451.051s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 833 | Iterations: 5
@@ -9641,14 +9673,14 @@ Step: Lithiate |   Increment: 835 | Iterations: 5
 Simulation Time: 1066.78 s | dt: 0.122 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:37:35.071 ( 514.990s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:55:55.319 ( 453.133s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 836 | Iterations: 5
 Simulation Time: 1066.84 s | dt: 0.061 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:37:36.839 ( 516.758s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 14:55:56.672 ( 454.486s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 837 | Iterations: 4
@@ -12456,7 +12488,7 @@ Simulation Time: 1800.61 s | dt: 1.053 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:06:35.970856
+Elapsed real time:  0:05:13.307344
 ------------------------------------------
 ------------------------------------
 Simulation start
@@ -14952,14 +14984,14 @@ Step: Lithiate |   Increment: 829 | Iterations: 5
 Simulation Time: 1063.9 s | dt: 1.297 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:44:03.031 ( 902.946s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:01:16.699 ( 761.616s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 830 | Iterations: 4
 Simulation Time: 1064.55 s | dt: 0.649 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:44:04.796 ( 904.711s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:01:18.006 ( 762.922s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 831 | Iterations: 5
@@ -14972,28 +15004,28 @@ Step: Lithiate |   Increment: 833 | Iterations: 7
 Simulation Time: 1065.77 s | dt: 0.243 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:44:08.481 ( 908.397s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:01:20.790 ( 765.706s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 834 | Iterations: 4
 Simulation Time: 1065.83 s | dt: 0.061 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:44:10.937 ( 910.853s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:01:22.557 ( 767.474s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 835 | Iterations: 4
 Simulation Time: 1065.87 s | dt: 0.046 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:44:13.426 ( 913.342s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:01:24.416 ( 769.332s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 836 | Iterations: 4
 Simulation Time: 1065.91 s | dt: 0.034 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:44:15.071 ( 914.987s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:01:25.606 ( 770.523s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 837 | Iterations: 4
@@ -15579,7 +15611,7 @@ Step: Lithiate |   Increment: 1030 | Iterations: 5
 Simulation Time: 1072.94 s | dt: 0.164 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:45:22.218 ( 982.133s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:05:09.003 ( 820.478s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 1031 | Iterations: 5
@@ -15589,7 +15621,7 @@ Step: Lithiate |   Increment: 1032 | Iterations: 5
 Simulation Time: 1073.11 s | dt: 0.082 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-21 19:45:24.241 ( 984.156s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-11 15:05:10.501 ( 821.976s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 1033 | Iterations: 5
@@ -17773,7 +17805,7 @@ Simulation Time: 1800.36 s | dt: 1.125 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:06:45.295626
+Elapsed real time:  0:13:23.387339
 ------------------------------------------
 </pre></div>
 </div>
@@ -17823,7 +17855,7 @@ Elapsed real time:  0:06:45.295626
       </div>
     </a>
     <a class="right-next"
-       href="CH02d_axi_ellipse_lithiation__delithiation_slow_ramp.html"
+       href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
