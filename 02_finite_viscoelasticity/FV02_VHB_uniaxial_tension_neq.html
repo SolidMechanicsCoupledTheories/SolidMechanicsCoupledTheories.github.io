@@ -331,11 +331,13 @@
 
 
 
+
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Rate-dependent uniaxial tension</a></li>
 
 
 
 <li class="toctree-l2"><a class="reference internal" href="FV03_VHB_stress_relaxation.html">Stress relaxation</a></li>
+
 
 
 
@@ -359,7 +361,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV05_VHB_stretch_hold.html">Stretch-hold study</a></li>
+
 
 
 
@@ -383,7 +387,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV07_VHB_sinusoidal_shear.html">Hysteresis in shear</a></li>
+
 
 
 
@@ -407,7 +413,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV09_NBR_bushing_shear.html">Shear of a bushing</a></li>
+
 
 
 
@@ -431,6 +439,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV11_NBR_beam_buckle.html">Visco-dynamic beam buckling</a></li>
 
 
@@ -443,7 +452,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV12_NBR_sphere_indentation_coarse.html">Spherical indenter</a></li>
+
 
 
 
@@ -1490,10 +1501,6 @@
 <ul class="simple">
 <li><p>Uses quadrature representation of internal variable: viscous deformation tensor Cv.</p></li>
 </ul>
-<p>Accompanies the book,</p>
-<ul class="simple">
-<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
-</ul>
 <section id="units">
 <h2>Units<a class="headerlink" href="#units" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -1519,6 +1526,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1685,12 +1695,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
-<span class="c1"># also specify the number of surface quadrature points.</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="c1"># also specify the degree of surface quadrature.</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
-<span class="c1"># also specify the number of volume quadrature points.</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="c1"># also specify the degree of volume quadrature.</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;quadrature_rule&#39;</span><span class="p">:</span><span class="s1">&#39;default&#39;</span><span class="p">})</span>
 
 <span class="c1">#  Define facet normal</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">FacetNormal</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
@@ -2450,7 +2460,7 @@ dt: 3.0 s | Simulation Time: 300.0 s  of  300.0 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:01.903270
+Elapsed real time:  0:00:00.292521
 ------------------------------------------
 ------------------------------------
 Simulation Start
@@ -2518,7 +2528,7 @@ dt: 1.0 s | Simulation Time: 100.0 s  of  100.0 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:02.454501
+Elapsed real time:  0:00:00.260554
 ------------------------------------------
 ------------------------------------
 Simulation Start
@@ -2586,11 +2596,11 @@ dt: 0.6 s | Simulation Time: 60.0 s  of  60.0 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:01.968660
+Elapsed real time:  0:00:00.261292
 ------------------------------------------
 </pre></div>
 </div>
-<img alt="../_images/7d53868b69e3875c6de11b417627fe6a559308c6453cdb8dbcc243aa75ae7e9b.png" src="../_images/7d53868b69e3875c6de11b417627fe6a559308c6453cdb8dbcc243aa75ae7e9b.png" />
+<img alt="../_images/20a7248af8a73d7566f1184ca84b5796b56e92078e30f15e06f37130d5481389.png" src="../_images/20a7248af8a73d7566f1184ca84b5796b56e92078e30f15e06f37130d5481389.png" />
 </div>
 </div>
 </section>

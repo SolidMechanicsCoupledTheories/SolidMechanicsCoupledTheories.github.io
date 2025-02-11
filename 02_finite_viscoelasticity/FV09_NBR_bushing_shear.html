@@ -73,6 +73,8 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02_finite_viscoelasticity/FV09_NBR_bushing_shear';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -331,11 +333,13 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV02_VHB_uniaxial_tension_neq.html">Rate-dependent uniaxial tension</a></li>
 
 
 
 <li class="toctree-l2"><a class="reference internal" href="FV03_VHB_stress_relaxation.html">Stress relaxation</a></li>
+
 
 
 
@@ -359,7 +363,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV05_VHB_stretch_hold.html">Stretch-hold study</a></li>
+
 
 
 
@@ -383,7 +389,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV07_VHB_sinusoidal_shear.html">Hysteresis in shear</a></li>
+
 
 
 
@@ -407,7 +415,9 @@
 
 
 
+
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Shear of a bushing</a></li>
+
 
 
 
@@ -431,6 +441,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV11_NBR_beam_buckle.html">Visco-dynamic beam buckling</a></li>
 
 
@@ -443,7 +454,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="FV12_NBR_sphere_indentation_coarse.html">Spherical indenter</a></li>
+
 
 
 
@@ -1476,6 +1489,7 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-params">Simulation time-control related params</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -1504,10 +1518,6 @@
 <ul class="simple">
 <li><p>Uses quadrature representation of internal variable: viscous deformation tensor Cv.</p></li>
 </ul>
-<p>Accompanies the book,</p>
-<ul class="simple">
-<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
-</ul>
 <section id="units">
 <h2>Units<a class="headerlink" href="#units" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -1533,6 +1543,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1613,7 +1626,7 @@
 <span class="k">with</span> <span class="n">XDMFFile</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="s2">&quot;meshes/facet_bushing.xdmf&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">xdmf</span><span class="p">:</span>
     <span class="n">facet_tags</span> <span class="o">=</span> <span class="n">xdmf</span><span class="o">.</span><span class="n">read_meshtags</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Grid&quot;</span><span class="p">)</span>
     
-<span class="c1"># Un-comment these lines to use the finer version of the mesh instead, and recover the exact analysis from the paper.</span>
+<span class="c1"># Un-comment these lines to use the finer version of the mesh instead, and recover the exact analysis from the book.</span>
 <span class="c1"># This will take significantly longer to run but still not too much, </span>
 <span class="c1"># on the order of 1 hour on a modern laptop. (~17,000 elements) </span>
 <span class="c1">#</span>
@@ -1700,12 +1713,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
-<span class="c1"># also specify the number of surface quadrature points.</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="c1"># also specify the degree of surface quadrature.</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
-<span class="c1"># also specify the number of volume quadrature points.</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="c1"># also specify the degree of volume quadrature.</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;quadrature_rule&#39;</span><span class="p">:</span><span class="s1">&#39;default&#39;</span><span class="p">})</span>
 
 <span class="c1">#  Define facet normal</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">FacetNormal</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
@@ -1835,10 +1848,22 @@
 <span class="c1"># Functions for storing the velocity and acceleration at prev. step</span>
 <span class="n">v_old</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
 <span class="n">a_old</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
-
-<span class="c1"># Initial conditions: </span>
-
-<span class="c1"># A function for constructing the identity matrix.</span>
+ 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions">
+<h1>Initial conditions<a class="headerlink" href="#initial-conditions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The initial conditions for <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, and <span class="math notranslate nohighlight">\(p\)</span> are zero everywhere.</p></li>
+<li><p>These are imposed automatically, since we have not specified any non-zero initial conditions.</p></li>
+<li><p>We do, however, need to impose the initial condition that <span class="math notranslate nohighlight">\(\mathbf{C}^v = \mathbf{1}\)</span>. This is done below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function for constructing the identity matrix.</span>
 <span class="c1">#</span>
 <span class="c1"># To use the interpolate() feature, this must be defined as a </span>
 <span class="c1"># function of x.</span>
@@ -2571,7 +2596,7 @@ dt: 0.6 s | Simulation Time: 120.0 s  of  120 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:07:36.076533
+Elapsed real time:  0:03:15.338346
 ------------------------------------------
 </pre></div>
 </div>
@@ -2618,7 +2643,7 @@ Elapsed real time:  0:07:36.076533
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6d962f8d0d542af4b7e6a9ab679db407f25fb18b6942cd19ad1d098ca40ae000.png" src="../_images/6d962f8d0d542af4b7e6a9ab679db407f25fb18b6942cd19ad1d098ca40ae000.png" />
+<img alt="../_images/8926604e2a47e7583a686c992305870b6f3dccec886e0baef0ad56fd0c88b40d.png" src="../_images/8926604e2a47e7583a686c992305870b6f3dccec886e0baef0ad56fd0c88b40d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2740,6 +2765,7 @@ Elapsed real time:  0:07:36.076533
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-params">Simulation time-control related params</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
