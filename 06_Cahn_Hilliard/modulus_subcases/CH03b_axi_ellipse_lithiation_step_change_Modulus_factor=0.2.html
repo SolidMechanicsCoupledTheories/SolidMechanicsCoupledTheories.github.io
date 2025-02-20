@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lithiation-delithiation &#8212; Example Codes for Coupled Theories in Solid Mechanics</title>
+    <title>Step-change lithiation with \(E/E_0=0.2\) &#8212; Example Codes for Coupled Theories in Solid Mechanics</title>
   
   
   
@@ -27,35 +27,35 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-SGEZVDBNKT"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,7 +64,7 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -73,11 +73,11 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '06_Cahn_Hilliard/CH02d_axi_ellipse_lithiation_delithiation_slow_ramp';</script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Step-change lithiation" href="CH03_axi_ellipse_lithiation_step_change_plotting.html" />
-    <link rel="prev" title="Slow-ramp lithiation" href="CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_Cahn_Hilliard/modulus_subcases/CH03b_axi_ellipse_lithiation_step_change_Modulus_factor=0.2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -99,7 +99,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -129,6 +129,8 @@
       
       
       
+        
+      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -148,7 +150,7 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
@@ -170,15 +172,15 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../../intro.html">
                     Welcome
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Example codes</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part1.html">I. Finite elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D01_uniaxial_tension_v0p8.html">Uniaxial tension of a 3D cube</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1.html">I. Finite elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D01_uniaxial_tension_v0p8.html">Uniaxial tension of a 3D cube</a></li>
 
 
 
@@ -192,7 +194,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D02_simple_shear_v0p8.html">Simple shear of a 3D cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D02_simple_shear_v0p8.html">Simple shear of a 3D cube</a></li>
 
 
 
@@ -206,7 +208,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D03_fixed_end_torsion_v0p8.html">Torsion of a 3D cylinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D03_fixed_end_torsion_v0p8.html">Torsion of a 3D cylinder</a></li>
 
 
 
@@ -220,7 +222,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D04_hole_in_plate_v0p8.html">Tension of a 3D plate with a hole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D04_hole_in_plate_v0p8.html">Tension of a 3D plate with a hole</a></li>
 
 
 
@@ -234,7 +236,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D05_cylinder_inflation_v0p8.html">Inflation of a 3D cylinder by an internal pressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D05_cylinder_inflation_v0p8.html">Inflation of a 3D cylinder by an internal pressure</a></li>
 
 
 
@@ -248,7 +250,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D06_sphere_inflation_v0p8.html">Inflation of a sphere by an internal pressure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D06_sphere_inflation_v0p8.html">Inflation of a sphere by an internal pressure</a></li>
 
 
 
@@ -262,7 +264,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D07_cube_footing_v0p8.html">A cube under pressure on a part of its face</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D07_cube_footing_v0p8.html">A cube under pressure on a part of its face</a></li>
 
 
 
@@ -276,7 +278,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D08_beam_buckling_v0p8.html">Buckling of a column with square cross-section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D08_beam_buckling_v0p8.html">Buckling of a column with square cross-section</a></li>
 
 
 
@@ -290,7 +292,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D09_spherical_inclusion_v0p8.html">Uniaxial tension of a 3D cube with a spherical inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D09_spherical_inclusion_v0p8.html">Uniaxial tension of a 3D cube with a spherical inclusion</a></li>
 
 
 
@@ -304,7 +306,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../01_finite_elasticity/3D10_column_twist_v0p8.html">Twisting of a column with square cross-section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01_finite_elasticity/3D10_column_twist_v0p8.html">Twisting of a column with square cross-section</a></li>
 
 
 
@@ -318,8 +320,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part2.html">II. Finite viscoelasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV01_VHB_uniaxial_tension_eq.html">Equilibrium uniaxial tension</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2.html">II. Finite viscoelasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV01_VHB_uniaxial_tension_eq.html">Equilibrium uniaxial tension</a></li>
 
 
 
@@ -332,11 +334,11 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV02_VHB_uniaxial_tension_neq.html">Rate-dependent uniaxial tension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV02_VHB_uniaxial_tension_neq.html">Rate-dependent uniaxial tension</a></li>
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV03_VHB_stress_relaxation.html">Stress relaxation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV03_VHB_stress_relaxation.html">Stress relaxation</a></li>
 
 
 
@@ -349,7 +351,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV04_VHB_creep.html">Creep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV04_VHB_creep.html">Creep</a></li>
 
 
 
@@ -362,7 +364,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV05_VHB_stretch_hold.html">Stretch-hold study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV05_VHB_stretch_hold.html">Stretch-hold study</a></li>
 
 
 
@@ -375,7 +377,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV06_VHB_sinusoidal_tension.html">Hysteresis in tension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV06_VHB_sinusoidal_tension.html">Hysteresis in tension</a></li>
 
 
 
@@ -388,7 +390,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV07_VHB_sinusoidal_shear.html">Hysteresis in shear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV07_VHB_sinusoidal_shear.html">Hysteresis in shear</a></li>
 
 
 
@@ -401,7 +403,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV08_NBR_cube_footing.html">Cube “footing”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV08_NBR_cube_footing.html">Cube “footing”</a></li>
 
 
 
@@ -414,7 +416,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV09_NBR_bushing_shear.html">Shear of a bushing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV09_NBR_bushing_shear.html">Shear of a bushing</a></li>
 
 
 
@@ -427,7 +429,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV10_NBR_beam_impulse_oscillation.html">Beam impulse response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV10_NBR_beam_impulse_oscillation.html">Beam impulse response</a></li>
 
 
 
@@ -440,7 +442,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV11_NBR_beam_buckle.html">Visco-dynamic beam buckling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV11_NBR_beam_buckle.html">Visco-dynamic beam buckling</a></li>
 
 
 
@@ -453,105 +455,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV12_NBR_sphere_indentation_coarse.html">Spherical indenter</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part3.html">III. Finite thermo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE01_pe_constrained_heating.html">Constrained heating</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE02_axi_thermoelas_stretch_adiabatic.html">Stretch-induced heating</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE03_axi_thermoelas_steps.html">Heating-induced contraction</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE04_pe_bilayer.html">Thermoelastic bilayer bending</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE05_axi_circular_plate_flux.html">Surface heat flux bending</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE06_solar_sail.html">“Solar sail” wrinkling</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="../../02_finite_viscoelasticity/FV12_NBR_sphere_indentation_coarse.html">Spherical indenter</a></li>
 
 
 
@@ -566,8 +470,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part4.html">IV. Gel mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL01_axi_swell.html">Axisymmetric cylinder swelling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3.html">III. Finite thermo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03_finite_thermoelasticity/TE01_pe_constrained_heating.html">Constrained heating</a></li>
 
 
 
@@ -582,7 +486,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL02_3d_swell.html">Cube swelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03_finite_thermoelasticity/TE02_axi_thermoelas_stretch_adiabatic.html">Stretch-induced heating</a></li>
 
 
 
@@ -597,7 +501,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL03_pe_bilayer_beam.html">Bilayer beam swelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03_finite_thermoelasticity/TE03_axi_thermoelas_steps.html">Heating-induced contraction</a></li>
 
 
 
@@ -613,10 +517,10 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL04_thin_cylinder_buckling.html">Thin cylinder buckling</a></li>
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../03_finite_thermoelasticity/TE04_pe_bilayer.html">Thermoelastic bilayer bending</a></li>
 
 
 
@@ -627,12 +531,12 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL05_thick_cylinder_buckling.html">Thick cylinder buckling</a></li>
 
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../03_finite_thermoelasticity/TE05_axi_circular_plate_flux.html">Surface heat flux bending</a></li>
 
 
 
@@ -641,66 +545,13 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL06_thin_corona.html">Thin corona buckling</a></li>
 
 
 
 
 
 
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL07_pe_elliptical_inclusion.html">Elliptical inclusion swelling</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL08_sphere_swell.html">Sphere swelling</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL09_compression.html">Swollen cylinder compression</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL10_preSwollenCompression.html">Pre-swollen cylinder compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03_finite_thermoelasticity/TE06_solar_sail.html">“Solar sail” wrinkling</a></li>
 
 
 
@@ -717,8 +568,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part5.html">V. Gel thermo-mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL01_pe_square_swell.html">Thermal de-swelling of a square</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part4.html">IV. Gel mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL01_axi_swell.html">Axisymmetric cylinder swelling</a></li>
 
 
 
@@ -733,7 +584,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL02_3d_swell.html">Cube swelling</a></li>
 
 
 
@@ -748,22 +599,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL03_sphere_swell.html">Thermal de-swelling of a sphere</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL03_pe_bilayer_beam.html">Bilayer beam swelling</a></li>
 
 
 
@@ -779,10 +615,94 @@
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL04_thin_cylinder_buckling.html">Thin cylinder buckling</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL05_axi_packer.html">Swelling of a cylindrical packer</a></li>
 
 
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL05_thick_cylinder_buckling.html">Thick cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL06_thin_corona.html">Thin corona buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL07_pe_elliptical_inclusion.html">Elliptical inclusion swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL08_sphere_swell.html">Sphere swelling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL09_compression.html">Swollen cylinder compression</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../04_gel_mechanics/GEL10_preSwollenCompression.html">Pre-swollen cylinder compression</a></li>
 
 
 
@@ -799,8 +719,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../part6.html">VI. Cahn-Hilliard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="CH01_uncoupled_2D_evolution.html">Un-coupled phase separation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part5.html">V. Gel thermo-mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05_gel_thermomechanics/THERMOGEL01_pe_square_swell.html">Thermal de-swelling of a square</a></li>
 
 
 
@@ -815,13 +735,12 @@
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html">Slow-ramp lithiation</a></li>
 
 
 
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lithiation-delithiation</a></li>
 
 
 
@@ -831,25 +750,22 @@
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../05_gel_thermomechanics/THERMOGEL03_sphere_swell.html">Thermal de-swelling of a sphere</a></li>
 
 
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
 
 
 
 
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part7.html">VII. Electro-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE00_3D_pullin_instability.html">3D pull-in instability</a></li>
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
 
 
 
@@ -857,7 +773,6 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
 
 
 
@@ -867,223 +782,8 @@
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../05_gel_thermomechanics/THERMOGEL05_axi_packer.html">Swelling of a cylindrical packer</a></li>
 
-
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE02_2D_pe_pullin_instability.html">Plane strain pull-in instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE04_3D_helix_actuator.html">Helical actuator</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE05_3D_Gripper.html">Four-arm gripper</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE06_AXI_preStretch_membrane.html">Pre-stretched electro-elastic actuation</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part8.html">VIII. Electro-visco-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV01_3D_pullin_instability.html">3D pull-in instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_pullin_instability_rate_sweep.html">Rate-dependent pull-in instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV04_3D_helix_viscodynamic_actuation_step.html">Step-change helix actuation</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV07_3D_cylinder_buckle.html">Electro-elastic cylinder buckling</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV08_3D_six_arm_gripper.html">Six-arm gripper actuation</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV09_PE_crease.html">Electro-elastic “creasing” instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV10_3D_blister.html">Electro-elastic “blister” instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part9.html">IX. Electro-chemo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_01_pe_beam_free_curling.html">Free curling</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_02_pe_beam_blocking_force.html">Blocking force</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_03_pe_beam_sinusoidal_actuation.html">Sinusoidal actuation</a></li>
 
 
 
@@ -1101,8 +801,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part10.html">X. Hard-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM01_beam_bending.html">90-degree beam bending</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part6.html">VI. Cahn-Hilliard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CH01_uncoupled_2D_evolution.html">Un-coupled phase separation</a></li>
 
 
 
@@ -1115,20 +815,20 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM02_beam_reversal.html">180-degree beam bending</a></li>
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html">Slow-ramp lithiation</a></li>
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
 
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM03_cross_actuator.html">Cross-shaped actuator</a></li>
 
 
 
@@ -1139,11 +839,15 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM04_mechanical_impulse.html">Bistable arch impulse response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
 
 
 
 
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part7.html">VII. Electro-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE00_3D_pullin_instability.html">3D pull-in instability</a></li>
 
 
 
@@ -1152,10 +856,10 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM05_bfield_ramp.html">Linear ramp arch snap-through</a></li>
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
 
 
 
@@ -1165,9 +869,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM06_bfield_constant.html">Constant field arch snap-through</a></li>
 
 
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE02_2D_pe_pullin_instability.html">Plane strain pull-in instability</a></li>
 
 
 
@@ -1178,8 +882,8 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM07_bfield_triangle.html">Triangle-wave arch snap-through</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
 
 
 
@@ -1191,7 +895,33 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_hard_magnetics/HM08_hemisphere_eversion.html">Hemisphere eversion snap-through</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE04_3D_helix_actuator.html">Helical actuator</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE05_3D_Gripper.html">Four-arm gripper</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../07_dielectric_elastomers/DE06_AXI_preStretch_membrane.html">Pre-stretched electro-elastic actuation</a></li>
 
 
 
@@ -1206,8 +936,8 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part11.html">XI. Soft-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM01a_axi_sphere_5mm_ideal.html">“Ideal” sphere magnetostriction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part8.html">VIII. Electro-visco-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV01_3D_pullin_instability.html">3D pull-in instability</a></li>
 
 
 
@@ -1219,7 +949,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM01b_axi_sphere_5mm.html">Sphere magnetostriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV02_3D_pullin_instability_rate_sweep.html">Rate-dependent pull-in instability</a></li>
 
 
 
@@ -1231,7 +961,8 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02a_axi_cyl_0p80.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.80\)</span></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV03_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
 
 
 
@@ -1243,7 +974,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02b_axi_cyl_0p33.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.33\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV04_3D_helix_viscodynamic_actuation_step.html">Step-change helix actuation</a></li>
 
 
 
@@ -1255,7 +986,8 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM02c_axi_cyl_1p46.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 1.46\)</span></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV05_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
 
 
 
@@ -1267,7 +999,277 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../11_soft_magnetics/SM03_trilayer_beam.html">Tri-layer beam actuation</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV07_3D_cylinder_buckle.html">Electro-elastic cylinder buckling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV08_3D_six_arm_gripper.html">Six-arm gripper actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV09_PE_crease.html">Electro-elastic “creasing” instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../08_dielectric_viscoelastomers/DV10_3D_blister.html">Electro-elastic “blister” instability</a></li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part9.html">IX. Electro-chemo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09_ionic_polymer_metal_composites/IPMC_01_pe_beam_free_curling.html">Free curling</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../09_ionic_polymer_metal_composites/IPMC_02_pe_beam_blocking_force.html">Blocking force</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../09_ionic_polymer_metal_composites/IPMC_03_pe_beam_sinusoidal_actuation.html">Sinusoidal actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part10.html">X. Hard-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM01_beam_bending.html">90-degree beam bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM02_beam_reversal.html">180-degree beam bending</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM03_cross_actuator.html">Cross-shaped actuator</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM04_mechanical_impulse.html">Bistable arch impulse response</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM05_bfield_ramp.html">Linear ramp arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM06_bfield_constant.html">Constant field arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM07_bfield_triangle.html">Triangle-wave arch snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../10_hard_magnetics/HM08_hemisphere_eversion.html">Hemisphere eversion snap-through</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part11.html">XI. Soft-magnetic elastomers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11_soft_magnetics/SM01a_axi_sphere_5mm_ideal.html">“Ideal” sphere magnetostriction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../11_soft_magnetics/SM01b_axi_sphere_5mm.html">Sphere magnetostriction</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../11_soft_magnetics/SM02a_axi_cyl_0p80.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.80\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../11_soft_magnetics/SM02b_axi_cyl_0p33.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 0.33\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../11_soft_magnetics/SM02c_axi_cyl_1p46.html">Cylinder magnetostriction, <span class="math notranslate nohighlight">\(\ \ell/d = 1.46\)</span></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../11_soft_magnetics/SM03_trilayer_beam.html">Tri-layer beam actuation</a></li>
 
 
 
@@ -1357,7 +1359,7 @@
       
       
       
-      <li><a href="https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes/issues/new?title=Issue%20on%20page%20%2F06_Cahn_Hilliard/CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/SolidMechanicsCoupledTheories/FEniCSx_codes/issues/new?title=Issue%20on%20page%20%2F06_Cahn_Hilliard/modulus_subcases/CH03b_axi_ellipse_lithiation_step_change_Modulus_factor=0.2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1387,7 +1389,7 @@
       
       
       
-      <li><a href="../_sources/06_Cahn_Hilliard/CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.ipynb" target="_blank"
+      <li><a href="../../_sources/06_Cahn_Hilliard/modulus_subcases/CH03b_axi_ellipse_lithiation_step_change_Modulus_factor=0.2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1463,7 +1465,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lithiation-delithiation</h1>
+    <h1>Step-change lithiation with E/E_0=0.2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1473,7 +1475,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lithiation-delithiation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Step-change lithiation with <span class="math notranslate nohighlight">\(E/E_0=0.2\)</span></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software:</a></li>
@@ -1514,12 +1516,10 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lithiation-delithiation">
-<h1>Lithiation-delithiation<a class="headerlink" href="#lithiation-delithiation" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="step-change-lithiation-with-e-e-0-0-2">
+<h1>Step-change lithiation with <span class="math notranslate nohighlight">\(E/E_0=0.2\)</span><a class="headerlink" href="#step-change-lithiation-with-e-e-0-0-2" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Code for Cahn-Hilliard phase separation with mechanical coupling</p></li>
 <li><p>This is a two-dimensional  axisymmetric simulation</p></li>
-<li><p>Slow ramp lithiation-delithiation</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="degrees-of-freedom">
@@ -1725,7 +1725,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" src="../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" />
+<img alt="../../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" src="../../_images/776c2939275e3886253cc088e8fdf4a613dbd5a7f2a271b599ffd08ce934d526.png" />
 </div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
@@ -1759,10 +1759,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Material parameters after Di Leo et al. (2014)</span>
-<span class="n">factor</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
 <span class="c1">#</span>
-<span class="n">Gshear</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">49.8e3</span><span class="o">*</span><span class="n">factor</span><span class="p">))</span>    <span class="c1"># Shear modulus, MPa</span>
-<span class="n">Kbulk</span>    <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">83e3</span><span class="o">*</span><span class="n">factor</span><span class="p">))</span>      <span class="c1"># Bulk modulus, MPa</span>
+<span class="n">Gshear</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">49.8e3</span><span class="o">*</span><span class="mf">0.2</span><span class="p">))</span>    <span class="c1"># Shear modulus, MPa</span>
+<span class="n">Kbulk</span>    <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">83e3</span><span class="o">*</span><span class="mf">0.2</span><span class="p">))</span>      <span class="c1"># Bulk modulus, MPa</span>
 <span class="c1">#</span>
 <span class="n">Omega</span>    <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">4.05</span><span class="p">))</span>      <span class="c1"># Molar volume, um^3/pmol </span>
 <span class="n">D</span>        <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">))</span>      <span class="c1"># Diffusivity, um^2/s </span>
@@ -1782,10 +1781,10 @@
 <h1>Simulation time-control related parameters<a class="headerlink" href="#simulation-time-control-related-parameters" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>     <span class="o">=</span> <span class="mf">0.0</span>      <span class="c1"># initialization of time</span>
-<span class="n">tRamp</span> <span class="o">=</span> <span class="mi">1800</span>     <span class="c1"># Ramp time</span>
-<span class="n">Ttot</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">tRamp</span>  <span class="c1"># Total time</span>
-<span class="n">dt</span>    <span class="o">=</span> <span class="mf">1.0</span>      <span class="c1"># Initial time step size, here we will use adaptive time-stepping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>     <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># initialization of time</span>
+<span class="n">Ttot</span>  <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Total time, s</span>
+<span class="n">tRamp</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># ramp time, s</span>
+<span class="n">dt</span>    <span class="o">=</span> <span class="mf">0.01</span>   <span class="c1"># Initial time step size, here we will use adaptive time-stepping</span>
 
 <span class="c1"># Time step field, constant within body</span>
 <span class="n">dk</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
@@ -1800,10 +1799,10 @@
 
 <span class="k">def</span> <span class="nf">muRamp</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">&lt;=</span><span class="mi">1800</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="o">&lt;=</span><span class="mf">1.0</span><span class="p">):</span>
         <span class="n">mu_val</span> <span class="o">=</span> <span class="n">mu_i</span> <span class="o">+</span> <span class="p">(</span><span class="n">mu_f</span> <span class="o">-</span> <span class="n">mu_i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="n">tRamp</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">mu_val</span> <span class="o">=</span> <span class="n">mu_f</span> <span class="o">-</span> <span class="p">(</span><span class="n">mu_f</span> <span class="o">-</span> <span class="n">mu_i</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span><span class="n">tRamp</span><span class="p">)</span><span class="o">/</span><span class="n">tRamp</span><span class="p">)</span>
+        <span class="n">mu_val</span> <span class="o">=</span> <span class="n">mu_f</span>
 
     <span class="k">return</span> <span class="n">mu_val</span>
 </pre></div>
@@ -2077,32 +2076,24 @@
 <span class="c1">#</span>
 <span class="n">mu_ext_cons</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">muRamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
 
-<span class="c1">#  Define boundary flux :</span>
-<span class="n">j_flux</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">mu_ext_cons</span>
-
-<span class="c1"># # # We need to work on this:</span>
-<span class="c1"># # # Calculate the spatial species  flux:</span>
-<span class="c1"># j_spat = mu - mu_cons</span>
-<span class="c1"># #</span>
-<span class="c1"># Fcof = J*inv(F.T)                 # Cofactor of F</span>
-<span class="c1"># nvec  =  dot(Fcof,n)              # Recall that we had defined: n = ufl.as_vector([n2D[0], n2D[1], 0.0])</span>
-<span class="c1"># da_mat  = sqrt(inner(nvec, nvec)) # Areal jacobian</span>
-<span class="c1"># #  Calculate the configuration-dependent referential spcies  in-flux (note the minus sign)</span>
-<span class="c1"># jBar =   j_flux * da_mat</span>
-
+<span class="c1"># Calculate the  spatial species boundary flux:</span>
+<span class="n">j_spat_flux</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">mu_ext_cons</span>
+<span class="c1">#</span>
+<span class="n">Fcof</span> <span class="o">=</span> <span class="n">J</span><span class="o">*</span><span class="n">inv</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>                 <span class="c1"># Cofactor of F</span>
+<span class="n">nvec</span>  <span class="o">=</span>  <span class="n">dot</span><span class="p">(</span><span class="n">Fcof</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>              <span class="c1"># Recall that we had defined: n = ufl.as_vector([n2D[0], n2D[1], 0.0])</span>
+<span class="n">da_mat</span>  <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">inner</span><span class="p">(</span><span class="n">nvec</span><span class="p">,</span> <span class="n">nvec</span><span class="p">))</span> <span class="c1"># Areal jacobian</span>
+<span class="c1">#</span>
+<span class="c1"># Calculate the configuration-dependent referential spcies flux:</span>
+<span class="n">jBar</span> <span class="o">=</span>  <span class="n">j_spat_flux</span> <span class="o">*</span> <span class="n">da_mat</span>
 
 <span class="c1"># The weak form for the equation of motion</span>
 <span class="n">Res_0</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">Piola</span><span class="p">,</span> <span class="n">axi_grad_vector</span><span class="p">(</span><span class="n">u_test</span><span class="p">))</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span>
 
 <span class="c1"># The weak form for the mass balance of mobile species    </span>
 <span class="n">Res_1</span> <span class="o">=</span> <span class="n">dot</span><span class="p">((</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_old</span><span class="p">)</span><span class="o">/</span><span class="n">dk</span><span class="p">,</span> <span class="n">mu_test</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span> \
-        <span class="o">-</span>  <span class="n">Omega</span><span class="o">*</span><span class="n">dot</span><span class="p">(</span><span class="n">Jmat</span> <span class="p">,</span> <span class="n">axi_grad_scalar</span><span class="p">(</span><span class="n">mu_test</span><span class="p">)</span> <span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span> \
-        <span class="o">+</span> <span class="n">Omega</span><span class="o">*</span><span class="n">dot</span><span class="p">(</span><span class="n">j_flux</span><span class="p">,</span> <span class="n">mu_test</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ds</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+            <span class="o">-</span>  <span class="n">Omega</span><span class="o">*</span><span class="n">dot</span><span class="p">(</span><span class="n">Jmat</span> <span class="p">,</span> <span class="n">axi_grad_scalar</span><span class="p">(</span><span class="n">mu_test</span><span class="p">)</span> <span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span> \
+            <span class="o">+</span> <span class="n">Omega</span><span class="o">*</span><span class="n">dot</span><span class="p">(</span><span class="n">jBar</span><span class="p">,</span> <span class="n">mu_test</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ds</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 
-<span class="c1"># The weak form for the mass balance of mobile species    </span>
-<span class="c1"># Res_1 = dot((c - c_old)/dk, mu_test)*x[0]*dx \</span>
-<span class="c1">#         -  Omega*dot(Jmat , axi_grad_scalar(mu_test) )*x[0]*dx \</span>
-<span class="c1">#         + Omega*dot(jBar, mu_test)*x[0]*ds(7)</span>
 
 <span class="c1"># The weak form for the concentration</span>
 <span class="n">Res_2</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="n">fc</span><span class="o">/</span><span class="n">RT</span><span class="p">,</span> <span class="n">c_test</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span> \
@@ -2144,7 +2135,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># results file name</span>
-<span class="n">results_name</span> <span class="o">=</span> <span class="s2">&quot;axi_ellipse_lithiation_delithiation_mod_factor=1.0&quot;</span>
+<span class="n">results_name</span> <span class="o">=</span> <span class="s2">&quot;axi_ellipse_lithiation_step_change_mod_factor=0.2&quot;</span>
 
 <span class="c1"># Function space for projection of results</span>
 <span class="n">U1</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;DG&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,))</span>  <span class="c1"># For 2d vector</span>
@@ -2270,13 +2261,12 @@
 <h1>Infrastructure for pulling out time history data (displacement, force, etc.)<a class="headerlink" href="#infrastructure-for-pulling-out-time-history-data-displacement-force-etc" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify point for reporting the chemical potential.</span>
-<span class="c1"># The coordinates belwo are for the outer point of the minor axis of the ellipse</span>
-<span class="n">pointForDisp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">b0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Identify point for reporting temperature</span>
+<span class="c1"># pointForDisp = np.array([r_out,L0/2,0.0])</span>
 
-<span class="n">bb_tree</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">bb_tree</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
-<span class="n">cell_candidates</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">compute_collisions_points</span><span class="p">(</span><span class="n">bb_tree</span><span class="p">,</span> <span class="n">pointForDisp</span><span class="p">)</span>
-<span class="n">colliding_cells</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">compute_colliding_cells</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">cell_candidates</span><span class="p">,</span> <span class="n">pointForDisp</span><span class="p">)</span><span class="o">.</span><span class="n">array</span>
+<span class="c1"># bb_tree = dolfinx.geometry.bb_tree(domain,domain.topology.dim)</span>
+<span class="c1"># cell_candidates = dolfinx.geometry.compute_collisions_points(bb_tree, pointForDisp)</span>
+<span class="c1"># colliding_cells = dolfinx.geometry.compute_colliding_cells(domain, cell_candidates, pointForDisp).array</span>
 
 <span class="c1"># Form for evaluating the state of charge  SOC at each step</span>
 <span class="c1"># ( SOC = Tot_chg / Tot_vol )</span>
@@ -2374,10 +2364,10 @@
 <span class="n">totSteps</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="n">timeHist0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span>
 <span class="n">timeHist1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span> 
-<span class="n">timeHist2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span> 
+<span class="c1"># # timeHist2 = np.zeros(shape=[totSteps]) </span>
 <span class="c1"># # timeHist3 = np.zeros(shape=[totSteps])</span>
 <span class="c1"># # #</span>
-<span class="n">timeHist1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mu_i</span> <span class="c1"># Initialize the chemical potential</span>
+<span class="c1"># # timeHist3[0] = mu0 # Initialize the chemical potential</span>
 
 <span class="c1"># Initialize a counter for reporting data</span>
 <span class="n">ii</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2437,7 +2427,7 @@
         <span class="c1">#</span>
         <span class="c1"># If the newton solver takes 2 or less iterations, </span>
         <span class="c1"># increase the time step by a factor of 1.5:</span>
-        <span class="k">if</span> <span class="p">((</span><span class="nb">iter</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">dt</span><span class="o">&lt;</span><span class="mi">25</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nb">iter</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">dt</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)):</span>
             <span class="n">dt</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">dt</span>
             <span class="n">dk</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">dt</span>
         <span class="c1"># If the newton solver takes 5 or more iterations, </span>
@@ -2454,11 +2444,9 @@
         <span class="c1"># Increment counter</span>
         <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
         
-        
         <span class="c1"># Store time history variables</span>
         <span class="n">timeHist0</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span> <span class="c1"># current time</span>
-        <span class="n">timeHist1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="n">b0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span><span class="n">colliding_cells</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># time history of chemical potetial at aouter boundary</span>
-        <span class="n">timeHist2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">fem</span><span class="o">.</span><span class="n">assemble_scalar</span><span class="p">(</span><span class="n">Tot_chg</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">Tot_vol_val</span> <span class="c1"># time history of State of charge</span>
+        <span class="n">timeHist1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">comm</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">fem</span><span class="o">.</span><span class="n">assemble_scalar</span><span class="p">(</span><span class="n">Tot_chg</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">Tot_vol_val</span> <span class="c1"># time history of State of charge</span>
     
     <span class="c1"># If solver doesn&#39;t converge we have to back up in time,</span>
     <span class="c1"># cut the size of the time step, and try solving again.</span>
@@ -2510,1170 +2498,401 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------
 Simulation start
 ------------------------------------
-Step: Lithiate |   Increment: 0 | Iterations: 3
-Simulation Time: 1.0 s | dt: 1.0 s
+Step: Lithiate |   Increment: 0 | Iterations: 4
+Simulation Time: 0.01 s | dt: 0.01 s
 
-Step: Lithiate |   Increment: 1 | Iterations: 3
-Simulation Time: 2.5 s | dt: 1.5 s
+Step: Lithiate |   Increment: 1 | Iterations: 4
+Simulation Time: 0.03 s | dt: 0.015 s
 
-Step: Lithiate |   Increment: 2 | Iterations: 3
-Simulation Time: 4.75 s | dt: 2.25 s
+Step: Lithiate |   Increment: 2 | Iterations: 4
+Simulation Time: 0.05 s | dt: 0.022 s
 
-Step: Lithiate |   Increment: 3 | Iterations: 3
-Simulation Time: 8.12 s | dt: 3.375 s
+Step: Lithiate |   Increment: 3 | Iterations: 4
+Simulation Time: 0.08 s | dt: 0.034 s
 
-Step: Lithiate |   Increment: 4 | Iterations: 4
-Simulation Time: 13.19 s | dt: 5.062 s
+Step: Lithiate |   Increment: 4 | Iterations: 5
+Simulation Time: 0.13 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 5 | Iterations: 4
-Simulation Time: 20.78 s | dt: 7.594 s
+Step: Lithiate |   Increment: 5 | Iterations: 5
+Simulation Time: 0.18 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 6 | Iterations: 4
-Simulation Time: 32.17 s | dt: 11.391 s
+Step: Lithiate |   Increment: 6 | Iterations: 5
+Simulation Time: 0.23 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 7 | Iterations: 4
-Simulation Time: 49.26 s | dt: 17.086 s
+Step: Lithiate |   Increment: 7 | Iterations: 5
+Simulation Time: 0.28 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 8 | Iterations: 4
-Simulation Time: 74.89 s | dt: 25.629 s
+Step: Lithiate |   Increment: 8 | Iterations: 5
+Simulation Time: 0.33 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 9 | Iterations: 4
-Simulation Time: 100.52 s | dt: 25.629 s
+Step: Lithiate |   Increment: 9 | Iterations: 5
+Simulation Time: 0.39 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 10 | Iterations: 4
-Simulation Time: 126.14 s | dt: 25.629 s
+Step: Lithiate |   Increment: 10 | Iterations: 5
+Simulation Time: 0.44 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 11 | Iterations: 4
-Simulation Time: 151.77 s | dt: 25.629 s
+Step: Lithiate |   Increment: 11 | Iterations: 5
+Simulation Time: 0.49 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 12 | Iterations: 4
-Simulation Time: 177.4 s | dt: 25.629 s
+Step: Lithiate |   Increment: 12 | Iterations: 5
+Simulation Time: 0.54 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 13 | Iterations: 4
-Simulation Time: 203.03 s | dt: 25.629 s
+Step: Lithiate |   Increment: 13 | Iterations: 5
+Simulation Time: 0.59 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 14 | Iterations: 4
-Simulation Time: 228.66 s | dt: 25.629 s
+Step: Lithiate |   Increment: 14 | Iterations: 5
+Simulation Time: 0.64 s | dt: 0.051 s
 
-Step: Lithiate |   Increment: 15 | Iterations: 4
-Simulation Time: 254.29 s | dt: 25.629 s
+Step: Lithiate |   Increment: 15 | Iterations: 9
+Simulation Time: 0.69 s | dt: 0.051 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-06-20 21:42:58.193 (  12.019s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 16 | Iterations: 5
+Simulation Time: 0.7 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 16 | Iterations: 4
-Simulation Time: 279.92 s | dt: 25.629 s
+Step: Lithiate |   Increment: 17 | Iterations: 6
+Simulation Time: 0.71 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 17 | Iterations: 4
-Simulation Time: 305.55 s | dt: 25.629 s
+Step: Lithiate |   Increment: 18 | Iterations: 5
+Simulation Time: 0.73 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 18 | Iterations: 4
-Simulation Time: 331.18 s | dt: 25.629 s
+Step: Lithiate |   Increment: 19 | Iterations: 5
+Simulation Time: 0.74 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 19 | Iterations: 4
-Simulation Time: 356.8 s | dt: 25.629 s
+Step: Lithiate |   Increment: 20 | Iterations: 5
+Simulation Time: 0.75 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 20 | Iterations: 4
-Simulation Time: 382.43 s | dt: 25.629 s
+Step: Lithiate |   Increment: 21 | Iterations: 5
+Simulation Time: 0.76 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 21 | Iterations: 4
-Simulation Time: 408.06 s | dt: 25.629 s
+Step: Lithiate |   Increment: 22 | Iterations: 5
+Simulation Time: 0.78 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 22 | Iterations: 4
-Simulation Time: 433.69 s | dt: 25.629 s
+Step: Lithiate |   Increment: 23 | Iterations: 5
+Simulation Time: 0.79 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 23 | Iterations: 4
-Simulation Time: 459.32 s | dt: 25.629 s
+Step: Lithiate |   Increment: 24 | Iterations: 5
+Simulation Time: 0.8 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 24 | Iterations: 4
-Simulation Time: 484.95 s | dt: 25.629 s
-
-Step: Lithiate |   Increment: 25 | Iterations: 4
-Simulation Time: 510.58 s | dt: 25.629 s
+Step: Lithiate |   Increment: 25 | Iterations: 5
+Simulation Time: 0.82 s | dt: 0.013 s
 
 Step: Lithiate |   Increment: 26 | Iterations: 4
-Simulation Time: 536.21 s | dt: 25.629 s
+Simulation Time: 0.83 s | dt: 0.013 s
 
-Step: Lithiate |   Increment: 27 | Iterations: 4
-Simulation Time: 561.84 s | dt: 25.629 s
+Step: Lithiate |   Increment: 27 | Iterations: 5
+Simulation Time: 0.85 s | dt: 0.019 s
 
 Step: Lithiate |   Increment: 28 | Iterations: 4
-Simulation Time: 587.46 s | dt: 25.629 s
+Simulation Time: 0.87 s | dt: 0.019 s
 
-Step: Lithiate |   Increment: 29 | Iterations: 4
-Simulation Time: 613.09 s | dt: 25.629 s
+Step: Lithiate |   Increment: 29 | Iterations: 5
+Simulation Time: 0.89 s | dt: 0.028 s
 
-Step: Lithiate |   Increment: 30 | Iterations: 4
-Simulation Time: 638.72 s | dt: 25.629 s
+Step: Lithiate |   Increment: 30 | Iterations: 5
+Simulation Time: 0.92 s | dt: 0.028 s
 
 Step: Lithiate |   Increment: 31 | Iterations: 4
-Simulation Time: 664.35 s | dt: 25.629 s
+Simulation Time: 0.95 s | dt: 0.028 s
 
-Step: Lithiate |   Increment: 32 | Iterations: 4
-Simulation Time: 689.98 s | dt: 25.629 s
+Step: Lithiate |   Increment: 32 | Iterations: 5
+Simulation Time: 0.99 s | dt: 0.043 s
 
 Step: Lithiate |   Increment: 33 | Iterations: 4
-Simulation Time: 715.61 s | dt: 25.629 s
+Simulation Time: 1.04 s | dt: 0.043 s
 
-Step: Lithiate |   Increment: 34 | Iterations: 4
-Simulation Time: 741.24 s | dt: 25.629 s
+Step: Lithiate |   Increment: 34 | Iterations: 5
+Simulation Time: 1.1 s | dt: 0.064 s
 
 Step: Lithiate |   Increment: 35 | Iterations: 4
-Simulation Time: 766.87 s | dt: 25.629 s
+Simulation Time: 1.16 s | dt: 0.064 s
 
-Step: Lithiate |   Increment: 36 | Iterations: 4
-Simulation Time: 792.5 s | dt: 25.629 s
+Step: Lithiate |   Increment: 36 | Iterations: 5
+Simulation Time: 1.26 s | dt: 0.096 s
 
-Step: Lithiate |   Increment: 37 | Iterations: 4
-Simulation Time: 818.12 s | dt: 25.629 s
+Step: Lithiate |   Increment: 37 | Iterations: 5
+Simulation Time: 1.36 s | dt: 0.096 s
 
-Step: Lithiate |   Increment: 38 | Iterations: 4
-Simulation Time: 843.75 s | dt: 25.629 s
+Step: Lithiate |   Increment: 38 | Iterations: 5
+Simulation Time: 1.45 s | dt: 0.096 s
 
-Step: Lithiate |   Increment: 39 | Iterations: 4
-Simulation Time: 869.38 s | dt: 25.629 s
+Step: Lithiate |   Increment: 39 | Iterations: 5
+Simulation Time: 1.55 s | dt: 0.096 s
 
-Step: Lithiate |   Increment: 40 | Iterations: 4
-Simulation Time: 895.01 s | dt: 25.629 s
+Step: Lithiate |   Increment: 40 | Iterations: 5
+Simulation Time: 1.65 s | dt: 0.096 s
 
-Step: Lithiate |   Increment: 41 | Iterations: 4
-Simulation Time: 920.64 s | dt: 25.629 s
+Step: Lithiate |   Increment: 41 | Iterations: 5
+Simulation Time: 1.74 s | dt: 0.096 s
 
-Step: Lithiate |   Increment: 42 | Iterations: 4
-Simulation Time: 946.27 s | dt: 25.629 s
+Step: Lithiate |   Increment: 42 | Iterations: 5
+Simulation Time: 1.84 s | dt: 0.096 s
 
 Step: Lithiate |   Increment: 43 | Iterations: 4
-Simulation Time: 971.9 s | dt: 25.629 s
+Simulation Time: 1.93 s | dt: 0.096 s
 
 Step: Lithiate |   Increment: 44 | Iterations: 5
-Simulation Time: 997.53 s | dt: 25.629 s
+Simulation Time: 2.08 s | dt: 0.144 s
 
 Step: Lithiate |   Increment: 45 | Iterations: 5
-Simulation Time: 1023.16 s | dt: 25.629 s
+Simulation Time: 2.22 s | dt: 0.144 s
 
 Step: Lithiate |   Increment: 46 | Iterations: 5
-Simulation Time: 1048.79 s | dt: 25.629 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:19.446 (  17.137s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 47 | Iterations: 6
-Simulation Time: 1061.6 s | dt: 12.814 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:20.654 (  18.345s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-2025-02-13 16:18:22.136 (  19.827s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 48 | Iterations: 5
-Simulation Time: 1064.8 s | dt: 3.204 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:24.666 (  22.357s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 49 | Iterations: 5
-Simulation Time: 1066.41 s | dt: 1.602 s
+Simulation Time: 2.37 s | dt: 0.144 s
 
-Step: Lithiate |   Increment: 50 | Iterations: 6
-Simulation Time: 1068.01 s | dt: 1.602 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:26.142 (  23.833s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-2025-02-13 16:18:27.217 (  24.908s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 51 | Iterations: 4
-Simulation Time: 1068.41 s | dt: 0.4 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:28.654 (  26.345s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 52 | Iterations: 4
-Simulation Time: 1068.71 s | dt: 0.3 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:29.882 (  27.573s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 53 | Iterations: 4
-Simulation Time: 1068.93 s | dt: 0.225 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:31.117 (  28.808s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 54 | Iterations: 4
-Simulation Time: 1069.1 s | dt: 0.169 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:32.267 (  29.958s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 55 | Iterations: 4
-Simulation Time: 1069.23 s | dt: 0.127 s
+Step: Lithiate |   Increment: 47 | Iterations: 5
+Simulation Time: 2.51 s | dt: 0.144 s
 
-Step: Lithiate |   Increment: 56 | Iterations: 7
-Simulation Time: 1069.42 s | dt: 0.19 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:18:33.694 (  31.385s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 57 | Iterations: 6
-Simulation Time: 1069.51 s | dt: 0.095 s
+Step: Lithiate |   Increment: 48 | Iterations: 5
+Simulation Time: 2.65 s | dt: 0.144 s
 
-Step: Lithiate |   Increment: 58 | Iterations: 6
-Simulation Time: 1069.61 s | dt: 0.095 s
+Step: Lithiate |   Increment: 49 | Iterations: 5
+Simulation Time: 2.8 s | dt: 0.144 s
 
-Step: Lithiate |   Increment: 59 | Iterations: 6
-Simulation Time: 1069.7 s | dt: 0.095 s
+Step: Lithiate |   Increment: 50 | Iterations: 5
+Simulation Time: 2.94 s | dt: 0.144 s
 
-Step: Lithiate |   Increment: 60 | Iterations: 6
-Simulation Time: 1069.8 s | dt: 0.095 s
+Step: Lithiate |   Increment: 51 | Iterations: 5
+Simulation Time: 3.09 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 52 | Iterations: 5
+Simulation Time: 3.23 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 53 | Iterations: 5
+Simulation Time: 3.38 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 54 | Iterations: 5
+Simulation Time: 3.52 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 55 | Iterations: 5
+Simulation Time: 3.66 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 56 | Iterations: 5
+Simulation Time: 3.81 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 57 | Iterations: 5
+Simulation Time: 3.95 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 58 | Iterations: 5
+Simulation Time: 4.1 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 59 | Iterations: 5
+Simulation Time: 4.24 s | dt: 0.144 s
+
+Step: Lithiate |   Increment: 60 | Iterations: 5
+Simulation Time: 4.38 s | dt: 0.144 s
 
 Step: Lithiate |   Increment: 61 | Iterations: 5
-Simulation Time: 1069.89 s | dt: 0.095 s
+Simulation Time: 4.53 s | dt: 0.144 s
 
 Step: Lithiate |   Increment: 62 | Iterations: 5
-Simulation Time: 1069.99 s | dt: 0.095 s
+Simulation Time: 4.67 s | dt: 0.144 s
 
 Step: Lithiate |   Increment: 63 | Iterations: 5
-Simulation Time: 1070.08 s | dt: 0.095 s
+Simulation Time: 4.82 s | dt: 0.144 s
 
-Step: Lithiate |   Increment: 64 | Iterations: 5
-Simulation Time: 1070.18 s | dt: 0.095 s
+Step: Lithiate |   Increment: 64 | Iterations: 4
+Simulation Time: 4.96 s | dt: 0.144 s
 
 Step: Lithiate |   Increment: 65 | Iterations: 5
-Simulation Time: 1070.27 s | dt: 0.095 s
+Simulation Time: 5.18 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 66 | Iterations: 5
-Simulation Time: 1070.37 s | dt: 0.095 s
+Simulation Time: 5.39 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 67 | Iterations: 5
-Simulation Time: 1070.46 s | dt: 0.095 s
+Simulation Time: 5.61 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 68 | Iterations: 5
-Simulation Time: 1070.56 s | dt: 0.095 s
+Simulation Time: 5.83 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 69 | Iterations: 5
-Simulation Time: 1070.65 s | dt: 0.095 s
+Simulation Time: 6.04 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 70 | Iterations: 5
-Simulation Time: 1070.75 s | dt: 0.095 s
+Simulation Time: 6.26 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 71 | Iterations: 5
-Simulation Time: 1070.84 s | dt: 0.095 s
+Simulation Time: 6.47 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 72 | Iterations: 5
-Simulation Time: 1070.94 s | dt: 0.095 s
+Simulation Time: 6.69 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 73 | Iterations: 5
-Simulation Time: 1071.03 s | dt: 0.095 s
+Simulation Time: 6.91 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 74 | Iterations: 5
-Simulation Time: 1071.13 s | dt: 0.095 s
+Simulation Time: 7.12 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 75 | Iterations: 5
-Simulation Time: 1071.22 s | dt: 0.095 s
+Simulation Time: 7.34 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 76 | Iterations: 5
-Simulation Time: 1071.32 s | dt: 0.095 s
+Simulation Time: 7.56 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 77 | Iterations: 5
-Simulation Time: 1071.41 s | dt: 0.095 s
+Simulation Time: 7.77 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 78 | Iterations: 5
-Simulation Time: 1071.51 s | dt: 0.095 s
+Simulation Time: 7.99 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 79 | Iterations: 5
-Simulation Time: 1071.6 s | dt: 0.095 s
+Simulation Time: 8.2 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 80 | Iterations: 5
-Simulation Time: 1071.7 s | dt: 0.095 s
+Simulation Time: 8.42 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 81 | Iterations: 5
-Simulation Time: 1071.79 s | dt: 0.095 s
+Simulation Time: 8.64 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 82 | Iterations: 5
-Simulation Time: 1071.89 s | dt: 0.095 s
+Simulation Time: 8.85 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 83 | Iterations: 5
-Simulation Time: 1071.98 s | dt: 0.095 s
+Simulation Time: 9.07 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 84 | Iterations: 5
-Simulation Time: 1072.08 s | dt: 0.095 s
+Simulation Time: 9.29 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 85 | Iterations: 5
-Simulation Time: 1072.17 s | dt: 0.095 s
+Simulation Time: 9.5 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 86 | Iterations: 5
-Simulation Time: 1072.27 s | dt: 0.095 s
+Simulation Time: 9.72 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 87 | Iterations: 5
-Simulation Time: 1072.36 s | dt: 0.095 s
+Simulation Time: 9.93 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 88 | Iterations: 5
-Simulation Time: 1072.46 s | dt: 0.095 s
+Simulation Time: 10.15 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 89 | Iterations: 5
-Simulation Time: 1072.55 s | dt: 0.095 s
+Simulation Time: 10.37 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 90 | Iterations: 5
-Simulation Time: 1072.65 s | dt: 0.095 s
+Simulation Time: 10.58 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 91 | Iterations: 5
-Simulation Time: 1072.74 s | dt: 0.095 s
+Simulation Time: 10.8 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 92 | Iterations: 5
-Simulation Time: 1072.84 s | dt: 0.095 s
+Simulation Time: 11.02 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 93 | Iterations: 5
-Simulation Time: 1072.93 s | dt: 0.095 s
+Simulation Time: 11.23 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 94 | Iterations: 5
-Simulation Time: 1073.03 s | dt: 0.095 s
+Simulation Time: 11.45 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 95 | Iterations: 5
-Simulation Time: 1073.12 s | dt: 0.095 s
+Simulation Time: 11.66 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 96 | Iterations: 5
-Simulation Time: 1073.22 s | dt: 0.095 s
+Simulation Time: 11.88 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 97 | Iterations: 5
-Simulation Time: 1073.31 s | dt: 0.095 s
+Simulation Time: 12.1 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 98 | Iterations: 5
-Simulation Time: 1073.41 s | dt: 0.095 s
+Simulation Time: 12.31 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 99 | Iterations: 5
-Simulation Time: 1073.5 s | dt: 0.095 s
+Simulation Time: 12.53 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 100 | Iterations: 5
-Simulation Time: 1073.6 s | dt: 0.095 s
+Simulation Time: 12.75 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 101 | Iterations: 5
-Simulation Time: 1073.69 s | dt: 0.095 s
+Simulation Time: 12.96 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 102 | Iterations: 5
-Simulation Time: 1073.79 s | dt: 0.095 s
+Simulation Time: 13.18 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 103 | Iterations: 5
-Simulation Time: 1073.88 s | dt: 0.095 s
+Simulation Time: 13.39 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 104 | Iterations: 5
-Simulation Time: 1073.98 s | dt: 0.095 s
+Simulation Time: 13.61 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 105 | Iterations: 5
-Simulation Time: 1074.08 s | dt: 0.095 s
+Simulation Time: 13.83 s | dt: 0.216 s
 
-Step: Lithiate |   Increment: 106 | Iterations: 4
-Simulation Time: 1074.17 s | dt: 0.095 s
+Step: Lithiate |   Increment: 106 | Iterations: 5
+Simulation Time: 14.04 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 107 | Iterations: 5
-Simulation Time: 1074.31 s | dt: 0.143 s
+Simulation Time: 14.26 s | dt: 0.216 s
 
-Step: Lithiate |   Increment: 108 | Iterations: 5
-Simulation Time: 1074.46 s | dt: 0.143 s
+Step: Lithiate |   Increment: 108 | Iterations: 6
+Simulation Time: 14.48 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 109 | Iterations: 5
-Simulation Time: 1074.6 s | dt: 0.143 s
+Simulation Time: 14.69 s | dt: 0.216 s
 
-Step: Lithiate |   Increment: 110 | Iterations: 5
-Simulation Time: 1074.74 s | dt: 0.143 s
+Step: Lithiate |   Increment: 110 | Iterations: 6
+Simulation Time: 14.91 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 111 | Iterations: 5
-Simulation Time: 1074.88 s | dt: 0.143 s
+Simulation Time: 15.12 s | dt: 0.216 s
 
 Step: Lithiate |   Increment: 112 | Iterations: 5
-Simulation Time: 1075.03 s | dt: 0.143 s
+Simulation Time: 15.34 s | dt: 0.216 s
 
-Step: Lithiate |   Increment: 113 | Iterations: 5
-Simulation Time: 1075.17 s | dt: 0.143 s
+Step: Lithiate |   Increment: 113 | Iterations: 4
+Simulation Time: 15.56 s | dt: 0.216 s
 
-Step: Lithiate |   Increment: 114 | Iterations: 5
-Simulation Time: 1075.31 s | dt: 0.143 s
+Step: Lithiate |   Increment: 114 | Iterations: 4
+Simulation Time: 15.88 s | dt: 0.324 s
 
-Step: Lithiate |   Increment: 115 | Iterations: 5
-Simulation Time: 1075.45 s | dt: 0.143 s
+Step: Lithiate |   Increment: 115 | Iterations: 4
+Simulation Time: 16.37 s | dt: 0.487 s
 
-Step: Lithiate |   Increment: 116 | Iterations: 5
-Simulation Time: 1075.6 s | dt: 0.143 s
+Step: Lithiate |   Increment: 116 | Iterations: 4
+Simulation Time: 17.1 s | dt: 0.73 s
 
-Step: Lithiate |   Increment: 117 | Iterations: 5
-Simulation Time: 1075.74 s | dt: 0.143 s
+Step: Lithiate |   Increment: 117 | Iterations: 4
+Simulation Time: 18.19 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 118 | Iterations: 5
-Simulation Time: 1075.88 s | dt: 0.143 s
+Step: Lithiate |   Increment: 118 | Iterations: 4
+Simulation Time: 19.29 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 119 | Iterations: 5
-Simulation Time: 1076.02 s | dt: 0.143 s
+Step: Lithiate |   Increment: 119 | Iterations: 4
+Simulation Time: 20.38 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 120 | Iterations: 5
-Simulation Time: 1076.17 s | dt: 0.143 s
+Step: Lithiate |   Increment: 120 | Iterations: 4
+Simulation Time: 21.48 s | dt: 1.095 s
 
 Step: Lithiate |   Increment: 121 | Iterations: 4
-Simulation Time: 1076.31 s | dt: 0.143 s
+Simulation Time: 22.57 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 122 | Iterations: 5
-Simulation Time: 1076.52 s | dt: 0.214 s
+Step: Lithiate |   Increment: 122 | Iterations: 4
+Simulation Time: 23.67 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 123 | Iterations: 5
-Simulation Time: 1076.74 s | dt: 0.214 s
+Step: Lithiate |   Increment: 123 | Iterations: 3
+Simulation Time: 24.76 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 124 | Iterations: 5
-Simulation Time: 1076.95 s | dt: 0.214 s
+Step: Lithiate |   Increment: 124 | Iterations: 3
+Simulation Time: 25.86 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 125 | Iterations: 5
-Simulation Time: 1077.16 s | dt: 0.214 s
+Step: Lithiate |   Increment: 125 | Iterations: 3
+Simulation Time: 26.95 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 126 | Iterations: 5
-Simulation Time: 1077.38 s | dt: 0.214 s
+Step: Lithiate |   Increment: 126 | Iterations: 3
+Simulation Time: 28.05 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 127 | Iterations: 5
-Simulation Time: 1077.59 s | dt: 0.214 s
+Step: Lithiate |   Increment: 127 | Iterations: 3
+Simulation Time: 29.14 s | dt: 1.095 s
 
-Step: Lithiate |   Increment: 128 | Iterations: 5
-Simulation Time: 1077.8 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 129 | Iterations: 5
-Simulation Time: 1078.02 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 130 | Iterations: 5
-Simulation Time: 1078.23 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 131 | Iterations: 5
-Simulation Time: 1078.45 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 132 | Iterations: 5
-Simulation Time: 1078.66 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 133 | Iterations: 5
-Simulation Time: 1078.87 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 134 | Iterations: 5
-Simulation Time: 1079.09 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 135 | Iterations: 5
-Simulation Time: 1079.3 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 136 | Iterations: 5
-Simulation Time: 1079.52 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 137 | Iterations: 5
-Simulation Time: 1079.73 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 138 | Iterations: 5
-Simulation Time: 1079.94 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 139 | Iterations: 5
-Simulation Time: 1080.16 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 140 | Iterations: 5
-Simulation Time: 1080.37 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 141 | Iterations: 5
-Simulation Time: 1080.58 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 142 | Iterations: 5
-Simulation Time: 1080.8 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 143 | Iterations: 5
-Simulation Time: 1081.01 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 144 | Iterations: 5
-Simulation Time: 1081.23 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 145 | Iterations: 5
-Simulation Time: 1081.44 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 146 | Iterations: 5
-Simulation Time: 1081.65 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 147 | Iterations: 5
-Simulation Time: 1081.87 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 148 | Iterations: 5
-Simulation Time: 1082.08 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 149 | Iterations: 5
-Simulation Time: 1082.3 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 150 | Iterations: 5
-Simulation Time: 1082.51 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 151 | Iterations: 6
-Simulation Time: 1082.72 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 152 | Iterations: 6
-Simulation Time: 1082.94 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 153 | Iterations: 7
-Simulation Time: 1083.15 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 154 | Iterations: 5
-Simulation Time: 1083.36 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 155 | Iterations: 5
-Simulation Time: 1083.58 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 156 | Iterations: 5
-Simulation Time: 1083.79 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 157 | Iterations: 4
-Simulation Time: 1084.01 s | dt: 0.214 s
-
-Step: Lithiate |   Increment: 158 | Iterations: 4
-Simulation Time: 1084.33 s | dt: 0.321 s
-
-Step: Lithiate |   Increment: 159 | Iterations: 4
-Simulation Time: 1084.81 s | dt: 0.481 s
-
-Step: Lithiate |   Increment: 160 | Iterations: 4
-Simulation Time: 1085.53 s | dt: 0.722 s
-
-Step: Lithiate |   Increment: 161 | Iterations: 4
-Simulation Time: 1086.61 s | dt: 1.082 s
-
-Step: Lithiate |   Increment: 162 | Iterations: 4
-Simulation Time: 1088.24 s | dt: 1.624 s
-
-Step: Lithiate |   Increment: 163 | Iterations: 4
-Simulation Time: 1090.67 s | dt: 2.435 s
-
-Step: Lithiate |   Increment: 164 | Iterations: 4
-Simulation Time: 1094.32 s | dt: 3.653 s
-
-Step: Lithiate |   Increment: 165 | Iterations: 4
-Simulation Time: 1099.8 s | dt: 5.48 s
-
-Step: Lithiate |   Increment: 166 | Iterations: 4
-Simulation Time: 1108.02 s | dt: 8.22 s
-
-Step: Lithiate |   Increment: 167 | Iterations: 4
-Simulation Time: 1120.35 s | dt: 12.33 s
-
-Step: Lithiate |   Increment: 168 | Iterations: 4
-Simulation Time: 1138.85 s | dt: 18.495 s
-
-Step: Lithiate |   Increment: 169 | Iterations: 4
-Simulation Time: 1166.59 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 170 | Iterations: 4
-Simulation Time: 1194.33 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 171 | Iterations: 4
-Simulation Time: 1222.07 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 172 | Iterations: 4
-Simulation Time: 1249.81 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 173 | Iterations: 4
-Simulation Time: 1277.56 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 174 | Iterations: 4
-Simulation Time: 1305.3 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 175 | Iterations: 4
-Simulation Time: 1333.04 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 176 | Iterations: 4
-Simulation Time: 1360.78 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 177 | Iterations: 4
-Simulation Time: 1388.52 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 178 | Iterations: 4
-Simulation Time: 1416.27 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 179 | Iterations: 4
-Simulation Time: 1444.01 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 180 | Iterations: 4
-Simulation Time: 1471.75 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 181 | Iterations: 4
-Simulation Time: 1499.49 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 182 | Iterations: 4
-Simulation Time: 1527.23 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 183 | Iterations: 4
-Simulation Time: 1554.97 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 184 | Iterations: 4
-Simulation Time: 1582.72 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 185 | Iterations: 4
-Simulation Time: 1610.46 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 186 | Iterations: 4
-Simulation Time: 1638.2 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 187 | Iterations: 4
-Simulation Time: 1665.94 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 188 | Iterations: 4
-Simulation Time: 1693.68 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 189 | Iterations: 4
-Simulation Time: 1721.42 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 190 | Iterations: 4
-Simulation Time: 1749.17 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 191 | Iterations: 4
-Simulation Time: 1776.91 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 192 | Iterations: 4
-Simulation Time: 1804.65 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 193 | Iterations: 4
-Simulation Time: 1832.39 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 194 | Iterations: 4
-Simulation Time: 1860.13 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 195 | Iterations: 4
-Simulation Time: 1887.88 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 196 | Iterations: 4
-Simulation Time: 1915.62 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 197 | Iterations: 4
-Simulation Time: 1943.36 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 198 | Iterations: 4
-Simulation Time: 1971.1 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 199 | Iterations: 4
-Simulation Time: 1998.84 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 200 | Iterations: 4
-Simulation Time: 2026.58 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 201 | Iterations: 4
-Simulation Time: 2054.33 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 202 | Iterations: 4
-Simulation Time: 2082.07 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 203 | Iterations: 4
-Simulation Time: 2109.81 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 204 | Iterations: 4
-Simulation Time: 2137.55 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 205 | Iterations: 4
-Simulation Time: 2165.29 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 206 | Iterations: 4
-Simulation Time: 2193.03 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 207 | Iterations: 4
-Simulation Time: 2220.78 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 208 | Iterations: 4
-Simulation Time: 2248.52 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 209 | Iterations: 4
-Simulation Time: 2276.26 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 210 | Iterations: 4
-Simulation Time: 2304.0 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 211 | Iterations: 4
-Simulation Time: 2331.74 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 212 | Iterations: 4
-Simulation Time: 2359.49 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 213 | Iterations: 4
-Simulation Time: 2387.23 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 214 | Iterations: 4
-Simulation Time: 2414.97 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 215 | Iterations: 4
-Simulation Time: 2442.71 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 216 | Iterations: 4
-Simulation Time: 2470.45 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 217 | Iterations: 4
-Simulation Time: 2498.19 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 218 | Iterations: 4
-Simulation Time: 2525.94 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 219 | Iterations: 4
-Simulation Time: 2553.68 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 220 | Iterations: 4
-Simulation Time: 2581.42 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 221 | Iterations: 4
-Simulation Time: 2609.16 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 222 | Iterations: 4
-Simulation Time: 2636.9 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 223 | Iterations: 4
-Simulation Time: 2664.64 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 224 | Iterations: 4
-Simulation Time: 2692.39 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 225 | Iterations: 4
-Simulation Time: 2720.13 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 226 | Iterations: 4
-Simulation Time: 2747.87 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 227 | Iterations: 5
-Simulation Time: 2775.61 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 228 | Iterations: 5
-Simulation Time: 2803.35 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 229 | Iterations: 5
-Simulation Time: 2831.1 s | dt: 27.742 s
-
-Step: Lithiate |   Increment: 230 | Iterations: 6
-Simulation Time: 2858.84 s | dt: 27.742 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:19:16.699 (  74.390s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-2025-02-13 16:19:17.624 (  75.315s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 231 | Iterations: 6
-Simulation Time: 2865.77 s | dt: 6.935 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:19:18.846 (  76.537s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-2025-02-13 16:19:20.102 (  77.793s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 232 | Iterations: 6
-Simulation Time: 2867.51 s | dt: 1.734 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:19:21.322 (  79.013s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-2025-02-13 16:19:22.721 (  80.412s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 233 | Iterations: 5
-Simulation Time: 2867.94 s | dt: 0.433 s
-
-Step: Lithiate |   Increment: 234 | Iterations: 6
-Simulation Time: 2868.37 s | dt: 0.433 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:19:24.272 (  81.963s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 235 | Iterations: 5
-Simulation Time: 2868.59 s | dt: 0.217 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:19:25.448 (  83.139s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 236 | Iterations: 5
-Simulation Time: 2868.7 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 237 | Iterations: 5
-Simulation Time: 2868.81 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 238 | Iterations: 5
-Simulation Time: 2868.91 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 239 | Iterations: 6
-Simulation Time: 2869.02 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 240 | Iterations: 6
-Simulation Time: 2869.13 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 241 | Iterations: 6
-Simulation Time: 2869.24 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 242 | Iterations: 5
-Simulation Time: 2869.35 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 243 | Iterations: 5
-Simulation Time: 2869.46 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 244 | Iterations: 5
-Simulation Time: 2869.57 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 245 | Iterations: 5
-Simulation Time: 2869.67 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 246 | Iterations: 5
-Simulation Time: 2869.78 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 247 | Iterations: 5
-Simulation Time: 2869.89 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 248 | Iterations: 5
-Simulation Time: 2870.0 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 249 | Iterations: 5
-Simulation Time: 2870.11 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 250 | Iterations: 5
-Simulation Time: 2870.22 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 251 | Iterations: 5
-Simulation Time: 2870.32 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 252 | Iterations: 5
-Simulation Time: 2870.43 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 253 | Iterations: 5
-Simulation Time: 2870.54 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 254 | Iterations: 5
-Simulation Time: 2870.65 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 255 | Iterations: 5
-Simulation Time: 2870.76 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 256 | Iterations: 5
-Simulation Time: 2870.87 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 257 | Iterations: 5
-Simulation Time: 2870.97 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 258 | Iterations: 5
-Simulation Time: 2871.08 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 259 | Iterations: 5
-Simulation Time: 2871.19 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 260 | Iterations: 5
-Simulation Time: 2871.3 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 261 | Iterations: 5
-Simulation Time: 2871.41 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 262 | Iterations: 5
-Simulation Time: 2871.52 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 263 | Iterations: 5
-Simulation Time: 2871.62 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 264 | Iterations: 5
-Simulation Time: 2871.73 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 265 | Iterations: 5
-Simulation Time: 2871.84 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 266 | Iterations: 5
-Simulation Time: 2871.95 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 267 | Iterations: 5
-Simulation Time: 2872.06 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 268 | Iterations: 5
-Simulation Time: 2872.17 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 269 | Iterations: 5
-Simulation Time: 2872.27 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 270 | Iterations: 5
-Simulation Time: 2872.38 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 271 | Iterations: 5
-Simulation Time: 2872.49 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 272 | Iterations: 5
-Simulation Time: 2872.6 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 273 | Iterations: 5
-Simulation Time: 2872.71 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 274 | Iterations: 5
-Simulation Time: 2872.82 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 275 | Iterations: 5
-Simulation Time: 2872.92 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 276 | Iterations: 5
-Simulation Time: 2873.03 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 277 | Iterations: 5
-Simulation Time: 2873.14 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 278 | Iterations: 5
-Simulation Time: 2873.25 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 279 | Iterations: 5
-Simulation Time: 2873.36 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 280 | Iterations: 5
-Simulation Time: 2873.47 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 281 | Iterations: 5
-Simulation Time: 2873.57 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 282 | Iterations: 5
-Simulation Time: 2873.68 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 283 | Iterations: 5
-Simulation Time: 2873.79 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 284 | Iterations: 5
-Simulation Time: 2873.9 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 285 | Iterations: 5
-Simulation Time: 2874.01 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 286 | Iterations: 4
-Simulation Time: 2874.12 s | dt: 0.108 s
-
-Step: Lithiate |   Increment: 287 | Iterations: 5
-Simulation Time: 2874.28 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 288 | Iterations: 5
-Simulation Time: 2874.44 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 289 | Iterations: 5
-Simulation Time: 2874.6 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 290 | Iterations: 5
-Simulation Time: 2874.77 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 291 | Iterations: 5
-Simulation Time: 2874.93 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 292 | Iterations: 5
-Simulation Time: 2875.09 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 293 | Iterations: 5
-Simulation Time: 2875.25 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 294 | Iterations: 5
-Simulation Time: 2875.42 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 295 | Iterations: 5
-Simulation Time: 2875.58 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 296 | Iterations: 5
-Simulation Time: 2875.74 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 297 | Iterations: 5
-Simulation Time: 2875.9 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 298 | Iterations: 5
-Simulation Time: 2876.07 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 299 | Iterations: 5
-Simulation Time: 2876.23 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 300 | Iterations: 5
-Simulation Time: 2876.39 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 301 | Iterations: 4
-Simulation Time: 2876.55 s | dt: 0.163 s
-
-Step: Lithiate |   Increment: 302 | Iterations: 5
-Simulation Time: 2876.8 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 303 | Iterations: 5
-Simulation Time: 2877.04 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 304 | Iterations: 5
-Simulation Time: 2877.29 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 305 | Iterations: 5
-Simulation Time: 2877.53 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 306 | Iterations: 5
-Simulation Time: 2877.77 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 307 | Iterations: 5
-Simulation Time: 2878.02 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 308 | Iterations: 5
-Simulation Time: 2878.26 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 309 | Iterations: 5
-Simulation Time: 2878.51 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 310 | Iterations: 5
-Simulation Time: 2878.75 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 311 | Iterations: 5
-Simulation Time: 2878.99 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 312 | Iterations: 5
-Simulation Time: 2879.24 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 313 | Iterations: 5
-Simulation Time: 2879.48 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 314 | Iterations: 5
-Simulation Time: 2879.72 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 315 | Iterations: 5
-Simulation Time: 2879.97 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 316 | Iterations: 5
-Simulation Time: 2880.21 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 317 | Iterations: 5
-Simulation Time: 2880.46 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 318 | Iterations: 5
-Simulation Time: 2880.7 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 319 | Iterations: 5
-Simulation Time: 2880.94 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 320 | Iterations: 5
-Simulation Time: 2881.19 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 321 | Iterations: 5
-Simulation Time: 2881.43 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 322 | Iterations: 5
-Simulation Time: 2881.68 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 323 | Iterations: 5
-Simulation Time: 2881.92 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 324 | Iterations: 5
-Simulation Time: 2882.16 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 325 | Iterations: 6
-Simulation Time: 2882.41 s | dt: 0.244 s
-
-Step: Lithiate |   Increment: 326 | Iterations: 6
-Simulation Time: 2882.65 s | dt: 0.244 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-02-13 16:19:50.268 ( 107.959s) [main            ]       NewtonSolver.cpp:270   WARN| Newton solver did not converge.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step: Lithiate |   Increment: 327 | Iterations: 6
-Simulation Time: 2882.77 s | dt: 0.122 s
-
-Step: Lithiate |   Increment: 328 | Iterations: 5
-Simulation Time: 2882.89 s | dt: 0.122 s
-
-Step: Lithiate |   Increment: 329 | Iterations: 5
-Simulation Time: 2883.02 s | dt: 0.122 s
-
-Step: Lithiate |   Increment: 330 | Iterations: 5
-Simulation Time: 2883.14 s | dt: 0.122 s
-
-Step: Lithiate |   Increment: 331 | Iterations: 4
-Simulation Time: 2883.26 s | dt: 0.122 s
-
-Step: Lithiate |   Increment: 332 | Iterations: 5
-Simulation Time: 2883.44 s | dt: 0.183 s
-
-Step: Lithiate |   Increment: 333 | Iterations: 4
-Simulation Time: 2883.63 s | dt: 0.183 s
-
-Step: Lithiate |   Increment: 334 | Iterations: 4
-Simulation Time: 2883.9 s | dt: 0.274 s
-
-Step: Lithiate |   Increment: 335 | Iterations: 4
-Simulation Time: 2884.31 s | dt: 0.411 s
-
-Step: Lithiate |   Increment: 336 | Iterations: 4
-Simulation Time: 2884.93 s | dt: 0.617 s
-
-Step: Lithiate |   Increment: 337 | Iterations: 4
-Simulation Time: 2885.85 s | dt: 0.926 s
-
-Step: Lithiate |   Increment: 338 | Iterations: 4
-Simulation Time: 2887.24 s | dt: 1.389 s
-
-Step: Lithiate |   Increment: 339 | Iterations: 4
-Simulation Time: 2889.33 s | dt: 2.083 s
-
-Step: Lithiate |   Increment: 340 | Iterations: 4
-Simulation Time: 2892.45 s | dt: 3.124 s
-
-Step: Lithiate |   Increment: 341 | Iterations: 4
-Simulation Time: 2897.14 s | dt: 4.687 s
-
-Step: Lithiate |   Increment: 342 | Iterations: 4
-Simulation Time: 2904.17 s | dt: 7.03 s
-
-Step: Lithiate |   Increment: 343 | Iterations: 4
-Simulation Time: 2914.71 s | dt: 10.545 s
-
-Step: Lithiate |   Increment: 344 | Iterations: 4
-Simulation Time: 2930.53 s | dt: 15.818 s
-
-Step: Lithiate |   Increment: 345 | Iterations: 4
-Simulation Time: 2954.26 s | dt: 23.726 s
-
-Step: Lithiate |   Increment: 346 | Iterations: 4
-Simulation Time: 2989.85 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 347 | Iterations: 4
-Simulation Time: 3025.44 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 348 | Iterations: 4
-Simulation Time: 3061.03 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 349 | Iterations: 4
-Simulation Time: 3096.62 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 350 | Iterations: 4
-Simulation Time: 3132.2 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 351 | Iterations: 4
-Simulation Time: 3167.79 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 352 | Iterations: 4
-Simulation Time: 3203.38 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 353 | Iterations: 4
-Simulation Time: 3238.97 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 354 | Iterations: 4
-Simulation Time: 3274.56 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 355 | Iterations: 4
-Simulation Time: 3310.15 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 356 | Iterations: 4
-Simulation Time: 3345.74 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 357 | Iterations: 4
-Simulation Time: 3381.33 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 358 | Iterations: 4
-Simulation Time: 3416.92 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 359 | Iterations: 4
-Simulation Time: 3452.51 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 360 | Iterations: 4
-Simulation Time: 3488.1 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 361 | Iterations: 4
-Simulation Time: 3523.69 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 362 | Iterations: 4
-Simulation Time: 3559.28 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 363 | Iterations: 4
-Simulation Time: 3594.87 s | dt: 35.59 s
-
-Step: Lithiate |   Increment: 364 | Iterations: 4
-Simulation Time: 3630.46 s | dt: 35.59 s
+Step: Lithiate |   Increment: 128 | Iterations: 3
+Simulation Time: 30.23 s | dt: 1.095 s
 
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:01:49.875959
+Elapsed real time:  0:00:50.679217
 ------------------------------------------
 </pre></div>
 </div>
@@ -3693,48 +2912,25 @@ Elapsed real time:  0:01:49.875959
 <span class="n">colors</span> <span class="o">=</span> <span class="n">prop_cycle</span><span class="o">.</span><span class="n">by_key</span><span class="p">()[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeHist2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ind</span><span class="p">],</span> <span class="n">timeHist1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ind</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>\
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeHist0</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ind</span><span class="p">],</span> <span class="n">timeHist1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ind</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>\
        <span class="c1">#   color=&#39;r&#39;, marker=&#39;o&#39;, markersize=3)</span>
-         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$E/E_0 = 1.0$ &quot;</span><span class="p">)</span>
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;State of Charge&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\hat\mu_{\text</span><span class="si">{ext}</span><span class="s2">}= \bar\mu_{\text</span><span class="si">{ext}</span><span class="s2">}/(R\theta)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;State of Charge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">1.01</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;results/ellipse_lithiation_delithiation.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;results/ellipse_lithiation_step_change_mod_factor=0.2.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/22493900463149a25239d28c8ba6bea8415ffc0e2848175428867f23a50352e6.png" src="../_images/22493900463149a25239d28c8ba6bea8415ffc0e2848175428867f23a50352e6.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt.figure()</span>
-<span class="c1"># plt.plot(timeHist1[0:ind], timeHist2[0:ind], linewidth=2.0,\</span>
-<span class="c1">#        #   color=&#39;r&#39;, marker=&#39;o&#39;, markersize=3)</span>
-<span class="c1">#        color=&#39;b&#39;, label=r&quot;$E/E_0 = 1.0$ &quot;)</span>
-<span class="c1"># plt.axis(&#39;tight&#39;)</span>
-<span class="c1"># lt.xlabel(r&quot;State of Charge&quot;)</span>
-<span class="c1"># plt.ylabel(r&quot;$\hat\mu= \mu/(R\theta)$&quot;)</span>
-<span class="c1"># plt.grid(linestyle=&quot;--&quot;, linewidth=0.5, color=&#39;b&#39;)</span>
-<span class="c1"># plt.ylim(0,1.01)</span>
-<span class="c1"># plt.xlim(1060,1120)</span>
-
-<span class="c1"># plt.legend()</span>
-<span class="c1"># fig = plt.gcf()</span>
-<span class="c1"># fig.set_size_inches(7,5)</span>
-<span class="c1"># plt.tight_layout()</span>
-<span class="c1"># plt.savefig(&quot;results/ellipse_lithiation_slow_ramp_detail_emod=1.0.png&quot;, dpi=600)</span>
-</pre></div>
-</div>
+<img alt="../../_images/616cd801aef927d20c0e7adfe1985fc4b91a4d61f305f5356aaefe60bf2c312f.png" src="../../_images/616cd801aef927d20c0e7adfe1985fc4b91a4d61f305f5356aaefe60bf2c312f.png" />
 </div>
 </div>
 </section>
@@ -3753,7 +2949,7 @@ Elapsed real time:  0:01:49.875959
         },
         kernelOptions: {
             name: "python3",
-            path: "./06_Cahn_Hilliard"
+            path: "./06_Cahn_Hilliard/modulus_subcases"
         },
         predefinedOutput: true
     }
@@ -3770,24 +2966,6 @@ Elapsed real time:  0:01:49.875959
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Slow-ramp lithiation</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="CH03_axi_ellipse_lithiation_step_change_plotting.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Step-change lithiation</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -3805,7 +2983,7 @@ Elapsed real time:  0:01:49.875959
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lithiation-delithiation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Step-change lithiation with <span class="math notranslate nohighlight">\(E/E_0=0.2\)</span></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#degrees-of-freedom">Degrees of freedom</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software">Software:</a></li>
@@ -3883,8 +3061,8 @@ By Eric M. Stewart, Shawn A. Chester, and Lallit Anand
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

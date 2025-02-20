@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,10 +73,12 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '06_Cahn_Hilliard/CH02_axi_ellipse_lithiation_slow_ramp_plotting_detail';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lithiation-delithiation" href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html" />
+    <link rel="next" title="Lithiation-delithiation" href="CH03_axi_ellipse_lithiation_delithiation_slow_ramp.html" />
     <link rel="prev" title="Un-coupled phase separation" href="CH01_uncoupled_2D_evolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -821,7 +823,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CH03_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
 
 
 
@@ -837,7 +839,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CH04_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
 
 
 
@@ -1503,6 +1505,8 @@
 <li><p>This is a two-dimensional  axisymmetric simulation</p></li>
 <li><p>Slow ramp lithiation</p></li>
 </ul>
+<p>This code runs all three cases <span class="math notranslate nohighlight">\(E/E_0 = \{1.0, 0.2, 0.1\}\)</span> of the slow-ramp lithiation study in series, and then reports the combined results plot.</p>
+<p>To run the individual studies for each value of <span class="math notranslate nohighlight">\(E/E_0\)</span> and generate ParaView results files, see the directory <code class="docutils literal notranslate"><span class="pre">06_Cahn_Hilliard/modulus_subcases</span></code> in the GitHub repository.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="degrees-of-freedom">
 <h1>Degrees of freedom<a class="headerlink" href="#degrees-of-freedom" title="Link to this heading">#</a></h1>
@@ -17873,7 +17877,7 @@ Elapsed real time:  0:13:23.387339
       </div>
     </a>
     <a class="right-next"
-       href="CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html"
+       href="CH03_axi_ellipse_lithiation_delithiation_slow_ramp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

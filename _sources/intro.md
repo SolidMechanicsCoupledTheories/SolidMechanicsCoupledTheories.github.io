@@ -36,6 +36,14 @@ These are our preferred methods for editing and running FEniCSx codes, although 
 All codes were written for FEniCSx v0.8.0, so our instructions documents will direct you to install this specific version of FEniCSx.
 ```
 
+### Results
+
+Simulation results are post-processed and visualized in two primary ways: 
+
+1. Plots of curves are constructed and shown in-line using ``matplotlib``. 
+
+2. Field data for the simulation --- i.e. contours of displacement, stress, and so on --- are written to a ``*.bp`` file in the ``/results`` directory which is included in each sub-folder of the GitHub repository. The results ``*.bp`` file can be read and visualized by [ParaView](https://www.paraview.org/), using the ``ADIOS2VTXReader`` option. 
+
 ## Citation
 
 
