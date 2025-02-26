@@ -73,6 +73,8 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04_gel_mechanics/GEL09_compression';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -319,6 +321,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part2.html">II. Finite viscoelasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV00_VHB_experiments_plotting_only.html">Plot results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV01_VHB_uniaxial_tension_eq.html">Equilibrium uniaxial tension</a></li>
 
 
@@ -484,6 +487,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE02_axi_thermoelas_stretch_adiabatic.html">Stretch-induced heating</a></li>
 
 
@@ -499,7 +503,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE03_axi_thermoelas_steps.html">Heating-induced contraction</a></li>
+
 
 
 
@@ -534,6 +540,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE05_axi_circular_plate_flux.html">Surface heat flux bending</a></li>
 
 
@@ -549,7 +556,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../03_finite_thermoelasticity/TE06_solar_sail.html">“Solar sail” wrinkling</a></li>
+
 
 
 
@@ -582,7 +591,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="GEL02_3d_swell.html">Cube swelling</a></li>
+
 
 
 
@@ -613,7 +624,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="GEL04_thin_cylinder_buckling.html">Thin cylinder buckling</a></li>
+
 
 
 
@@ -641,7 +654,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="GEL06_thin_corona.html">Thin corona buckling</a></li>
+
 
 
 
@@ -671,7 +686,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="GEL08_sphere_swell.html">Sphere swelling</a></li>
+
 
 
 
@@ -700,7 +717,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="GEL10_preSwollenCompression.html">Pre-swollen cylinder compression</a></li>
+
 
 
 
@@ -821,7 +840,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH03_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
 
 
 
@@ -837,7 +856,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH04_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
 
 
 
@@ -1487,6 +1506,7 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -1518,10 +1538,6 @@
 <ul class="simple">
 <li><p>Swelling and subsequent compression of a gel cylinder</p></li>
 <li><p>This is an axisymmetric simulation</p></li>
-</ul>
-<p>Accompanies the book,</p>
-<ul class="simple">
-<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="degrees-of-freedom">
@@ -1556,6 +1572,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1695,21 +1714,22 @@
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
 
-<span class="c1"># plotter.screenshot(&quot;results/bar_mesh.png&quot;)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/bar_mesh.png&quot;</span><span class="p">)</span>
 
-<span class="c1"># from IPython.display import Image</span>
-<span class="c1"># Image(filename=&#39;results/bar_mesh.png&#39;) </span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/bar_mesh.png&#39;</span><span class="p">)</span> 
 
-<span class="c1"># Use the following  commands for a  zoom-able  view</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;axi_cylinder_mesh.png&quot;</span><span class="p">)</span>
+<span class="c1"># # Use the following  commands for a  zoom-able  view</span>
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#     plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#     plotter.screenshot(&quot;axi_cylinder_mesh.png&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fc5b0aae2e434704b541d5b087932c84", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/184cc7d84eaed540ba3d02db764ba66b584d1eca040b1f658b4f7ae4e5121362.png" src="../_images/184cc7d84eaed540ba3d02db764ba66b584d1eca040b1f658b4f7ae4e5121362.png" />
+</div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
 <h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
@@ -1816,15 +1836,28 @@
 <span class="n">u_test</span><span class="p">,</span> <span class="n">p_test</span><span class="p">,</span>  <span class="n">mu_test</span><span class="p">,</span> <span class="n">c_test</span> <span class="o">=</span> <span class="n">TestFunctions</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>  
 
 <span class="c1"># Define trial functions needed for automatic differentiation</span>
-<span class="n">dw</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>                  
-
-<span class="c1"># Assign initial  normalized chemical potential  mu0 to the domain</span>
+<span class="n">dw</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>                    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions">
+<h1>Initial conditions<a class="headerlink" href="#initial-conditions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The initial conditions for <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are zero everywhere.</p></li>
+<li><p>These are imposed automatically, since we have not specified any non-zero initial conditions.</p></li>
+<li><p>We do, however, need to impose the uniform initial conditions for <span class="math notranslate nohighlight">\(\mu=\mu_0\)</span> and <span class="math notranslate nohighlight">\(\hat{c} = \hat{c}_0\)</span> which correspond to <span class="math notranslate nohighlight">\(\phi_0 = 0.999\)</span>. This is done below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign initial  normalized chemical potential  mu0 to the domain</span>
 <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">mu0</span><span class="p">))</span>
 <span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">mu0</span><span class="p">))</span>  
 
 <span class="c1"># Assign initial  value of normalized concentration  c0 to the domain</span>
 <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">c0</span><span class="p">))</span>
-<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">c0</span><span class="p">))</span>     
+<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">c0</span><span class="p">))</span>   
 </pre></div>
 </div>
 </div>
@@ -5945,7 +5978,7 @@ Simulation Time: 115200.0 s | dt: 100 s
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:18.977460
+Elapsed real time:  0:00:21.996289
 ------------------------------------------
 </pre></div>
 </div>
@@ -6136,6 +6169,7 @@ Elapsed real time:  0:00:18.977460
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>

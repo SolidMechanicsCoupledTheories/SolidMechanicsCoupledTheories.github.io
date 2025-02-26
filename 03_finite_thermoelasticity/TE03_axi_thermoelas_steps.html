@@ -73,6 +73,8 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '03_finite_thermoelasticity/TE03_axi_thermoelas_steps';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -319,6 +321,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part2.html">II. Finite viscoelasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV00_VHB_experiments_plotting_only.html">Plot results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02_finite_viscoelasticity/FV01_VHB_uniaxial_tension_eq.html">Equilibrium uniaxial tension</a></li>
 
 
@@ -484,6 +487,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="TE02_axi_thermoelas_stretch_adiabatic.html">Stretch-induced heating</a></li>
 
 
@@ -499,7 +503,9 @@
 
 
 
+
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Heating-induced contraction</a></li>
+
 
 
 
@@ -534,6 +540,7 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="TE05_axi_circular_plate_flux.html">Surface heat flux bending</a></li>
 
 
@@ -549,7 +556,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="TE06_solar_sail.html">“Solar sail” wrinkling</a></li>
+
 
 
 
@@ -582,7 +591,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL02_3d_swell.html">Cube swelling</a></li>
+
 
 
 
@@ -613,7 +624,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL04_thin_cylinder_buckling.html">Thin cylinder buckling</a></li>
+
 
 
 
@@ -641,7 +654,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL06_thin_corona.html">Thin corona buckling</a></li>
+
 
 
 
@@ -671,7 +686,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL08_sphere_swell.html">Sphere swelling</a></li>
+
 
 
 
@@ -700,7 +717,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../04_gel_mechanics/GEL10_preSwollenCompression.html">Pre-swollen cylinder compression</a></li>
+
 
 
 
@@ -821,7 +840,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH02d_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH03_axi_ellipse_lithiation_delithiation_slow_ramp.html">Lithiation-delithiation</a></li>
 
 
 
@@ -837,7 +856,7 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH03_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_Cahn_Hilliard/CH04_axi_ellipse_lithiation_step_change_plotting.html">Step-change lithiation</a></li>
 
 
 
@@ -1486,6 +1505,7 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -1527,10 +1547,6 @@ temperature constant at 298K on its exterior faces</p></li>
 <li><p>Step 2: While keeping the end traction constant, ramp
 up the boundary temperature from 298 to 348K and then hold  it constant for a while</p></li>
 </ul>
-<p>Accompanies the book,</p>
-<ul class="simple">
-<li><p>L. Anand, E.M. Stewart, S.A. Chester. <em>Introduction to coupled theories in solid mechanics</em>. 2025, in preparation.</p></li>
-</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="units">
 <h1>Units<a class="headerlink" href="#units" title="Link to this heading">#</a></h1>
@@ -1554,9 +1570,9 @@ up the boundary temperature from 298 to 348K and then hold  it constant for a wh
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
-<p>Eric Stewart and Lallit Anand</p>
-<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a> and <a class="reference external" href="mailto:anand&#37;&#52;&#48;mit&#46;edu">anand<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
-<p>June 2024</p>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1702,16 +1718,17 @@ up the boundary temperature from 298 to 348K and then hold  it constant for a wh
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/bar_mesh.png&#39;</span><span class="p">)</span> 
 
-<span class="c1"># Use the following  commands for a  zoom-able  view</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+<span class="c1"># # Use the following  commands for a  zoom-able  view</span>
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#     plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#     plotter.screenshot(&quot;mesh.png&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7b2b82cb593c48d8bb5834ddb48bc292", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/18b785bcce1e79edb022aebc74a4474ede7587d7088a1961078b988d65d84b74.png" src="../_images/18b785bcce1e79edb022aebc74a4474ede7587d7088a1961078b988d65d84b74.png" />
+</div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
 <h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
@@ -1719,11 +1736,11 @@ up the boundary temperature from 298 to 348K and then hold  it constant for a wh
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
 <span class="c1"># also specify the number of surface quadrature points.</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
 <span class="c1"># also specify the number of volume quadrature points.</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Create facet to cell connectivity required to determine boundary facets.</span>
 <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
@@ -1800,8 +1817,21 @@ up the boundary temperature from 298 to 348K and then hold  it constant for a wh
 
 <span class="c1"># Define trial functions needed for automatic differentiation</span>
 <span class="n">dw</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>                  
-
-<span class="c1"># Assign initial  temperature  theta0 to the whole domain </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions">
+<h1>Initial conditions<a class="headerlink" href="#initial-conditions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The initial conditions for <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are zero everywhere.</p></li>
+<li><p>These are imposed automatically, since we have not specified any non-zero initial conditions.</p></li>
+<li><p>We do, however, need to impose the uniform initial condition for temperature <span class="math notranslate nohighlight">\(\vartheta = \vartheta_0\)</span>. This is done below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign initial  temperature  theta0 to the whole domain </span>
 <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">theta0</span><span class="p">))</span>
 <span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">theta0</span><span class="p">))</span>    
 </pre></div>
@@ -2961,7 +2991,7 @@ Step: Step 2 | Increment: 150, Iterations: 3
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:00:17.959756
+Elapsed real time:  0:00:12.300668
 ------------------------------------------
 </pre></div>
 </div>
@@ -3011,7 +3041,7 @@ Elapsed real time:  0:00:17.959756
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2ee832e5e0dfef9353e57051cec34bbfd5b098aff1dc04493c18d941418ad82e.png" src="../_images/2ee832e5e0dfef9353e57051cec34bbfd5b098aff1dc04493c18d941418ad82e.png" />
+<img alt="../_images/dd7fdc33b9a5d877fe45807f6a23e43cf5886c7f8cd50925f0153b47be8645b4.png" src="../_images/dd7fdc33b9a5d877fe45807f6a23e43cf5886c7f8cd50925f0153b47be8645b4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3045,7 +3075,7 @@ Elapsed real time:  0:00:17.959756
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/00576bc4ecf28d1498012f75b00681e26a08e89271a3156a2b10a4d3803d1441.png" src="../_images/00576bc4ecf28d1498012f75b00681e26a08e89271a3156a2b10a4d3803d1441.png" />
+<img alt="../_images/43ac8fcdb167adab0b8a708865ab7219fb0163e36512125b7985da404cfcb0a3.png" src="../_images/43ac8fcdb167adab0b8a708865ab7219fb0163e36512125b7985da404cfcb0a3.png" />
 </div>
 </div>
 </section>
@@ -3128,6 +3158,7 @@ Elapsed real time:  0:00:17.959756
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
