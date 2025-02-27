@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,6 +73,8 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '07_dielectric_elastomers/DE06_AXI_preStretch_membrane';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -750,7 +752,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
+
 
 
 
@@ -780,7 +784,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
+
 
 
 
@@ -874,7 +880,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
+
 
 
 
@@ -898,7 +906,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
+
 
 
 
@@ -923,7 +933,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="DE05_3D_Gripper.html">Four-arm gripper</a></li>
+
 
 
 
@@ -1504,6 +1516,7 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-params">Simulation time-control related params</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -1515,7 +1528,6 @@
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data-and-making-plots-below-not-part-of-the-actual-simulation-just-for-the-plots-in-the-book">Saving data and making plots below, not part of the actual simulation, just for the plots in the book</a></li>
 </ul>
 
             </nav>
@@ -1531,10 +1543,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="pre-stretched-electro-elastic-actuation">
 <h1>Pre-stretched electro-elastic actuation<a class="headerlink" href="#pre-stretched-electro-elastic-actuation" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Code for 3D large deformation electro-elasticity with u-p formulation</p></li>
 <li><p>Electro-elastic instability suppresion study on a circular VHB membrane</p></li>
-<li><p>Uses quadrature representation of internal variable: viscous deformation tensor Cv.</p></li>
-<li><p>VHB material properties taken from Wang et al., JMPS (2016).</p></li>
 </ul>
 <section id="units">
 <h2>Units<a class="headerlink" href="#units" title="Link to this heading">#</a></h2>
@@ -1554,6 +1563,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1620,7 +1632,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A 2-D box with square cross-section</span>
-<span class="n">preStretch</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="c1"># equi-biaxial pre-stretch for the film</span>
+<span class="n">preStretch</span> <span class="o">=</span> <span class="mf">4.000</span> <span class="c1"># equi-biaxial pre-stretch for the film</span>
 <span class="c1"># </span>
 <span class="c1"># We choose reference length and electrode radius so that the </span>
 <span class="c1"># spatial electrode radius is ~2.5mm as in Pelrine et al. (2000), and </span>
@@ -1634,7 +1646,7 @@
 <span class="c1"># thickness  = 1.0 # undeformed thickness, mm</span>
 
 <span class="n">domain</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">create_rectangle</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="n">length</span><span class="p">,</span><span class="n">thickness</span><span class="p">]],</span>\
-                         <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">triangle</span><span class="p">,</span> <span class="n">diagonal</span><span class="o">=</span><span class="n">mesh</span><span class="o">.</span><span class="n">DiagonalType</span><span class="o">.</span><span class="n">crossed</span><span class="p">)</span>
+                         <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">quadrilateral</span><span class="p">)</span><span class="c1">#, diagonal=mesh.DiagonalType.crossed)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">SpatialCoordinate</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
 </pre></div>
@@ -1733,7 +1745,8 @@
 <span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
 
-<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">view_xy</span><span class="p">()</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
 
 <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/membrane_mesh.png&quot;</span><span class="p">)</span>
@@ -1744,7 +1757,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3523043613454a9351f039a75970c47fd20f7f0df16013ec1990ed13b7002145.png" src="../_images/3523043613454a9351f039a75970c47fd20f7f0df16013ec1990ed13b7002145.png" />
+<img alt="../_images/bd28bd56598533fb75d682ec2cc05c79414c09fd0d290727f510ea8da76b2840.png" src="../_images/bd28bd56598533fb75d682ec2cc05c79414c09fd0d290727f510ea8da76b2840.png" />
 </div>
 </div>
 <section id="un-comment-this-cell-to-see-an-interactive-visualization-of-the-mesh">
@@ -1763,11 +1776,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
 <span class="c1"># also specify the number of surface quadrature points.</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
 <span class="c1"># also specify the number of volume quadrature points.</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Create facet to cell connectivity required to determine boundary facets.</span>
 <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
@@ -1791,9 +1804,10 @@
 <span class="c1">#</span>
 <span class="n">rho</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">))</span>           <span class="c1"># 1000 kg/m^3 = 1e-6 kg/mm^3</span>
 <span class="c1">#</span>
-<span class="n">Geq_0</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">15.36</span><span class="p">))</span>      <span class="c1"># Shear modulus, kPa</span>
+<span class="n">Geq_0</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">15.0</span><span class="p">))</span>       <span class="c1"># Shear modulus, kPa</span>
 <span class="n">Kbulk</span>   <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">1e3</span><span class="o">*</span><span class="n">Geq_0</span><span class="p">))</span>  <span class="c1"># Bulk modulus, kPa</span>
-<span class="n">lambdaL</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">5.99</span><span class="p">))</span>        <span class="c1"># Arruda-Boyce locking stretch</span>
+<span class="c1"># I_m     = Constant(domain, PETSc.ScalarType(175.0))      # Gent locking parameter</span>
+<span class="n">I_m</span>     <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">90.0</span><span class="p">))</span>      <span class="c1"># Gent locking parameter</span>
 
 <span class="c1"># Electrostatic  parameters</span>
 <span class="n">vareps_0</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="mf">8.85E-3</span><span class="p">))</span> <span class="c1">#  permittivity of free space pF/mm</span>
@@ -1832,7 +1846,7 @@
 
 <span class="c1"># Normalization parameter for voltage is l*sqrt(Geq_0/vareps)</span>
 <span class="c1">#</span>
-<span class="n">phiTot</span> <span class="o">=</span> <span class="mf">0.3</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">thickness</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Geq_0</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">vareps</span><span class="p">)))</span>  <span class="c1"># final normalized value of phi</span>
+<span class="n">phiTot</span> <span class="o">=</span> <span class="mf">0.6</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">thickness</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Geq_0</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">vareps</span><span class="p">)))</span>  <span class="c1"># final normalized value of phi</span>
 <span class="c1"># for t = 0.2mm, this works out to be a few kV, same as in the experiments of Pelrine et al. (2000).</span>
 
 <span class="c1"># Boundary condition functions</span>
@@ -1899,6 +1913,13 @@
 </div>
 </div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions">
+<h1>Initial conditions<a class="headerlink" href="#initial-conditions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The initial conditions for degrees of freedom <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(p\)</span>, and <span class="math notranslate nohighlight">\(\phi\)</span> are zero everywhere</p></li>
+<li><p>These are imposed automatically, since we have not specified any non-zero initial conditions.</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="subroutines-for-kinematics-and-constitutive-equations">
 <h1>Subroutines for kinematics and constitutive equations<a class="headerlink" href="#subroutines-for-kinematics-and-constitutive-equations" title="Link to this heading">#</a></h1>
@@ -1975,22 +1996,18 @@
 <span class="c1"># Subroutines for calculating the Cauchy stress</span>
 <span class="c1">#-------------------------------------------------------------</span>
 
-<span class="c1"># Subroutine for computing the zeta-function in the Arruda-Boyce model.</span>
-<span class="k">def</span> <span class="nf">zeta_calc</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
-    <span class="n">lambdaBar</span> <span class="o">=</span> <span class="n">lambdaBar_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-    <span class="c1"># Use Pade approximation of Langevin inverse (A. Cohen, 1991)</span>
-    <span class="c1"># This is sixth-order accurate.</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">lambdaBar</span><span class="o">/</span><span class="n">lambdaL</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">conditional</span><span class="p">(</span><span class="n">gt</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mf">0.99</span><span class="p">),</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="c1"># Keep from blowing up</span>
-    <span class="n">beta</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span>
-    <span class="n">zeta</span> <span class="o">=</span> <span class="p">(</span><span class="n">lambdaL</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">lambdaBar</span><span class="p">))</span><span class="o">*</span><span class="n">beta</span>
-    <span class="k">return</span> <span class="n">zeta</span>
+<span class="c1"># Generalized shear modulus for Gent model</span>
+<span class="k">def</span> <span class="nf">Geq_Gent_calc</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">F_axi_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">F</span>
+    <span class="n">Cdis</span> <span class="o">=</span> <span class="n">J</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">C</span>
+    <span class="n">I1</span> <span class="o">=</span> <span class="n">tr</span><span class="p">(</span><span class="n">Cdis</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">I1</span><span class="o">-</span><span class="mi">3</span>
+    <span class="n">z</span>   <span class="o">=</span> <span class="n">conditional</span><span class="p">(</span> <span class="n">gt</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">I_m</span><span class="p">),</span> <span class="mf">0.95</span><span class="o">*</span><span class="n">I_m</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span> <span class="c1"># Keep from blowing up</span>
+    <span class="n">Geq_Gent</span>  <span class="o">=</span> <span class="n">Geq_0</span> <span class="o">*</span> <span class="p">(</span><span class="n">I_m</span><span class="o">/</span><span class="p">(</span><span class="n">I_m</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Geq_Gent</span>
 
-<span class="c1"># Generalized shear modulus for Arruda-Boyce model</span>
-<span class="k">def</span> <span class="nf">Geq_AB_calc</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
-    <span class="n">zeta</span> <span class="o">=</span> <span class="n">zeta_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-    <span class="n">Geq_AB</span>  <span class="o">=</span> <span class="n">Geq_0</span> <span class="o">*</span> <span class="n">zeta</span>
-    <span class="k">return</span> <span class="n">Geq_AB</span>
 
 <span class="c1"># Subroutine for calculating the  equilibrium Cauchy stress</span>
 <span class="k">def</span> <span class="nf">T_eq_calc</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
@@ -1998,7 +2015,7 @@
     <span class="n">J</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
     <span class="n">Fbar</span> <span class="o">=</span> <span class="n">J</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span><span class="o">*</span><span class="n">F</span>
     <span class="n">Bbar</span> <span class="o">=</span> <span class="n">Fbar</span><span class="o">*</span><span class="n">Fbar</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">Geq</span>  <span class="o">=</span> <span class="n">Geq_AB_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">Geq</span>  <span class="o">=</span> <span class="n">Geq_Gent_calc</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="n">T_eq</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">J</span><span class="p">)</span><span class="o">*</span> <span class="n">Geq</span> <span class="o">*</span> <span class="n">dev</span><span class="p">(</span><span class="n">Bbar</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span> <span class="o">*</span> <span class="n">Identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">T_eq</span>
 
@@ -2084,7 +2101,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># results file name</span>
-<span class="n">results_name</span> <span class="o">=</span> <span class="s2">&quot;membrane&quot;</span>
+<span class="n">results_name</span> <span class="o">=</span> <span class="s2">&quot;axi_prestretch_membrane&quot;</span>
 
 <span class="c1"># Function space for projection of results</span>
 <span class="n">P1</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="s2">&quot;Lagrange&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">basix_cell</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
@@ -2303,8 +2320,8 @@
 <span class="c1"># the global newton solver and params</span>
 <span class="n">solver</span> <span class="o">=</span> <span class="n">NewtonSolver</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">convergence_criterion</span> <span class="o">=</span> <span class="s2">&quot;incremental&quot;</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span>
-<span class="n">solver</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="n">solver</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-6</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">max_it</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">solver</span><span class="o">.</span><span class="n">report</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -2324,6 +2341,1209 @@
 </section>
 <section id="start-calculation-loop">
 <h2>Start calculation loop<a class="headerlink" href="#start-calculation-loop" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables for storing time history</span>
+<span class="n">totSteps</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">timeHist0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span>
+<span class="n">timeHist1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span> 
+<span class="n">timeHist2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span> 
+<span class="n">timeHist3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span> 
+<span class="n">timeHist4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">totSteps</span><span class="p">])</span> 
+
+<span class="c1"># Iinitialize a counter for reporting data</span>
+<span class="n">ii</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="c1">#  Set up temporary &quot;helper&quot; functions and expressions </span>
+<span class="c1">#  for updating the internal variables.</span>
+<span class="c1">#</span>
+<span class="c1"># # For the Cv tensors:</span>
+<span class="c1"># Cv_1_temp = Function(V3)</span>
+<span class="c1"># Cv_1_expr = Expression(Cv_1, V3.element.interpolation_points())</span>
+<span class="c1"># #</span>
+<span class="c1"># Cv_2_temp = Function(V3)</span>
+<span class="c1"># Cv_2_expr = Expression(Cv_2, V3.element.interpolation_points())</span>
+<span class="c1"># #</span>
+<span class="c1"># Cv_3_temp = Function(V3)</span>
+<span class="c1"># Cv_3_expr = Expression(Cv_3, V3.element.interpolation_points())</span>
+<span class="c1"># #</span>
+<span class="c1"># # and also for the velocity and acceleration.</span>
+<span class="c1"># v_temp = Function(V2)</span>
+<span class="c1"># a_temp = Function(V2)</span>
+<span class="c1"># #</span>
+<span class="c1"># v_expr = Expression(v_new,V2.element.interpolation_points())</span>
+<span class="c1"># a_expr = Expression(a_new,V2.element.interpolation_points())</span>
+
+<span class="c1"># Write initial state to file</span>
+<span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>    
+
+<span class="c1"># print a message for simulation startup</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simulation Start&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------&quot;</span><span class="p">)</span>
+<span class="c1"># Store start time </span>
+<span class="n">startTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+
+<span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span><span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="s2">     STEP 1</span>
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+
+<span class="c1"># Give the step a descriptive name</span>
+<span class="n">step</span> <span class="o">=</span> <span class="s2">&quot;Prestretch&quot;</span>
+
+<span class="c1"># Assign the time step size</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">dt1</span>
+<span class="n">dk</span> <span class="o">=</span> <span class="n">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="o">.</span><span class="n">ScalarType</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+
+<span class="c1"># Time-stepping solution procedure loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">step1_time</span><span class="p">):</span>
+  
+    <span class="c1"># increment time</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span> 
+    
+    <span class="c1"># increment counter</span>
+    <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="c1"># update time variables in time-dependent BCs </span>
+    <span class="n">phi_cons</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">PhiRamp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">disp_cons</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">DispRamp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    
+    <span class="c1"># Solve the problem</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="p">(</span><span class="nb">iter</span><span class="p">,</span> <span class="n">converged</span><span class="p">)</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span> <span class="c1"># Break the loop if solver fails</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Did not converge, stopping&quot;</span><span class="p">)</span>
+      <span class="k">break</span>
+        
+    <span class="c1"># Collect results from MPI ghost processes</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">scatter_forward</span><span class="p">()</span>
+
+    <span class="c1"># Print progress of calculation         </span>
+    <span class="k">if</span> <span class="n">ii</span><span class="o">%</span><span class="k">1</span> == 0:
+      <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+      <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step: </span><span class="si">{}</span><span class="s2"> | Increment: </span><span class="si">{}</span><span class="s2"> | Iterations: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="nb">iter</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dt: </span><span class="si">{}</span><span class="s2"> | Simulation Time: </span><span class="si">{}</span><span class="s2"> s | Percent of total time: </span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">dt1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="n">step1_time</span><span class="o">+</span><span class="n">step2_time</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+      <span class="nb">print</span><span class="p">()</span> 
+      
+    <span class="c1"># Write output to file</span>
+    <span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+       
+       
+    <span class="c1"># Store time history variables at this time</span>
+    <span class="n">timeHist0</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="n">length</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsA</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of displacement</span>
+    <span class="n">timeHist1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsB</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of voltage phi</span>
+    <span class="n">timeHist2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>      <span class="c1"># current time</span>
+    <span class="n">timeHist3</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="n">electrode</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsC</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of electrode displacement</span>
+    <span class="n">timeHist4</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsB</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of actuator thinning</span>
+    
+    <span class="c1"># # update internal variables </span>
+    <span class="c1"># #</span>
+    <span class="c1"># # interpolate the values of the internal variables into their &quot;temp&quot; functions</span>
+    <span class="c1"># Cv_1_temp.interpolate(Cv_1_expr)</span>
+    <span class="c1"># Cv_2_temp.interpolate(Cv_2_expr)</span>
+    <span class="c1"># Cv_3_temp.interpolate(Cv_3_expr)</span>
+    <span class="c1"># #</span>
+    <span class="c1"># v_temp.interpolate(v_expr)</span>
+    <span class="c1"># a_temp.interpolate(a_expr)</span>
+    
+    <span class="c1"># Update DOFs for next step</span>
+    <span class="n">w_old</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span>
+    
+    <span class="c1"># # update the old values of internal variables for next step</span>
+    <span class="c1"># Cv_1_old.x.array[:] = Cv_1_temp.x.array[:]</span>
+    <span class="c1"># Cv_2_old.x.array[:] = Cv_2_temp.x.array[:]</span>
+    <span class="c1"># Cv_3_old.x.array[:] = Cv_3_temp.x.array[:]</span>
+    <span class="c1"># #</span>
+    <span class="c1"># v_old.x.array[:] = v_temp.x.array[:]</span>
+    <span class="c1"># a_old.x.array[:] = a_temp.x.array[:]</span>
+    
+
+
+<span class="c1"># store the electrode radius at this point, for relative area calculations later</span>
+<span class="n">electrodeRad</span> <span class="o">=</span> <span class="n">electrode</span> <span class="o">+</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="n">electrode</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsC</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">electrodeThick</span> <span class="o">=</span> <span class="n">thickness</span> <span class="o">-</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsB</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span><span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="s2">     STEP 2</span>
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+
+<span class="c1"># Give the step a descriptive name</span>
+<span class="n">step</span> <span class="o">=</span> <span class="s2">&quot;Actuate&quot;</span>
+
+<span class="c1"># assign the time step size</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">dt2</span>
+<span class="n">dk</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">dt</span>
+
+<span class="c1"># Time-stepping solution procedure loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">step1_time</span> <span class="o">+</span> <span class="n">step2_time</span><span class="p">):</span>
+  
+    <span class="c1"># increment time</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span> 
+    
+    <span class="c1"># increment counter</span>
+    <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="c1"># update time variables in time-dependent BCs </span>
+    <span class="n">phi_cons</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">PhiRamp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">disp_cons</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">DispRamp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    
+    <span class="c1"># Solve the problem</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="p">(</span><span class="nb">iter</span><span class="p">,</span> <span class="n">converged</span><span class="p">)</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span> <span class="c1"># Break the loop if solver fails</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Did not converge, stopping&quot;</span><span class="p">)</span>
+      <span class="k">break</span>
+        
+    <span class="c1"># Collect results from MPI ghost processes</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">scatter_forward</span><span class="p">()</span>
+
+    <span class="c1"># Print progress of calculation         </span>
+    <span class="k">if</span> <span class="n">ii</span><span class="o">%</span><span class="k">1</span> == 0:
+      <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+      <span class="n">current_time</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step: </span><span class="si">{}</span><span class="s2"> | Increment: </span><span class="si">{}</span><span class="s2"> | Iterations: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">ii</span><span class="p">,</span> <span class="nb">iter</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dt: </span><span class="si">{}</span><span class="s2"> | Simulation Time: </span><span class="si">{}</span><span class="s2"> s | Percent of total time: </span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">dt2</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="n">step1_time</span><span class="o">+</span><span class="n">step2_time</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+      <span class="nb">print</span><span class="p">()</span> 
+      
+    <span class="c1"># Write output to file</span>
+    <span class="n">writeResults</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+       
+       
+    <span class="c1"># Store time history variables at this time</span>
+    <span class="n">timeHist0</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="n">length</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsA</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of displacement</span>
+    <span class="n">timeHist1</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsB</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of voltage phi</span>
+    <span class="n">timeHist2</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>      <span class="c1"># current time</span>
+    <span class="n">timeHist3</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="n">electrode</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsC</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of electrode displacement</span>
+    <span class="n">timeHist4</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">thickness</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">colliding_cellsB</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time history of actuator thinning</span>
+    
+    <span class="c1"># # update internal variables </span>
+    <span class="c1"># #</span>
+    <span class="c1"># # interpolate the values of the internal variables into their &quot;temp&quot; functions</span>
+    <span class="c1"># Cv_1_temp.interpolate(Cv_1_expr)</span>
+    <span class="c1"># Cv_2_temp.interpolate(Cv_2_expr)</span>
+    <span class="c1"># Cv_3_temp.interpolate(Cv_3_expr)</span>
+    <span class="c1"># #</span>
+    <span class="c1"># v_temp.interpolate(v_expr)</span>
+    <span class="c1"># a_temp.interpolate(a_expr)</span>
+    
+    <span class="c1"># Update DOFs for next step</span>
+    <span class="n">w_old</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">array</span>
+    
+    <span class="c1"># # update the old values of internal variables for next step</span>
+    <span class="c1"># Cv_1_old.x.array[:] = Cv_1_temp.x.array[:]</span>
+    <span class="c1"># Cv_2_old.x.array[:] = Cv_2_temp.x.array[:]</span>
+    <span class="c1"># Cv_3_old.x.array[:] = Cv_3_temp.x.array[:]</span>
+    <span class="c1"># #</span>
+    <span class="c1"># v_old.x.array[:] = v_temp.x.array[:]</span>
+    <span class="c1"># a_old.x.array[:] = a_temp.x.array[:]</span>
+
+    
+<span class="c1"># close the output file.</span>
+<span class="n">file_results</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         
+<span class="c1"># End analysis</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End computation&quot;</span><span class="p">)</span>                 
+<span class="c1"># Report elapsed real time for the analysis</span>
+<span class="n">endTime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">elapseTime</span> <span class="o">=</span> <span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elapsed real time:  </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapseTime</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------------
+Simulation Start
+------------------------------------
+Step: Prestretch | Increment: 1 | Iterations: 5
+dt: 300.0 | Simulation Time: 300.0 s | Percent of total time: 3.9995%
+
+Step: Prestretch | Increment: 2 | Iterations: 5
+dt: 300.0 | Simulation Time: 600.0 s | Percent of total time: 7.9989%
+
+Step: Prestretch | Increment: 3 | Iterations: 5
+dt: 300.0 | Simulation Time: 900.0 s | Percent of total time: 11.9984%
+
+Step: Prestretch | Increment: 4 | Iterations: 5
+dt: 300.0 | Simulation Time: 1200.0 s | Percent of total time: 15.9979%
+
+Step: Prestretch | Increment: 5 | Iterations: 4
+dt: 300.0 | Simulation Time: 1500.0 s | Percent of total time: 19.9973%
+
+Step: Prestretch | Increment: 6 | Iterations: 4
+dt: 300.0 | Simulation Time: 1800.0 s | Percent of total time: 23.9968%
+
+Step: Prestretch | Increment: 7 | Iterations: 4
+dt: 300.0 | Simulation Time: 2100.0 s | Percent of total time: 27.9963%
+
+Step: Prestretch | Increment: 8 | Iterations: 4
+dt: 300.0 | Simulation Time: 2400.0 s | Percent of total time: 31.9957%
+
+Step: Prestretch | Increment: 9 | Iterations: 4
+dt: 300.0 | Simulation Time: 2700.0 s | Percent of total time: 35.9952%
+
+Step: Prestretch | Increment: 10 | Iterations: 4
+dt: 300.0 | Simulation Time: 3000.0 s | Percent of total time: 39.9947%
+
+Step: Prestretch | Increment: 11 | Iterations: 4
+dt: 300.0 | Simulation Time: 3300.0 s | Percent of total time: 43.9941%
+
+Step: Prestretch | Increment: 12 | Iterations: 4
+dt: 300.0 | Simulation Time: 3600.0 s | Percent of total time: 47.9936%
+
+Step: Prestretch | Increment: 13 | Iterations: 4
+dt: 300.0 | Simulation Time: 3900.0 s | Percent of total time: 51.9931%
+
+Step: Prestretch | Increment: 14 | Iterations: 4
+dt: 300.0 | Simulation Time: 4200.0 s | Percent of total time: 55.9925%
+
+Step: Prestretch | Increment: 15 | Iterations: 4
+dt: 300.0 | Simulation Time: 4500.0 s | Percent of total time: 59.992%
+
+Step: Prestretch | Increment: 16 | Iterations: 4
+dt: 300.0 | Simulation Time: 4800.0 s | Percent of total time: 63.9915%
+
+Step: Prestretch | Increment: 17 | Iterations: 4
+dt: 300.0 | Simulation Time: 5100.0 s | Percent of total time: 67.9909%
+
+Step: Prestretch | Increment: 18 | Iterations: 4
+dt: 300.0 | Simulation Time: 5400.0 s | Percent of total time: 71.9904%
+
+Step: Prestretch | Increment: 19 | Iterations: 4
+dt: 300.0 | Simulation Time: 5700.0 s | Percent of total time: 75.9899%
+
+Step: Prestretch | Increment: 20 | Iterations: 4
+dt: 300.0 | Simulation Time: 6000.0 s | Percent of total time: 79.9893%
+
+Step: Prestretch | Increment: 21 | Iterations: 4
+dt: 300.0 | Simulation Time: 6300.0 s | Percent of total time: 83.9888%
+
+Step: Prestretch | Increment: 22 | Iterations: 4
+dt: 300.0 | Simulation Time: 6600.0 s | Percent of total time: 87.9883%
+
+Step: Prestretch | Increment: 23 | Iterations: 4
+dt: 300.0 | Simulation Time: 6900.0 s | Percent of total time: 91.9877%
+
+Step: Prestretch | Increment: 24 | Iterations: 4
+dt: 300.0 | Simulation Time: 7200.0 s | Percent of total time: 95.9872%
+
+Step: Prestretch | Increment: 25 | Iterations: 4
+dt: 300.0 | Simulation Time: 7500.0 s | Percent of total time: 99.9867%
+
+Step: Actuate | Increment: 26 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0033 s | Percent of total time: 99.9867%
+
+Step: Actuate | Increment: 27 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0067 s | Percent of total time: 99.9868%
+
+Step: Actuate | Increment: 28 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.01 s | Percent of total time: 99.9868%
+
+Step: Actuate | Increment: 29 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0133 s | Percent of total time: 99.9868%
+
+Step: Actuate | Increment: 30 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0167 s | Percent of total time: 99.9869%
+
+Step: Actuate | Increment: 31 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.02 s | Percent of total time: 99.9869%
+
+Step: Actuate | Increment: 32 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0233 s | Percent of total time: 99.987%
+
+Step: Actuate | Increment: 33 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0267 s | Percent of total time: 99.987%
+
+Step: Actuate | Increment: 34 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.03 s | Percent of total time: 99.9871%
+
+Step: Actuate | Increment: 35 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0333 s | Percent of total time: 99.9871%
+
+Step: Actuate | Increment: 36 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0367 s | Percent of total time: 99.9872%
+
+Step: Actuate | Increment: 37 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.04 s | Percent of total time: 99.9872%
+
+Step: Actuate | Increment: 38 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0433 s | Percent of total time: 99.9872%
+
+Step: Actuate | Increment: 39 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0467 s | Percent of total time: 99.9873%
+
+Step: Actuate | Increment: 40 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.05 s | Percent of total time: 99.9873%
+
+Step: Actuate | Increment: 41 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0533 s | Percent of total time: 99.9874%
+
+Step: Actuate | Increment: 42 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0567 s | Percent of total time: 99.9874%
+
+Step: Actuate | Increment: 43 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.06 s | Percent of total time: 99.9875%
+
+Step: Actuate | Increment: 44 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0633 s | Percent of total time: 99.9875%
+
+Step: Actuate | Increment: 45 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.0667 s | Percent of total time: 99.9876%
+
+Step: Actuate | Increment: 46 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.07 s | Percent of total time: 99.9876%
+
+Step: Actuate | Increment: 47 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0733 s | Percent of total time: 99.9876%
+
+Step: Actuate | Increment: 48 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0767 s | Percent of total time: 99.9877%
+
+Step: Actuate | Increment: 49 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.08 s | Percent of total time: 99.9877%
+
+Step: Actuate | Increment: 50 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0833 s | Percent of total time: 99.9878%
+
+Step: Actuate | Increment: 51 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.0867 s | Percent of total time: 99.9878%
+
+Step: Actuate | Increment: 52 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.09 s | Percent of total time: 99.9879%
+
+Step: Actuate | Increment: 53 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0933 s | Percent of total time: 99.9879%
+
+Step: Actuate | Increment: 54 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.0967 s | Percent of total time: 99.988%
+
+Step: Actuate | Increment: 55 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1 s | Percent of total time: 99.988%
+
+Step: Actuate | Increment: 56 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.1033 s | Percent of total time: 99.988%
+
+Step: Actuate | Increment: 57 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1067 s | Percent of total time: 99.9881%
+
+Step: Actuate | Increment: 58 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.11 s | Percent of total time: 99.9881%
+
+Step: Actuate | Increment: 59 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.1133 s | Percent of total time: 99.9882%
+
+Step: Actuate | Increment: 60 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1167 s | Percent of total time: 99.9882%
+
+Step: Actuate | Increment: 61 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.12 s | Percent of total time: 99.9883%
+
+Step: Actuate | Increment: 62 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1233 s | Percent of total time: 99.9883%
+
+Step: Actuate | Increment: 63 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1267 s | Percent of total time: 99.9884%
+
+Step: Actuate | Increment: 64 | Iterations: 6
+dt: 0.0033 | Simulation Time: 7500.13 s | Percent of total time: 99.9884%
+
+Step: Actuate | Increment: 65 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1333 s | Percent of total time: 99.9884%
+
+Step: Actuate | Increment: 66 | Iterations: 11
+dt: 0.0033 | Simulation Time: 7500.1367 s | Percent of total time: 99.9885%
+
+Step: Actuate | Increment: 67 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.14 s | Percent of total time: 99.9885%
+
+Step: Actuate | Increment: 68 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1433 s | Percent of total time: 99.9886%
+
+Step: Actuate | Increment: 69 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1467 s | Percent of total time: 99.9886%
+
+Step: Actuate | Increment: 70 | Iterations: 6
+dt: 0.0033 | Simulation Time: 7500.15 s | Percent of total time: 99.9887%
+
+Step: Actuate | Increment: 71 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1533 s | Percent of total time: 99.9887%
+
+Step: Actuate | Increment: 72 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1567 s | Percent of total time: 99.9888%
+
+Step: Actuate | Increment: 73 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.16 s | Percent of total time: 99.9888%
+
+Step: Actuate | Increment: 74 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1633 s | Percent of total time: 99.9888%
+
+Step: Actuate | Increment: 75 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1667 s | Percent of total time: 99.9889%
+
+Step: Actuate | Increment: 76 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.17 s | Percent of total time: 99.9889%
+
+Step: Actuate | Increment: 77 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1733 s | Percent of total time: 99.989%
+
+Step: Actuate | Increment: 78 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1767 s | Percent of total time: 99.989%
+
+Step: Actuate | Increment: 79 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.18 s | Percent of total time: 99.9891%
+
+Step: Actuate | Increment: 80 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1833 s | Percent of total time: 99.9891%
+
+Step: Actuate | Increment: 81 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1867 s | Percent of total time: 99.9892%
+
+Step: Actuate | Increment: 82 | Iterations: 9
+dt: 0.0033 | Simulation Time: 7500.19 s | Percent of total time: 99.9892%
+
+Step: Actuate | Increment: 83 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.1933 s | Percent of total time: 99.9892%
+
+Step: Actuate | Increment: 84 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.1967 s | Percent of total time: 99.9893%
+
+Step: Actuate | Increment: 85 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.2 s | Percent of total time: 99.9893%
+
+Step: Actuate | Increment: 86 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2033 s | Percent of total time: 99.9894%
+
+Step: Actuate | Increment: 87 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2067 s | Percent of total time: 99.9894%
+
+Step: Actuate | Increment: 88 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.21 s | Percent of total time: 99.9895%
+
+Step: Actuate | Increment: 89 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2133 s | Percent of total time: 99.9895%
+
+Step: Actuate | Increment: 90 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2167 s | Percent of total time: 99.9896%
+
+Step: Actuate | Increment: 91 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.22 s | Percent of total time: 99.9896%
+
+Step: Actuate | Increment: 92 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2233 s | Percent of total time: 99.9896%
+
+Step: Actuate | Increment: 93 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2267 s | Percent of total time: 99.9897%
+
+Step: Actuate | Increment: 94 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.23 s | Percent of total time: 99.9897%
+
+Step: Actuate | Increment: 95 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2333 s | Percent of total time: 99.9898%
+
+Step: Actuate | Increment: 96 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.2367 s | Percent of total time: 99.9898%
+
+Step: Actuate | Increment: 97 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.24 s | Percent of total time: 99.9899%
+
+Step: Actuate | Increment: 98 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2433 s | Percent of total time: 99.9899%
+
+Step: Actuate | Increment: 99 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2467 s | Percent of total time: 99.99%
+
+Step: Actuate | Increment: 100 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.25 s | Percent of total time: 99.99%
+
+Step: Actuate | Increment: 101 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2533 s | Percent of total time: 99.99%
+
+Step: Actuate | Increment: 102 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2567 s | Percent of total time: 99.9901%
+
+Step: Actuate | Increment: 103 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.26 s | Percent of total time: 99.9901%
+
+Step: Actuate | Increment: 104 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2633 s | Percent of total time: 99.9902%
+
+Step: Actuate | Increment: 105 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2667 s | Percent of total time: 99.9902%
+
+Step: Actuate | Increment: 106 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.27 s | Percent of total time: 99.9903%
+
+Step: Actuate | Increment: 107 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2733 s | Percent of total time: 99.9903%
+
+Step: Actuate | Increment: 108 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2767 s | Percent of total time: 99.9904%
+
+Step: Actuate | Increment: 109 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.28 s | Percent of total time: 99.9904%
+
+Step: Actuate | Increment: 110 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2833 s | Percent of total time: 99.9904%
+
+Step: Actuate | Increment: 111 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.2867 s | Percent of total time: 99.9905%
+
+Step: Actuate | Increment: 112 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.29 s | Percent of total time: 99.9905%
+
+Step: Actuate | Increment: 113 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2933 s | Percent of total time: 99.9906%
+
+Step: Actuate | Increment: 114 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.2967 s | Percent of total time: 99.9906%
+
+Step: Actuate | Increment: 115 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3 s | Percent of total time: 99.9907%
+
+Step: Actuate | Increment: 116 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3033 s | Percent of total time: 99.9907%
+
+Step: Actuate | Increment: 117 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3067 s | Percent of total time: 99.9908%
+
+Step: Actuate | Increment: 118 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.31 s | Percent of total time: 99.9908%
+
+Step: Actuate | Increment: 119 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3133 s | Percent of total time: 99.9908%
+
+Step: Actuate | Increment: 120 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3167 s | Percent of total time: 99.9909%
+
+Step: Actuate | Increment: 121 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.32 s | Percent of total time: 99.9909%
+
+Step: Actuate | Increment: 122 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3233 s | Percent of total time: 99.991%
+
+Step: Actuate | Increment: 123 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3267 s | Percent of total time: 99.991%
+
+Step: Actuate | Increment: 124 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.33 s | Percent of total time: 99.9911%
+
+Step: Actuate | Increment: 125 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.3333 s | Percent of total time: 99.9911%
+
+Step: Actuate | Increment: 126 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3367 s | Percent of total time: 99.9912%
+
+Step: Actuate | Increment: 127 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.34 s | Percent of total time: 99.9912%
+
+Step: Actuate | Increment: 128 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3433 s | Percent of total time: 99.9912%
+
+Step: Actuate | Increment: 129 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.3467 s | Percent of total time: 99.9913%
+
+Step: Actuate | Increment: 130 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.35 s | Percent of total time: 99.9913%
+
+Step: Actuate | Increment: 131 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3533 s | Percent of total time: 99.9914%
+
+Step: Actuate | Increment: 132 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3567 s | Percent of total time: 99.9914%
+
+Step: Actuate | Increment: 133 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.36 s | Percent of total time: 99.9915%
+
+Step: Actuate | Increment: 134 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.3633 s | Percent of total time: 99.9915%
+
+Step: Actuate | Increment: 135 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3667 s | Percent of total time: 99.9916%
+
+Step: Actuate | Increment: 136 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.37 s | Percent of total time: 99.9916%
+
+Step: Actuate | Increment: 137 | Iterations: 6
+dt: 0.0033 | Simulation Time: 7500.3733 s | Percent of total time: 99.9916%
+
+Step: Actuate | Increment: 138 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3767 s | Percent of total time: 99.9917%
+
+Step: Actuate | Increment: 139 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.38 s | Percent of total time: 99.9917%
+
+Step: Actuate | Increment: 140 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3833 s | Percent of total time: 99.9918%
+
+Step: Actuate | Increment: 141 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3867 s | Percent of total time: 99.9918%
+
+Step: Actuate | Increment: 142 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.39 s | Percent of total time: 99.9919%
+
+Step: Actuate | Increment: 143 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3933 s | Percent of total time: 99.9919%
+
+Step: Actuate | Increment: 144 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.3967 s | Percent of total time: 99.992%
+
+Step: Actuate | Increment: 145 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4 s | Percent of total time: 99.992%
+
+Step: Actuate | Increment: 146 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4033 s | Percent of total time: 99.992%
+
+Step: Actuate | Increment: 147 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4067 s | Percent of total time: 99.9921%
+
+Step: Actuate | Increment: 148 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.41 s | Percent of total time: 99.9921%
+
+Step: Actuate | Increment: 149 | Iterations: 6
+dt: 0.0033 | Simulation Time: 7500.4133 s | Percent of total time: 99.9922%
+
+Step: Actuate | Increment: 150 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4167 s | Percent of total time: 99.9922%
+
+Step: Actuate | Increment: 151 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.42 s | Percent of total time: 99.9923%
+
+Step: Actuate | Increment: 152 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4233 s | Percent of total time: 99.9923%
+
+Step: Actuate | Increment: 153 | Iterations: 5
+dt: 0.0033 | Simulation Time: 7500.4267 s | Percent of total time: 99.9924%
+
+Step: Actuate | Increment: 154 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.43 s | Percent of total time: 99.9924%
+
+Step: Actuate | Increment: 155 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4333 s | Percent of total time: 99.9924%
+
+Step: Actuate | Increment: 156 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4367 s | Percent of total time: 99.9925%
+
+Step: Actuate | Increment: 157 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.44 s | Percent of total time: 99.9925%
+
+Step: Actuate | Increment: 158 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4433 s | Percent of total time: 99.9926%
+
+Step: Actuate | Increment: 159 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4467 s | Percent of total time: 99.9926%
+
+Step: Actuate | Increment: 160 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.45 s | Percent of total time: 99.9927%
+
+Step: Actuate | Increment: 161 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4533 s | Percent of total time: 99.9927%
+
+Step: Actuate | Increment: 162 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4567 s | Percent of total time: 99.9928%
+
+Step: Actuate | Increment: 163 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.46 s | Percent of total time: 99.9928%
+
+Step: Actuate | Increment: 164 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4633 s | Percent of total time: 99.9928%
+
+Step: Actuate | Increment: 165 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4667 s | Percent of total time: 99.9929%
+
+Step: Actuate | Increment: 166 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.47 s | Percent of total time: 99.9929%
+
+Step: Actuate | Increment: 167 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4733 s | Percent of total time: 99.993%
+
+Step: Actuate | Increment: 168 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4767 s | Percent of total time: 99.993%
+
+Step: Actuate | Increment: 169 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.48 s | Percent of total time: 99.9931%
+
+Step: Actuate | Increment: 170 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4833 s | Percent of total time: 99.9931%
+
+Step: Actuate | Increment: 171 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4867 s | Percent of total time: 99.9932%
+
+Step: Actuate | Increment: 172 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.49 s | Percent of total time: 99.9932%
+
+Step: Actuate | Increment: 173 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4933 s | Percent of total time: 99.9932%
+
+Step: Actuate | Increment: 174 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.4967 s | Percent of total time: 99.9933%
+
+Step: Actuate | Increment: 175 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.5 s | Percent of total time: 99.9933%
+
+Step: Actuate | Increment: 176 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.5033 s | Percent of total time: 99.9934%
+
+Step: Actuate | Increment: 177 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.5067 s | Percent of total time: 99.9934%
+
+Step: Actuate | Increment: 178 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.51 s | Percent of total time: 99.9935%
+
+Step: Actuate | Increment: 179 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.5133 s | Percent of total time: 99.9935%
+
+Step: Actuate | Increment: 180 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.5167 s | Percent of total time: 99.9936%
+
+Step: Actuate | Increment: 181 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.52 s | Percent of total time: 99.9936%
+
+Step: Actuate | Increment: 182 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5233 s | Percent of total time: 99.9936%
+
+Step: Actuate | Increment: 183 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5267 s | Percent of total time: 99.9937%
+
+Step: Actuate | Increment: 184 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.53 s | Percent of total time: 99.9937%
+
+Step: Actuate | Increment: 185 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5333 s | Percent of total time: 99.9938%
+
+Step: Actuate | Increment: 186 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5367 s | Percent of total time: 99.9938%
+
+Step: Actuate | Increment: 187 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.54 s | Percent of total time: 99.9939%
+
+Step: Actuate | Increment: 188 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5433 s | Percent of total time: 99.9939%
+
+Step: Actuate | Increment: 189 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5467 s | Percent of total time: 99.994%
+
+Step: Actuate | Increment: 190 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.55 s | Percent of total time: 99.994%
+
+Step: Actuate | Increment: 191 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5533 s | Percent of total time: 99.994%
+
+Step: Actuate | Increment: 192 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5567 s | Percent of total time: 99.9941%
+
+Step: Actuate | Increment: 193 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.56 s | Percent of total time: 99.9941%
+
+Step: Actuate | Increment: 194 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.5633 s | Percent of total time: 99.9942%
+
+Step: Actuate | Increment: 195 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5667 s | Percent of total time: 99.9942%
+
+Step: Actuate | Increment: 196 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.57 s | Percent of total time: 99.9943%
+
+Step: Actuate | Increment: 197 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5733 s | Percent of total time: 99.9943%
+
+Step: Actuate | Increment: 198 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5767 s | Percent of total time: 99.9944%
+
+Step: Actuate | Increment: 199 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.58 s | Percent of total time: 99.9944%
+
+Step: Actuate | Increment: 200 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5833 s | Percent of total time: 99.9944%
+
+Step: Actuate | Increment: 201 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5867 s | Percent of total time: 99.9945%
+
+Step: Actuate | Increment: 202 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.59 s | Percent of total time: 99.9945%
+
+Step: Actuate | Increment: 203 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5933 s | Percent of total time: 99.9946%
+
+Step: Actuate | Increment: 204 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.5967 s | Percent of total time: 99.9946%
+
+Step: Actuate | Increment: 205 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6 s | Percent of total time: 99.9947%
+
+Step: Actuate | Increment: 206 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6033 s | Percent of total time: 99.9947%
+
+Step: Actuate | Increment: 207 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6067 s | Percent of total time: 99.9948%
+
+Step: Actuate | Increment: 208 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.61 s | Percent of total time: 99.9948%
+
+Step: Actuate | Increment: 209 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6133 s | Percent of total time: 99.9948%
+
+Step: Actuate | Increment: 210 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6167 s | Percent of total time: 99.9949%
+
+Step: Actuate | Increment: 211 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.62 s | Percent of total time: 99.9949%
+
+Step: Actuate | Increment: 212 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6233 s | Percent of total time: 99.995%
+
+Step: Actuate | Increment: 213 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6267 s | Percent of total time: 99.995%
+
+Step: Actuate | Increment: 214 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.63 s | Percent of total time: 99.9951%
+
+Step: Actuate | Increment: 215 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6333 s | Percent of total time: 99.9951%
+
+Step: Actuate | Increment: 216 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6367 s | Percent of total time: 99.9952%
+
+Step: Actuate | Increment: 217 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.64 s | Percent of total time: 99.9952%
+
+Step: Actuate | Increment: 218 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6433 s | Percent of total time: 99.9952%
+
+Step: Actuate | Increment: 219 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6467 s | Percent of total time: 99.9953%
+
+Step: Actuate | Increment: 220 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.65 s | Percent of total time: 99.9953%
+
+Step: Actuate | Increment: 221 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6533 s | Percent of total time: 99.9954%
+
+Step: Actuate | Increment: 222 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6567 s | Percent of total time: 99.9954%
+
+Step: Actuate | Increment: 223 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.66 s | Percent of total time: 99.9955%
+
+Step: Actuate | Increment: 224 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6633 s | Percent of total time: 99.9955%
+
+Step: Actuate | Increment: 225 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6667 s | Percent of total time: 99.9956%
+
+Step: Actuate | Increment: 226 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.67 s | Percent of total time: 99.9956%
+
+Step: Actuate | Increment: 227 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6733 s | Percent of total time: 99.9956%
+
+Step: Actuate | Increment: 228 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6767 s | Percent of total time: 99.9957%
+
+Step: Actuate | Increment: 229 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.68 s | Percent of total time: 99.9957%
+
+Step: Actuate | Increment: 230 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6833 s | Percent of total time: 99.9958%
+
+Step: Actuate | Increment: 231 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6867 s | Percent of total time: 99.9958%
+
+Step: Actuate | Increment: 232 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.69 s | Percent of total time: 99.9959%
+
+Step: Actuate | Increment: 233 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6933 s | Percent of total time: 99.9959%
+
+Step: Actuate | Increment: 234 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.6967 s | Percent of total time: 99.996%
+
+Step: Actuate | Increment: 235 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7 s | Percent of total time: 99.996%
+
+Step: Actuate | Increment: 236 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7033 s | Percent of total time: 99.996%
+
+Step: Actuate | Increment: 237 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7067 s | Percent of total time: 99.9961%
+
+Step: Actuate | Increment: 238 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.71 s | Percent of total time: 99.9961%
+
+Step: Actuate | Increment: 239 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7133 s | Percent of total time: 99.9962%
+
+Step: Actuate | Increment: 240 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7167 s | Percent of total time: 99.9962%
+
+Step: Actuate | Increment: 241 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.72 s | Percent of total time: 99.9963%
+
+Step: Actuate | Increment: 242 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7233 s | Percent of total time: 99.9963%
+
+Step: Actuate | Increment: 243 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7267 s | Percent of total time: 99.9964%
+
+Step: Actuate | Increment: 244 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.73 s | Percent of total time: 99.9964%
+
+Step: Actuate | Increment: 245 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7333 s | Percent of total time: 99.9964%
+
+Step: Actuate | Increment: 246 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7367 s | Percent of total time: 99.9965%
+
+Step: Actuate | Increment: 247 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.74 s | Percent of total time: 99.9965%
+
+Step: Actuate | Increment: 248 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7433 s | Percent of total time: 99.9966%
+
+Step: Actuate | Increment: 249 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7467 s | Percent of total time: 99.9966%
+
+Step: Actuate | Increment: 250 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.75 s | Percent of total time: 99.9967%
+
+Step: Actuate | Increment: 251 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7533 s | Percent of total time: 99.9967%
+
+Step: Actuate | Increment: 252 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7567 s | Percent of total time: 99.9968%
+
+Step: Actuate | Increment: 253 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.76 s | Percent of total time: 99.9968%
+
+Step: Actuate | Increment: 254 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7633 s | Percent of total time: 99.9968%
+
+Step: Actuate | Increment: 255 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7667 s | Percent of total time: 99.9969%
+
+Step: Actuate | Increment: 256 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.77 s | Percent of total time: 99.9969%
+
+Step: Actuate | Increment: 257 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7733 s | Percent of total time: 99.997%
+
+Step: Actuate | Increment: 258 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7767 s | Percent of total time: 99.997%
+
+Step: Actuate | Increment: 259 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.78 s | Percent of total time: 99.9971%
+
+Step: Actuate | Increment: 260 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7833 s | Percent of total time: 99.9971%
+
+Step: Actuate | Increment: 261 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7867 s | Percent of total time: 99.9972%
+
+Step: Actuate | Increment: 262 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.79 s | Percent of total time: 99.9972%
+
+Step: Actuate | Increment: 263 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7933 s | Percent of total time: 99.9972%
+
+Step: Actuate | Increment: 264 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.7967 s | Percent of total time: 99.9973%
+
+Step: Actuate | Increment: 265 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8 s | Percent of total time: 99.9973%
+
+Step: Actuate | Increment: 266 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8033 s | Percent of total time: 99.9974%
+
+Step: Actuate | Increment: 267 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8067 s | Percent of total time: 99.9974%
+
+Step: Actuate | Increment: 268 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.81 s | Percent of total time: 99.9975%
+
+Step: Actuate | Increment: 269 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8133 s | Percent of total time: 99.9975%
+
+Step: Actuate | Increment: 270 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8167 s | Percent of total time: 99.9976%
+
+Step: Actuate | Increment: 271 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.82 s | Percent of total time: 99.9976%
+
+Step: Actuate | Increment: 272 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8233 s | Percent of total time: 99.9976%
+
+Step: Actuate | Increment: 273 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8267 s | Percent of total time: 99.9977%
+
+Step: Actuate | Increment: 274 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.83 s | Percent of total time: 99.9977%
+
+Step: Actuate | Increment: 275 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8333 s | Percent of total time: 99.9978%
+
+Step: Actuate | Increment: 276 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8367 s | Percent of total time: 99.9978%
+
+Step: Actuate | Increment: 277 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.84 s | Percent of total time: 99.9979%
+
+Step: Actuate | Increment: 278 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8433 s | Percent of total time: 99.9979%
+
+Step: Actuate | Increment: 279 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8467 s | Percent of total time: 99.998%
+
+Step: Actuate | Increment: 280 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.85 s | Percent of total time: 99.998%
+
+Step: Actuate | Increment: 281 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8533 s | Percent of total time: 99.998%
+
+Step: Actuate | Increment: 282 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8567 s | Percent of total time: 99.9981%
+
+Step: Actuate | Increment: 283 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.86 s | Percent of total time: 99.9981%
+
+Step: Actuate | Increment: 284 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8633 s | Percent of total time: 99.9982%
+
+Step: Actuate | Increment: 285 | Iterations: 4
+dt: 0.0033 | Simulation Time: 7500.8667 s | Percent of total time: 99.9982%
+
+Step: Actuate | Increment: 286 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.87 s | Percent of total time: 99.9983%
+
+Step: Actuate | Increment: 287 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8733 s | Percent of total time: 99.9983%
+
+Step: Actuate | Increment: 288 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8767 s | Percent of total time: 99.9984%
+
+Step: Actuate | Increment: 289 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.88 s | Percent of total time: 99.9984%
+
+Step: Actuate | Increment: 290 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8833 s | Percent of total time: 99.9984%
+
+Step: Actuate | Increment: 291 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8867 s | Percent of total time: 99.9985%
+
+Step: Actuate | Increment: 292 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.89 s | Percent of total time: 99.9985%
+
+Step: Actuate | Increment: 293 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8933 s | Percent of total time: 99.9986%
+
+Step: Actuate | Increment: 294 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.8967 s | Percent of total time: 99.9986%
+
+Step: Actuate | Increment: 295 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9 s | Percent of total time: 99.9987%
+
+Step: Actuate | Increment: 296 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9033 s | Percent of total time: 99.9987%
+
+Step: Actuate | Increment: 297 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9067 s | Percent of total time: 99.9988%
+
+Step: Actuate | Increment: 298 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.91 s | Percent of total time: 99.9988%
+
+Step: Actuate | Increment: 299 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9133 s | Percent of total time: 99.9988%
+
+Step: Actuate | Increment: 300 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9167 s | Percent of total time: 99.9989%
+
+Step: Actuate | Increment: 301 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.92 s | Percent of total time: 99.9989%
+
+Step: Actuate | Increment: 302 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9233 s | Percent of total time: 99.999%
+
+Step: Actuate | Increment: 303 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9267 s | Percent of total time: 99.999%
+
+Step: Actuate | Increment: 304 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.93 s | Percent of total time: 99.9991%
+
+Step: Actuate | Increment: 305 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9333 s | Percent of total time: 99.9991%
+
+Step: Actuate | Increment: 306 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9367 s | Percent of total time: 99.9992%
+
+Step: Actuate | Increment: 307 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.94 s | Percent of total time: 99.9992%
+
+Step: Actuate | Increment: 308 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9433 s | Percent of total time: 99.9992%
+
+Step: Actuate | Increment: 309 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9467 s | Percent of total time: 99.9993%
+
+Step: Actuate | Increment: 310 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.95 s | Percent of total time: 99.9993%
+
+Step: Actuate | Increment: 311 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9533 s | Percent of total time: 99.9994%
+
+Step: Actuate | Increment: 312 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9567 s | Percent of total time: 99.9994%
+
+Step: Actuate | Increment: 313 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.96 s | Percent of total time: 99.9995%
+
+Step: Actuate | Increment: 314 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9633 s | Percent of total time: 99.9995%
+
+Step: Actuate | Increment: 315 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9667 s | Percent of total time: 99.9996%
+
+Step: Actuate | Increment: 316 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.97 s | Percent of total time: 99.9996%
+
+Step: Actuate | Increment: 317 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9733 s | Percent of total time: 99.9996%
+
+Step: Actuate | Increment: 318 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9767 s | Percent of total time: 99.9997%
+
+Step: Actuate | Increment: 319 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.98 s | Percent of total time: 99.9997%
+
+Step: Actuate | Increment: 320 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9833 s | Percent of total time: 99.9998%
+
+Step: Actuate | Increment: 321 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9867 s | Percent of total time: 99.9998%
+
+Step: Actuate | Increment: 322 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.99 s | Percent of total time: 99.9999%
+
+Step: Actuate | Increment: 323 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9933 s | Percent of total time: 99.9999%
+
+Step: Actuate | Increment: 324 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7500.9967 s | Percent of total time: 100.0%
+
+Step: Actuate | Increment: 325 | Iterations: 3
+dt: 0.0033 | Simulation Time: 7501.0 s | Percent of total time: 100.0%
+
+-----------------------------------------
+End computation
+------------------------------------------
+Elapsed real time:  0:00:07.762976
+------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="plot-results">
@@ -2368,75 +3588,6 @@
 
 
 
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="c1"># Plot the normalized dimensionless quantity for $\phi$ used in Wang et al. 2016</span>
-<span class="c1"># versus stretch in the thickness direction, only for the actuation step.</span>
-<span class="c1">#</span>
-<span class="n">normVolts</span> <span class="o">=</span> <span class="n">timeHist1</span><span class="o">/</span><span class="p">(</span><span class="n">thickness</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Geq_0</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">vareps</span><span class="p">)))</span> 
-<span class="n">normVolts</span> <span class="o">=</span> <span class="n">normVolts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">timeHist2</span><span class="o">&gt;=</span><span class="n">step1_time</span><span class="p">)]</span>
-<span class="c1">#</span>
-<span class="n">stretch</span> <span class="o">=</span> <span class="n">timeHist4</span><span class="o">/</span><span class="n">thickness</span> <span class="o">+</span> <span class="mf">1.0</span>
-<span class="n">stretch</span> <span class="o">=</span> <span class="n">stretch</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">timeHist2</span><span class="o">&gt;=</span><span class="n">step1_time</span><span class="p">)]</span>
-<span class="c1">#</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">normVolts</span><span class="p">,</span> <span class="n">stretch</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="c1">#plt.scatter(normVolts[iii-1], stretch[iii-1], c=&#39;k&#39;, marker=&#39;x&#39;, s=100)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="c1">#</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T/T_0$&#39;</span><span class="p">)</span>
-<span class="c1">#ax.set_ylim([0.2,1.1])</span>
-<span class="c1"># ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])</span>
-<span class="c1">#</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$(\phi/t_0)  /  \sqrt{G_</span><span class="si">{0}</span><span class="s1"> / \varepsilon} $&#39;</span><span class="p">)</span>
-<span class="c1">#ax.set_xlim([0,1.65])</span>
-<span class="c1">#ax.set_xticks([0.0, 0.25, 0.5, 0.75, 1.0])</span>
-<span class="c1">#</span>
-<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">AutoMinorLocator</span><span class="p">,</span><span class="n">FormatStrFormatter</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
-<span class="c1"># plt.show()</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.savefig(&quot;results/AX_prestretch_thinning.png&quot;, dpi=600)</span>
-
-
-
-
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="c1"># Plot the normalized dimensionless quantity for $\phi$ used in Wang et al. 2016</span>
-<span class="c1"># versus relative area stretch.</span>
-<span class="c1">#</span>
-<span class="n">AreaStrainAbs</span> <span class="o">=</span> <span class="p">(</span><span class="n">timeHist3</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">electrodeRad</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
-<span class="n">AreaStrainAbs</span> <span class="o">=</span> <span class="n">AreaStrainAbs</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">timeHist2</span><span class="o">&gt;=</span><span class="n">step1_time</span><span class="p">)]</span>
-<span class="c1">#</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">normVolts</span><span class="p">,</span> <span class="n">AreaStrainAbs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="c1">#plt.scatter(normVolts[iii-1], stretch[iii-1], c=&#39;k&#39;, marker=&#39;x&#39;, s=100)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="c1">#</span>
-<span class="c1"># ax.set_ylim([1.0,5.0])</span>
-<span class="c1"># ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])</span>
-<span class="c1">#</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Electrode $A/A_0$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$(\phi/T_0)  /  \sqrt{G_</span><span class="si">{0eq}</span><span class="s1"> / \varepsilon} $&#39;</span><span class="p">)</span>
-
-<span class="c1"># plt.show()</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.savefig(&quot;results/AXI_prestretch_areaStretch.png&quot;, dpi=600)</span>
-
-
-
-
-
-
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="c1"># Plot the normalized dimensionless quantity for $\phi$ used in Wang et al. 2016</span>
 <span class="c1"># versus stretch in the thickness direction, only for the actuation step.</span>
@@ -2449,7 +3600,7 @@
 <span class="c1">#</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">normVolts</span><span class="p">,</span> <span class="n">stretch</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">])</span>
 <span class="c1"># ax.set_ylim([0.2,1.1])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T/T_0$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$(\phi/T_0)  /  \sqrt{G_</span><span class="si">{0eq}</span><span class="s1"> / \varepsilon} $&#39;</span><span class="p">)</span>
@@ -2471,13 +3622,13 @@
 <span class="c1"># Plot the normalized dimensionless quantity for $\phi$ used in Wang et al. 2016</span>
 <span class="c1"># versus relative area stretch.</span>
 <span class="c1">#</span>
-<span class="n">AreaStrainAbs</span> <span class="o">=</span> <span class="p">(</span><span class="n">timeHist3</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">electrodeRad</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">AreaStrainAbs</span> <span class="o">=</span> <span class="p">((</span><span class="n">electrode</span> <span class="o">+</span> <span class="n">timeHist3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">electrodeRad</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
 <span class="n">AreaStrainAbs</span> <span class="o">=</span> <span class="n">AreaStrainAbs</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">timeHist2</span><span class="o">&gt;=</span><span class="n">step1_time</span><span class="p">)]</span>
 <span class="c1">#</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">normVolts</span><span class="p">,</span> <span class="n">AreaStrainAbs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="c1">#</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">])</span>
 <span class="c1"># ax.set_ylim([1.0,5.0])</span>
 <span class="c1">#</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Electrode $A/A_0$&#39;</span><span class="p">)</span>
@@ -2494,53 +3645,8 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/db218b29d2a259ce150e209ae5b1fe27612b23122347b542e02f31873523f966.png" src="../_images/db218b29d2a259ce150e209ae5b1fe27612b23122347b542e02f31873523f966.png" />
-<img alt="../_images/64bdd300e3f30542a4cf60f8f6a6bcca761e1e39ea9b85ac7bb7e553784a8ab9.png" src="../_images/64bdd300e3f30542a4cf60f8f6a6bcca761e1e39ea9b85ac7bb7e553784a8ab9.png" />
-<img alt="../_images/f3916d240ad8c2477a0d76e0312fb87dd855f910d1052d829a449554eae24856.png" src="../_images/f3916d240ad8c2477a0d76e0312fb87dd855f910d1052d829a449554eae24856.png" />
-<img alt="../_images/1969f35f353b48b4185aa5fe7bf8ad1f463b82d2154fe921e82eb96ffb3cfda2.png" src="../_images/1969f35f353b48b4185aa5fe7bf8ad1f463b82d2154fe921e82eb96ffb3cfda2.png" />
-<img alt="../_images/81801368798e5f2f45ee32b247fda421a63cbcefc7f07ebd8db20d3900377ddf.png" src="../_images/81801368798e5f2f45ee32b247fda421a63cbcefc7f07ebd8db20d3900377ddf.png" />
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="saving-data-and-making-plots-below-not-part-of-the-actual-simulation-just-for-the-plots-in-the-book">
-<h1>Saving data and making plots below, not part of the actual simulation, just for the plots in the book<a class="headerlink" href="#saving-data-and-making-plots-below-not-part-of-the-actual-simulation-just-for-the-plots-in-the-book" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.savetxt(&#39;MembraneNoPrestretch.csv&#39;, np.vstack((normVolts,stretch,AreaStrainAbs)).T, delimiter=&#39;,&#39;)</span>
-<span class="c1"># np.savetxt(&#39;MembranePrestretch4.csv&#39;, np.vstack((normVolts,stretch,AreaStrainAbs)).T, delimiter=&#39;,&#39;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # retrieve data from prior runs</span>
-<span class="c1"># NoPre = np.genfromtxt(&#39;MembraneNoPrestretch.csv&#39;, delimiter=&#39;,&#39;)</span>
-<span class="c1"># Pre4 = np.genfromtxt(&#39;MembranePrestretch4.csv&#39;, delimiter=&#39;,&#39;)</span>
-
-
-<span class="c1"># plt.figure()</span>
-<span class="c1"># # Plot the normalized dimensionless quantity for $\phi$ used in Wang et al. 2016</span>
-<span class="c1"># # versus relative area stretch.</span>
-<span class="c1"># #</span>
-<span class="c1"># plt.plot(Pre4[:,0], Pre4[:,2], c=colors[0], linewidth=2.0, label=r&#39;$\lambda_\text{pre}=4$&#39;)</span>
-<span class="c1"># plt.plot(NoPre[:,0], NoPre[:,2], c=colors[1], linewidth=2.0, label=r&#39;$\lambda_\text{pre}=1$&#39;)</span>
-<span class="c1"># plt.grid(linestyle=&quot;--&quot;, linewidth=0.5, color=&#39;b&#39;)</span>
-<span class="c1"># #</span>
-<span class="c1"># plt.xlim([0,0.4])</span>
-<span class="c1"># # ax.set_ylim([1.0,5.0])</span>
-<span class="c1"># #</span>
-<span class="c1"># plt.ylabel(r&#39;Electrode $A/A_0$&#39;)</span>
-<span class="c1"># plt.xlabel(r&#39;$(\phi/T_0)  /  \sqrt{G_{0eq} / \varepsilon} $&#39;)</span>
-<span class="c1"># #</span>
-<span class="c1"># plt.legend(loc=&quot;upper left&quot;)</span>
-
-
-<span class="c1"># fig = plt.gcf()</span>
-<span class="c1"># fig.set_size_inches(7,5)</span>
-<span class="c1"># plt.tight_layout()</span>
-<span class="c1"># plt.savefig(&quot;results/AXI_prestretch_areaStretch_comparison.png&quot;, dpi=600)</span>
-</pre></div>
-</div>
+<img alt="../_images/4f747823b5ae380412d9a0de0b27f3740061f0acd1bca5ea59b9cf00505b6a3e.png" src="../_images/4f747823b5ae380412d9a0de0b27f3740061f0acd1bca5ea59b9cf00505b6a3e.png" />
+<img alt="../_images/f0efe187b2b8f37b82eb4e0f263e6d197739366e26414ab86a2bf1d738d07585.png" src="../_images/f0efe187b2b8f37b82eb4e0f263e6d197739366e26414ab86a2bf1d738d07585.png" />
 </div>
 </div>
 </section>
@@ -2624,6 +3730,7 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parameters">Material parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-params">Simulation time-control related params</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -2635,7 +3742,6 @@
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data-and-making-plots-below-not-part-of-the-actual-simulation-just-for-the-plots-in-the-book">Saving data and making plots below, not part of the actual simulation, just for the plots in the book</a></li>
 </ul>
 
   </nav></div>
