@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,6 +73,8 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '09_ionic_polymer_metal_composites/IPMC_01_pe_beam_free_curling';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -750,7 +752,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
+
 
 
 
@@ -780,7 +784,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
+
 
 
 
@@ -874,7 +880,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
+
 
 
 
@@ -898,7 +906,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
+
 
 
 
@@ -923,7 +933,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE05_3D_Gripper.html">Four-arm gripper</a></li>
+
 
 
 
@@ -964,7 +976,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_pullin_instability_rate_sweep.html">Rate-dependent pull-in instability</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
 
 
 
@@ -977,7 +991,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_blister.html">Electro-elastic “blister” instability</a></li>
+
+
 
 
 
@@ -1002,7 +1018,23 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV04b_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_PE_crease.html">Electro-elastic “creasing” instability</a></li>
+
 
 
 
@@ -1042,34 +1074,11 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV09_PE_crease.html">Electro-elastic “creasing” instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV10_3D_blister.html">Electro-elastic “blister” instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../part9.html">IX. Electro-chemo-elasticity</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Free curling</a></li>
+
 
 
 
@@ -1100,7 +1109,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="IPMC_03_pe_beam_sinusoidal_actuation.html">Sinusoidal actuation</a></li>
+
 
 
 
@@ -1504,6 +1515,7 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parmeters">Material parmeters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -1518,7 +1530,10 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-calculation-loop">Start calculation loop</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-concentration-profile-along-the-beam-height">Plotting the concentration profile along the beam height</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -1573,9 +1588,9 @@
 <ul class="simple">
 <li><p>Dolfinx v0.8.0</p></li>
 </ul>
-<p>Eric Stewart and Lallit Anand</p>
-<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a> and <a class="reference external" href="mailto:anand&#37;&#52;&#48;mit&#46;edu">anand<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
-<p>June 2024</p>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
@@ -1771,21 +1786,22 @@
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
 
-<span class="c1"># plotter.screenshot(&quot;results/ipmc_beam_mesh.png&quot;)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/ipmc_beam_mesh.png&quot;</span><span class="p">)</span>
 
-<span class="c1"># from IPython.display import Image</span>
-<span class="c1"># Image(filename=&#39;results/ipmc_beam_mesh.png&#39;) </span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/ipmc_beam_mesh.png&#39;</span><span class="p">)</span> 
 
-<span class="c1"># Use the following  commands for a  zoom-able  view</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;ipmc_beam_mesh.png&quot;</span><span class="p">)</span>
+<span class="c1"># # Use the following  commands for a  zoom-able  view</span>
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#     plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#     plotter.screenshot(&quot;ipmc_beam_mesh.png&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a039f417eb89475ba83c1351fe1dae36", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/055b6fc3ce5925c0260278580db40dd228646f7d19a8eee1303e75f56d7fd060.png" src="../_images/055b6fc3ce5925c0260278580db40dd228646f7d19a8eee1303e75f56d7fd060.png" />
+</div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
 <h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
@@ -1793,11 +1809,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the boundary integration measure &quot;ds&quot; using the facet tags,</span>
 <span class="c1"># also specify the number of surface quadrature points.</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tags</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Define the volume integration measure &quot;dx&quot; </span>
 <span class="c1"># also specify the number of volume quadrature points.</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s1">&#39;dx&#39;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quadrature_degree&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 
 <span class="c1"># Create facet to cell connectivity required to determine boundary facets.</span>
 <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">create_connectivity</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
@@ -1891,11 +1907,24 @@
 
 <span class="c1"># Define trial functions needed for automatic differentiation</span>
 <span class="n">dw</span> <span class="o">=</span> <span class="n">TrialFunction</span><span class="p">(</span><span class="n">ME</span><span class="p">)</span>                  
-
-<span class="c1"># Assign initial  value of c0of the normalized concentration to the domain</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions">
+<h1>Initial conditions<a class="headerlink" href="#initial-conditions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The initial conditions for degrees of freedom <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are zero everywhere.</p></li>
+<li><p>These are imposed automatically, since we have not specified any non-zero initial conditions.</p></li>
+<li><p>We do, however, need to impose the uniform initial condition <span class="math notranslate nohighlight">\(\bar{c} = \bar{c}_0\)</span>. This is done below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign initial  value of c0, the normalized concentration, to the domain</span>
 <span class="c1">#</span>
 <span class="n">w</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span>  <span class="n">c0</span><span class="p">))</span>
-<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">c0</span><span class="p">))</span>     
+<span class="n">w_old</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">c0</span><span class="p">))</span>    
 </pre></div>
 </div>
 </div>
@@ -2350,22 +2379,22 @@ Step: Curl | Increment: 13, Iterations: 6
 Step: Curl | Increment: 14, Iterations: 6
       Simulation Time: 1.4 s  of  20.0 s
 
-Step: Curl | Increment: 15, Iterations: 5
+Step: Curl | Increment: 15, Iterations: 6
       Simulation Time: 1.5 s  of  20.0 s
 
-Step: Curl | Increment: 16, Iterations: 5
+Step: Curl | Increment: 16, Iterations: 6
       Simulation Time: 1.6 s  of  20.0 s
 
-Step: Curl | Increment: 17, Iterations: 5
+Step: Curl | Increment: 17, Iterations: 6
       Simulation Time: 1.7 s  of  20.0 s
 
-Step: Curl | Increment: 18, Iterations: 5
+Step: Curl | Increment: 18, Iterations: 6
       Simulation Time: 1.8 s  of  20.0 s
 
-Step: Curl | Increment: 19, Iterations: 5
+Step: Curl | Increment: 19, Iterations: 6
       Simulation Time: 1.9 s  of  20.0 s
 
-Step: Curl | Increment: 20, Iterations: 5
+Step: Curl | Increment: 20, Iterations: 6
       Simulation Time: 2.0 s  of  20.0 s
 
 Step: Curl | Increment: 21, Iterations: 5
@@ -2488,19 +2517,19 @@ Step: Curl | Increment: 59, Iterations: 5
 Step: Curl | Increment: 60, Iterations: 5
       Simulation Time: 6.0 s  of  20.0 s
 
-Step: Curl | Increment: 61, Iterations: 5
+Step: Curl | Increment: 61, Iterations: 4
       Simulation Time: 6.1 s  of  20.0 s
 
 Step: Curl | Increment: 62, Iterations: 5
       Simulation Time: 6.2 s  of  20.0 s
 
-Step: Curl | Increment: 63, Iterations: 5
+Step: Curl | Increment: 63, Iterations: 4
       Simulation Time: 6.3 s  of  20.0 s
 
 Step: Curl | Increment: 64, Iterations: 5
       Simulation Time: 6.4 s  of  20.0 s
 
-Step: Curl | Increment: 65, Iterations: 5
+Step: Curl | Increment: 65, Iterations: 4
       Simulation Time: 6.5 s  of  20.0 s
 
 Step: Curl | Increment: 66, Iterations: 5
@@ -2509,25 +2538,25 @@ Step: Curl | Increment: 66, Iterations: 5
 Step: Curl | Increment: 67, Iterations: 5
       Simulation Time: 6.7 s  of  20.0 s
 
-Step: Curl | Increment: 68, Iterations: 5
+Step: Curl | Increment: 68, Iterations: 4
       Simulation Time: 6.8 s  of  20.0 s
 
-Step: Curl | Increment: 69, Iterations: 5
+Step: Curl | Increment: 69, Iterations: 4
       Simulation Time: 6.9 s  of  20.0 s
 
 Step: Curl | Increment: 70, Iterations: 4
       Simulation Time: 7.0 s  of  20.0 s
 
-Step: Curl | Increment: 71, Iterations: 5
+Step: Curl | Increment: 71, Iterations: 4
       Simulation Time: 7.1 s  of  20.0 s
 
-Step: Curl | Increment: 72, Iterations: 5
+Step: Curl | Increment: 72, Iterations: 4
       Simulation Time: 7.2 s  of  20.0 s
 
-Step: Curl | Increment: 73, Iterations: 5
+Step: Curl | Increment: 73, Iterations: 4
       Simulation Time: 7.3 s  of  20.0 s
 
-Step: Curl | Increment: 74, Iterations: 5
+Step: Curl | Increment: 74, Iterations: 4
       Simulation Time: 7.4 s  of  20.0 s
 
 Step: Curl | Increment: 75, Iterations: 4
@@ -2815,10 +2844,10 @@ Step: Curl | Increment: 168, Iterations: 4
 Step: Curl | Increment: 169, Iterations: 4
       Simulation Time: 16.9 s  of  20.0 s
 
-Step: Curl | Increment: 170, Iterations: 3
+Step: Curl | Increment: 170, Iterations: 4
       Simulation Time: 17.0 s  of  20.0 s
 
-Step: Curl | Increment: 171, Iterations: 3
+Step: Curl | Increment: 171, Iterations: 4
       Simulation Time: 17.1 s  of  20.0 s
 
 Step: Curl | Increment: 172, Iterations: 4
@@ -2827,13 +2856,13 @@ Step: Curl | Increment: 172, Iterations: 4
 Step: Curl | Increment: 173, Iterations: 4
       Simulation Time: 17.3 s  of  20.0 s
 
-Step: Curl | Increment: 174, Iterations: 3
+Step: Curl | Increment: 174, Iterations: 4
       Simulation Time: 17.4 s  of  20.0 s
 
 Step: Curl | Increment: 175, Iterations: 4
       Simulation Time: 17.5 s  of  20.0 s
 
-Step: Curl | Increment: 176, Iterations: 3
+Step: Curl | Increment: 176, Iterations: 4
       Simulation Time: 17.6 s  of  20.0 s
 
 Step: Curl | Increment: 177, Iterations: 4
@@ -2851,46 +2880,46 @@ Step: Curl | Increment: 180, Iterations: 4
 Step: Curl | Increment: 181, Iterations: 4
       Simulation Time: 18.1 s  of  20.0 s
 
-Step: Curl | Increment: 182, Iterations: 3
+Step: Curl | Increment: 182, Iterations: 4
       Simulation Time: 18.2 s  of  20.0 s
 
-Step: Curl | Increment: 183, Iterations: 3
+Step: Curl | Increment: 183, Iterations: 4
       Simulation Time: 18.3 s  of  20.0 s
 
 Step: Curl | Increment: 184, Iterations: 4
       Simulation Time: 18.4 s  of  20.0 s
 
-Step: Curl | Increment: 185, Iterations: 3
+Step: Curl | Increment: 185, Iterations: 4
       Simulation Time: 18.5 s  of  20.0 s
 
-Step: Curl | Increment: 186, Iterations: 3
+Step: Curl | Increment: 186, Iterations: 4
       Simulation Time: 18.6 s  of  20.0 s
 
-Step: Curl | Increment: 187, Iterations: 3
+Step: Curl | Increment: 187, Iterations: 4
       Simulation Time: 18.7 s  of  20.0 s
 
-Step: Curl | Increment: 188, Iterations: 3
+Step: Curl | Increment: 188, Iterations: 4
       Simulation Time: 18.8 s  of  20.0 s
 
-Step: Curl | Increment: 189, Iterations: 3
+Step: Curl | Increment: 189, Iterations: 4
       Simulation Time: 18.9 s  of  20.0 s
 
-Step: Curl | Increment: 190, Iterations: 3
+Step: Curl | Increment: 190, Iterations: 4
       Simulation Time: 19.0 s  of  20.0 s
 
-Step: Curl | Increment: 191, Iterations: 3
+Step: Curl | Increment: 191, Iterations: 4
       Simulation Time: 19.1 s  of  20.0 s
 
 Step: Curl | Increment: 192, Iterations: 3
       Simulation Time: 19.2 s  of  20.0 s
 
-Step: Curl | Increment: 193, Iterations: 3
+Step: Curl | Increment: 193, Iterations: 4
       Simulation Time: 19.3 s  of  20.0 s
 
-Step: Curl | Increment: 194, Iterations: 3
+Step: Curl | Increment: 194, Iterations: 4
       Simulation Time: 19.4 s  of  20.0 s
 
-Step: Curl | Increment: 195, Iterations: 3
+Step: Curl | Increment: 195, Iterations: 4
       Simulation Time: 19.5 s  of  20.0 s
 
 Step: Curl | Increment: 196, Iterations: 3
@@ -2911,7 +2940,7 @@ Step: Curl | Increment: 200, Iterations: 3
 -----------------------------------------
 End computation
 ------------------------------------------
-Elapsed real time:  0:18:07.773585
+Elapsed real time:  0:13:29.982335
 ------------------------------------------
 </pre></div>
 </div>
@@ -2963,10 +2992,11 @@ Elapsed real time:  0:18:07.773585
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/407eae0bcb8ac623d05277d0c209514efcf4309324aac841ef57db5cd96ddb24.png" src="../_images/407eae0bcb8ac623d05277d0c209514efcf4309324aac841ef57db5cd96ddb24.png" />
+<img alt="../_images/5e7586c8445c77d75b99ca947738b6716f259707fe2db3fc65f75eb8e1c9b355.png" src="../_images/5e7586c8445c77d75b99ca947738b6716f259707fe2db3fc65f75eb8e1c9b355.png" />
 </div>
 </div>
-<p><strong>Selecting the path to plot the concentration profile along the beam height</strong></p>
+<section id="plotting-the-concentration-profile-along-the-beam-height">
+<h2>Plotting the concentration profile along the beam height<a class="headerlink" href="#plotting-the-concentration-profile-along-the-beam-height" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collapse the concentration subspace:</span>
@@ -3017,9 +3047,10 @@ Elapsed real time:  0:18:07.773585
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/379c9800e1dbb2d415e38f153f6395036de77d510a06ab218c53d4d216e6edad.png" src="../_images/379c9800e1dbb2d415e38f153f6395036de77d510a06ab218c53d4d216e6edad.png" />
+<img alt="../_images/2543d8d4b2309990fceeb720fe5502edf207527c11ff4a2596b953190f6973bc.png" src="../_images/2543d8d4b2309990fceeb720fe5502edf207527c11ff4a2596b953190f6973bc.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3101,6 +3132,7 @@ Elapsed real time:  0:18:07.773585
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#material-parmeters">Material parmeters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-parameters">Simulation time-control related parameters</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -3115,7 +3147,10 @@ Elapsed real time:  0:18:07.773585
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-calculation-loop">Start calculation loop</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-concentration-profile-along-the-beam-height">Plotting the concentration profile along the beam height</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
