@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,10 +73,12 @@
                 gtag('config', 'G-SGEZVDBNKT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '10_hard_magnetics/HM07_bfield_triangle';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Hemisphere eversion snap-through" href="HM08_hemisphere_eversion.html" />
+    <link rel="next" title="Magneto-viscoelasticity of hard-magnetic soft-elastomers" href="HM08_hemisphere_eversion.html" />
     <link rel="prev" title="Constant field arch snap-through" href="HM06_bfield_constant.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -750,7 +752,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL02_axi_cylinder_swell.html">Thermal de-swelling of a cylinder</a></li>
+
 
 
 
@@ -780,7 +784,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../05_gel_thermomechanics/THERMOGEL04_pe_bilayer_beam.html">Thermal bending of a bilayer gel</a></li>
+
 
 
 
@@ -874,7 +880,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE01_2D_axi_pullin_instability.html">Axisymmetric pull-in instability</a></li>
+
 
 
 
@@ -898,7 +906,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE03_3D_bilayer_sinusoidal_beam_bending.html">Electro-elastic bilayer beam</a></li>
+
 
 
 
@@ -923,7 +933,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../07_dielectric_elastomers/DE05_3D_Gripper.html">Four-arm gripper</a></li>
+
 
 
 
@@ -964,7 +976,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_pullin_instability_rate_sweep.html">Rate-dependent pull-in instability</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV02_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
 
 
 
@@ -977,7 +991,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_beam_viscodynamic_actuation.html">Visco-dynamic bilayer beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV03_3D_blister.html">Electro-elastic “blister” instability</a></li>
+
+
 
 
 
@@ -1002,7 +1018,23 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV04b_3D_helix_viscodynamic_actuation_sine.html">Sine-wave helix actuation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV05_PE_crease.html">Electro-elastic “creasing” instability</a></li>
+
 
 
 
@@ -1042,34 +1074,11 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV09_PE_crease.html">Electro-elastic “creasing” instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../08_dielectric_viscoelastomers/DV10_3D_blister.html">Electro-elastic “blister” instability</a></li>
-
-
-
-
-
-
-
-
-
-
-
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part9.html">IX. Electro-chemo-elasticity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_01_pe_beam_free_curling.html">Free curling</a></li>
+
 
 
 
@@ -1100,7 +1109,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="../09_ionic_polymer_metal_composites/IPMC_03_pe_beam_sinusoidal_actuation.html">Sinusoidal actuation</a></li>
+
 
 
 
@@ -1132,7 +1143,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="HM02_beam_reversal.html">180-degree beam bending</a></li>
+
 
 
 
@@ -1156,7 +1169,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="HM04_mechanical_impulse.html">Bistable arch impulse response</a></li>
+
 
 
 
@@ -1182,7 +1197,9 @@
 
 
 
+
 <li class="toctree-l2"><a class="reference internal" href="HM06_bfield_constant.html">Constant field arch snap-through</a></li>
+
 
 
 
@@ -1208,7 +1225,9 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="HM08_hemisphere_eversion.html">Hemisphere eversion snap-through</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="HM08_hemisphere_eversion.html">Magneto-viscoelasticity of hard-magnetic soft-elastomers</a></li>
+
 
 
 
@@ -1503,6 +1522,7 @@
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-params">Simulation time-control related params</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
@@ -1553,9 +1573,9 @@
 </ul>
 </li>
 </ul>
-<p>Eric Stewart</p>
-<p><a class="reference external" href="mailto:ericstew&#37;&#52;&#48;mit&#46;edu">ericstew<span>&#64;</span>mit<span>&#46;</span>edu</a></p>
-<p>August 2024</p>
+<p>In the collection “Example Codes for Coupled Theories in Solid Mechanics,”</p>
+<p>By Eric M. Stewart, Shawn A. Chester, and Lallit Anand.</p>
+<p><a class="reference external" href="https://solidmechanicscoupledtheories.github.io/">https://solidmechanicscoupledtheories.github.io/</a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-modules">
 <h1>Import modules<a class="headerlink" href="#import-modules" title="Link to this heading">#</a></h1>
@@ -1739,15 +1759,24 @@
 <span class="n">actor</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">zBot_surf</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="c1"># zBot face is blue</span>
 <span class="n">actor2</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">zTop_surf</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="c1"># zTop is red</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/mesh.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/mesh.png&#39;</span><span class="p">)</span> 
+
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#     plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#     plotter.screenshot(&quot;mesh.png&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d86b43f7eff949faae079858cd43155c", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/a4a7eb86615c8384762ad51940e8b3d09dabb738f64fae5c59e4be9e3ad90dcc.png" src="../_images/a4a7eb86615c8384762ad51940e8b3d09dabb738f64fae5c59e4be9e3ad90dcc.png" />
+</div>
 </div>
 <section id="define-boundary-and-volume-integration-measure">
 <h2>Define boundary and volume integration measure<a class="headerlink" href="#define-boundary-and-volume-integration-measure" title="Link to this heading">#</a></h2>
@@ -1885,15 +1914,24 @@
 <span class="n">mag_arrow</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">glyph</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;b_rem&quot;</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">actor</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mag_arrow</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="c1"># plot magnetization values.</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span><span class="p">:</span>
-   <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-   <span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;mesh.png&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">zlabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="o">**</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="n">plotter</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s2">&quot;results/magnetization.png&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;results/magnetization.png&#39;</span><span class="p">)</span> 
+
+<span class="c1"># if not pyvista.OFF_SCREEN:</span>
+<span class="c1">#    plotter.show()</span>
+<span class="c1"># else:</span>
+<span class="c1">#    plotter.screenshot(&quot;magnetization.png&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6280c543d8c84ba0a419da4a07e7ecaf", "version_major": 2, "version_minor": 0}</script></div>
+<img alt="../_images/71183e1769fecf52b646d6d5e1c71a23e72badc0916bf3460b37a69f6b9d263f.png" src="../_images/71183e1769fecf52b646d6d5e1c71a23e72badc0916bf3460b37a69f6b9d263f.png" />
+</div>
 </div>
 </section>
 </section>
@@ -1981,8 +2019,21 @@
 <span class="c1">#</span>
 <span class="n">V3</span>     <span class="o">=</span> <span class="n">functionspace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">T0</span><span class="p">)</span> <span class="c1"># Tensor function space</span>
 <span class="n">Cv_old</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="n">V3</span><span class="p">)</span>              <span class="c1"># initialize the Cv_old tensor</span>
-<span class="c1">#</span>
-<span class="c1"># A function for constructing the identity matrix:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initial-conditions">
+<h1>Initial conditions<a class="headerlink" href="#initial-conditions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The initial conditions for degrees of freedom <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>,  <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, and <span class="math notranslate nohighlight">\(p\)</span> are zero everywhere</p></li>
+<li><p>These are imposed automatically, since we have not specified any non-zero initial conditions.</p></li>
+<li><p>We do, however, need to impose the initial condition that <span class="math notranslate nohighlight">\(\mathbf{C}^v = \mathbf{1}\)</span>. This is done below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function for constructing the identity matrix:</span>
 <span class="c1">#</span>
 <span class="c1"># To use the interpolate() feature, this must be defined as a </span>
 <span class="c1"># function of x.</span>
@@ -3889,6 +3940,729 @@ Step: Snap | Increment: 2180, Iterations: 3
 
 Step: Snap | Increment: 2185, Iterations: 3
       Simulation Time: 1006.405 s  of  1010.0 s
+
+Step: Snap | Increment: 2190, Iterations: 3
+      Simulation Time: 1006.42 s  of  1010.0 s
+
+Step: Snap | Increment: 2195, Iterations: 3
+      Simulation Time: 1006.435 s  of  1010.0 s
+
+Step: Snap | Increment: 2200, Iterations: 3
+      Simulation Time: 1006.45 s  of  1010.0 s
+
+Step: Snap | Increment: 2205, Iterations: 3
+      Simulation Time: 1006.465 s  of  1010.0 s
+
+Step: Snap | Increment: 2210, Iterations: 3
+      Simulation Time: 1006.48 s  of  1010.0 s
+
+Step: Snap | Increment: 2215, Iterations: 3
+      Simulation Time: 1006.495 s  of  1010.0 s
+
+Step: Snap | Increment: 2220, Iterations: 3
+      Simulation Time: 1006.51 s  of  1010.0 s
+
+Step: Snap | Increment: 2225, Iterations: 3
+      Simulation Time: 1006.525 s  of  1010.0 s
+
+Step: Snap | Increment: 2230, Iterations: 3
+      Simulation Time: 1006.54 s  of  1010.0 s
+
+Step: Snap | Increment: 2235, Iterations: 3
+      Simulation Time: 1006.555 s  of  1010.0 s
+
+Step: Snap | Increment: 2240, Iterations: 3
+      Simulation Time: 1006.57 s  of  1010.0 s
+
+Step: Snap | Increment: 2245, Iterations: 3
+      Simulation Time: 1006.585 s  of  1010.0 s
+
+Step: Snap | Increment: 2250, Iterations: 3
+      Simulation Time: 1006.6 s  of  1010.0 s
+
+Step: Snap | Increment: 2255, Iterations: 3
+      Simulation Time: 1006.615 s  of  1010.0 s
+
+Step: Snap | Increment: 2260, Iterations: 3
+      Simulation Time: 1006.63 s  of  1010.0 s
+
+Step: Snap | Increment: 2265, Iterations: 3
+      Simulation Time: 1006.645 s  of  1010.0 s
+
+Step: Snap | Increment: 2270, Iterations: 3
+      Simulation Time: 1006.66 s  of  1010.0 s
+
+Step: Snap | Increment: 2275, Iterations: 3
+      Simulation Time: 1006.675 s  of  1010.0 s
+
+Step: Snap | Increment: 2280, Iterations: 3
+      Simulation Time: 1006.69 s  of  1010.0 s
+
+Step: Snap | Increment: 2285, Iterations: 3
+      Simulation Time: 1006.705 s  of  1010.0 s
+
+Step: Snap | Increment: 2290, Iterations: 3
+      Simulation Time: 1006.72 s  of  1010.0 s
+
+Step: Snap | Increment: 2295, Iterations: 3
+      Simulation Time: 1006.735 s  of  1010.0 s
+
+Step: Snap | Increment: 2300, Iterations: 3
+      Simulation Time: 1006.75 s  of  1010.0 s
+
+Step: Snap | Increment: 2305, Iterations: 3
+      Simulation Time: 1006.765 s  of  1010.0 s
+
+Step: Snap | Increment: 2310, Iterations: 3
+      Simulation Time: 1006.78 s  of  1010.0 s
+
+Step: Snap | Increment: 2315, Iterations: 3
+      Simulation Time: 1006.795 s  of  1010.0 s
+
+Step: Snap | Increment: 2320, Iterations: 3
+      Simulation Time: 1006.81 s  of  1010.0 s
+
+Step: Snap | Increment: 2325, Iterations: 3
+      Simulation Time: 1006.825 s  of  1010.0 s
+
+Step: Snap | Increment: 2330, Iterations: 3
+      Simulation Time: 1006.84 s  of  1010.0 s
+
+Step: Snap | Increment: 2335, Iterations: 3
+      Simulation Time: 1006.855 s  of  1010.0 s
+
+Step: Snap | Increment: 2340, Iterations: 3
+      Simulation Time: 1006.87 s  of  1010.0 s
+
+Step: Snap | Increment: 2345, Iterations: 3
+      Simulation Time: 1006.885 s  of  1010.0 s
+
+Step: Snap | Increment: 2350, Iterations: 3
+      Simulation Time: 1006.9 s  of  1010.0 s
+
+Step: Snap | Increment: 2355, Iterations: 3
+      Simulation Time: 1006.915 s  of  1010.0 s
+
+Step: Snap | Increment: 2360, Iterations: 3
+      Simulation Time: 1006.93 s  of  1010.0 s
+
+Step: Snap | Increment: 2365, Iterations: 3
+      Simulation Time: 1006.945 s  of  1010.0 s
+
+Step: Snap | Increment: 2370, Iterations: 3
+      Simulation Time: 1006.96 s  of  1010.0 s
+
+Step: Snap | Increment: 2375, Iterations: 3
+      Simulation Time: 1006.975 s  of  1010.0 s
+
+Step: Snap | Increment: 2380, Iterations: 3
+      Simulation Time: 1006.99 s  of  1010.0 s
+
+Step: Snap | Increment: 2385, Iterations: 3
+      Simulation Time: 1007.005 s  of  1010.0 s
+
+Step: Snap | Increment: 2390, Iterations: 3
+      Simulation Time: 1007.02 s  of  1010.0 s
+
+Step: Snap | Increment: 2395, Iterations: 3
+      Simulation Time: 1007.035 s  of  1010.0 s
+
+Step: Snap | Increment: 2400, Iterations: 3
+      Simulation Time: 1007.05 s  of  1010.0 s
+
+Step: Snap | Increment: 2405, Iterations: 3
+      Simulation Time: 1007.065 s  of  1010.0 s
+
+Step: Snap | Increment: 2410, Iterations: 3
+      Simulation Time: 1007.08 s  of  1010.0 s
+
+Step: Snap | Increment: 2415, Iterations: 3
+      Simulation Time: 1007.095 s  of  1010.0 s
+
+Step: Snap | Increment: 2420, Iterations: 3
+      Simulation Time: 1007.11 s  of  1010.0 s
+
+Step: Snap | Increment: 2425, Iterations: 3
+      Simulation Time: 1007.125 s  of  1010.0 s
+
+Step: Snap | Increment: 2430, Iterations: 3
+      Simulation Time: 1007.14 s  of  1010.0 s
+
+Step: Snap | Increment: 2435, Iterations: 3
+      Simulation Time: 1007.155 s  of  1010.0 s
+
+Step: Snap | Increment: 2440, Iterations: 3
+      Simulation Time: 1007.17 s  of  1010.0 s
+
+Step: Snap | Increment: 2445, Iterations: 3
+      Simulation Time: 1007.185 s  of  1010.0 s
+
+Step: Snap | Increment: 2450, Iterations: 3
+      Simulation Time: 1007.2 s  of  1010.0 s
+
+Step: Snap | Increment: 2455, Iterations: 3
+      Simulation Time: 1007.215 s  of  1010.0 s
+
+Step: Snap | Increment: 2460, Iterations: 3
+      Simulation Time: 1007.23 s  of  1010.0 s
+
+Step: Snap | Increment: 2465, Iterations: 3
+      Simulation Time: 1007.245 s  of  1010.0 s
+
+Step: Snap | Increment: 2470, Iterations: 3
+      Simulation Time: 1007.26 s  of  1010.0 s
+
+Step: Snap | Increment: 2475, Iterations: 3
+      Simulation Time: 1007.275 s  of  1010.0 s
+
+Step: Snap | Increment: 2480, Iterations: 3
+      Simulation Time: 1007.29 s  of  1010.0 s
+
+Step: Snap | Increment: 2485, Iterations: 3
+      Simulation Time: 1007.305 s  of  1010.0 s
+
+Step: Snap | Increment: 2490, Iterations: 3
+      Simulation Time: 1007.32 s  of  1010.0 s
+
+Step: Snap | Increment: 2495, Iterations: 3
+      Simulation Time: 1007.335 s  of  1010.0 s
+
+Step: Snap | Increment: 2500, Iterations: 3
+      Simulation Time: 1007.35 s  of  1010.0 s
+
+Step: Snap | Increment: 2505, Iterations: 3
+      Simulation Time: 1007.365 s  of  1010.0 s
+
+Step: Snap | Increment: 2510, Iterations: 3
+      Simulation Time: 1007.38 s  of  1010.0 s
+
+Step: Snap | Increment: 2515, Iterations: 3
+      Simulation Time: 1007.395 s  of  1010.0 s
+
+Step: Snap | Increment: 2520, Iterations: 3
+      Simulation Time: 1007.41 s  of  1010.0 s
+
+Step: Snap | Increment: 2525, Iterations: 3
+      Simulation Time: 1007.425 s  of  1010.0 s
+
+Step: Snap | Increment: 2530, Iterations: 3
+      Simulation Time: 1007.44 s  of  1010.0 s
+
+Step: Snap | Increment: 2535, Iterations: 3
+      Simulation Time: 1007.455 s  of  1010.0 s
+
+Step: Snap | Increment: 2540, Iterations: 3
+      Simulation Time: 1007.47 s  of  1010.0 s
+
+Step: Snap | Increment: 2545, Iterations: 3
+      Simulation Time: 1007.485 s  of  1010.0 s
+
+Step: Snap | Increment: 2550, Iterations: 3
+      Simulation Time: 1007.5 s  of  1010.0 s
+
+Step: Snap | Increment: 2555, Iterations: 3
+      Simulation Time: 1007.515 s  of  1010.0 s
+
+Step: Snap | Increment: 2560, Iterations: 3
+      Simulation Time: 1007.53 s  of  1010.0 s
+
+Step: Snap | Increment: 2565, Iterations: 3
+      Simulation Time: 1007.545 s  of  1010.0 s
+
+Step: Snap | Increment: 2570, Iterations: 3
+      Simulation Time: 1007.56 s  of  1010.0 s
+
+Step: Snap | Increment: 2575, Iterations: 3
+      Simulation Time: 1007.575 s  of  1010.0 s
+
+Step: Snap | Increment: 2580, Iterations: 3
+      Simulation Time: 1007.59 s  of  1010.0 s
+
+Step: Snap | Increment: 2585, Iterations: 3
+      Simulation Time: 1007.605 s  of  1010.0 s
+
+Step: Snap | Increment: 2590, Iterations: 3
+      Simulation Time: 1007.62 s  of  1010.0 s
+
+Step: Snap | Increment: 2595, Iterations: 3
+      Simulation Time: 1007.635 s  of  1010.0 s
+
+Step: Snap | Increment: 2600, Iterations: 3
+      Simulation Time: 1007.65 s  of  1010.0 s
+
+Step: Snap | Increment: 2605, Iterations: 3
+      Simulation Time: 1007.665 s  of  1010.0 s
+
+Step: Snap | Increment: 2610, Iterations: 3
+      Simulation Time: 1007.68 s  of  1010.0 s
+
+Step: Snap | Increment: 2615, Iterations: 3
+      Simulation Time: 1007.695 s  of  1010.0 s
+
+Step: Snap | Increment: 2620, Iterations: 3
+      Simulation Time: 1007.71 s  of  1010.0 s
+
+Step: Snap | Increment: 2625, Iterations: 3
+      Simulation Time: 1007.725 s  of  1010.0 s
+
+Step: Snap | Increment: 2630, Iterations: 3
+      Simulation Time: 1007.74 s  of  1010.0 s
+
+Step: Snap | Increment: 2635, Iterations: 3
+      Simulation Time: 1007.755 s  of  1010.0 s
+
+Step: Snap | Increment: 2640, Iterations: 3
+      Simulation Time: 1007.77 s  of  1010.0 s
+
+Step: Snap | Increment: 2645, Iterations: 3
+      Simulation Time: 1007.785 s  of  1010.0 s
+
+Step: Snap | Increment: 2650, Iterations: 3
+      Simulation Time: 1007.8 s  of  1010.0 s
+
+Step: Snap | Increment: 2655, Iterations: 3
+      Simulation Time: 1007.815 s  of  1010.0 s
+
+Step: Snap | Increment: 2660, Iterations: 3
+      Simulation Time: 1007.83 s  of  1010.0 s
+
+Step: Snap | Increment: 2665, Iterations: 3
+      Simulation Time: 1007.845 s  of  1010.0 s
+
+Step: Snap | Increment: 2670, Iterations: 3
+      Simulation Time: 1007.86 s  of  1010.0 s
+
+Step: Snap | Increment: 2675, Iterations: 3
+      Simulation Time: 1007.875 s  of  1010.0 s
+
+Step: Snap | Increment: 2680, Iterations: 3
+      Simulation Time: 1007.89 s  of  1010.0 s
+
+Step: Snap | Increment: 2685, Iterations: 3
+      Simulation Time: 1007.905 s  of  1010.0 s
+
+Step: Snap | Increment: 2690, Iterations: 3
+      Simulation Time: 1007.92 s  of  1010.0 s
+
+Step: Snap | Increment: 2695, Iterations: 3
+      Simulation Time: 1007.935 s  of  1010.0 s
+
+Step: Snap | Increment: 2700, Iterations: 3
+      Simulation Time: 1007.95 s  of  1010.0 s
+
+Step: Snap | Increment: 2705, Iterations: 3
+      Simulation Time: 1007.965 s  of  1010.0 s
+
+Step: Snap | Increment: 2710, Iterations: 3
+      Simulation Time: 1007.98 s  of  1010.0 s
+
+Step: Snap | Increment: 2715, Iterations: 3
+      Simulation Time: 1007.995 s  of  1010.0 s
+
+Step: Snap | Increment: 2720, Iterations: 3
+      Simulation Time: 1008.01 s  of  1010.0 s
+
+Step: Snap | Increment: 2725, Iterations: 3
+      Simulation Time: 1008.025 s  of  1010.0 s
+
+Step: Snap | Increment: 2730, Iterations: 3
+      Simulation Time: 1008.04 s  of  1010.0 s
+
+Step: Snap | Increment: 2735, Iterations: 3
+      Simulation Time: 1008.055 s  of  1010.0 s
+
+Step: Snap | Increment: 2740, Iterations: 3
+      Simulation Time: 1008.07 s  of  1010.0 s
+
+Step: Snap | Increment: 2745, Iterations: 3
+      Simulation Time: 1008.085 s  of  1010.0 s
+
+Step: Snap | Increment: 2750, Iterations: 3
+      Simulation Time: 1008.1 s  of  1010.0 s
+
+Step: Snap | Increment: 2755, Iterations: 3
+      Simulation Time: 1008.115 s  of  1010.0 s
+
+Step: Snap | Increment: 2760, Iterations: 3
+      Simulation Time: 1008.13 s  of  1010.0 s
+
+Step: Snap | Increment: 2765, Iterations: 3
+      Simulation Time: 1008.145 s  of  1010.0 s
+
+Step: Snap | Increment: 2770, Iterations: 3
+      Simulation Time: 1008.16 s  of  1010.0 s
+
+Step: Snap | Increment: 2775, Iterations: 3
+      Simulation Time: 1008.175 s  of  1010.0 s
+
+Step: Snap | Increment: 2780, Iterations: 3
+      Simulation Time: 1008.19 s  of  1010.0 s
+
+Step: Snap | Increment: 2785, Iterations: 3
+      Simulation Time: 1008.205 s  of  1010.0 s
+
+Step: Snap | Increment: 2790, Iterations: 3
+      Simulation Time: 1008.22 s  of  1010.0 s
+
+Step: Snap | Increment: 2795, Iterations: 3
+      Simulation Time: 1008.235 s  of  1010.0 s
+
+Step: Snap | Increment: 2800, Iterations: 3
+      Simulation Time: 1008.25 s  of  1010.0 s
+
+Step: Snap | Increment: 2805, Iterations: 3
+      Simulation Time: 1008.265 s  of  1010.0 s
+
+Step: Snap | Increment: 2810, Iterations: 3
+      Simulation Time: 1008.28 s  of  1010.0 s
+
+Step: Snap | Increment: 2815, Iterations: 3
+      Simulation Time: 1008.295 s  of  1010.0 s
+
+Step: Snap | Increment: 2820, Iterations: 3
+      Simulation Time: 1008.31 s  of  1010.0 s
+
+Step: Snap | Increment: 2825, Iterations: 3
+      Simulation Time: 1008.325 s  of  1010.0 s
+
+Step: Snap | Increment: 2830, Iterations: 3
+      Simulation Time: 1008.34 s  of  1010.0 s
+
+Step: Snap | Increment: 2835, Iterations: 3
+      Simulation Time: 1008.355 s  of  1010.0 s
+
+Step: Snap | Increment: 2840, Iterations: 3
+      Simulation Time: 1008.37 s  of  1010.0 s
+
+Step: Snap | Increment: 2845, Iterations: 3
+      Simulation Time: 1008.385 s  of  1010.0 s
+
+Step: Snap | Increment: 2850, Iterations: 3
+      Simulation Time: 1008.4 s  of  1010.0 s
+
+Step: Snap | Increment: 2855, Iterations: 3
+      Simulation Time: 1008.415 s  of  1010.0 s
+
+Step: Snap | Increment: 2860, Iterations: 3
+      Simulation Time: 1008.43 s  of  1010.0 s
+
+Step: Snap | Increment: 2865, Iterations: 3
+      Simulation Time: 1008.445 s  of  1010.0 s
+
+Step: Snap | Increment: 2870, Iterations: 3
+      Simulation Time: 1008.46 s  of  1010.0 s
+
+Step: Snap | Increment: 2875, Iterations: 3
+      Simulation Time: 1008.475 s  of  1010.0 s
+
+Step: Snap | Increment: 2880, Iterations: 3
+      Simulation Time: 1008.49 s  of  1010.0 s
+
+Step: Snap | Increment: 2885, Iterations: 3
+      Simulation Time: 1008.505 s  of  1010.0 s
+
+Step: Snap | Increment: 2890, Iterations: 3
+      Simulation Time: 1008.52 s  of  1010.0 s
+
+Step: Snap | Increment: 2895, Iterations: 3
+      Simulation Time: 1008.535 s  of  1010.0 s
+
+Step: Snap | Increment: 2900, Iterations: 3
+      Simulation Time: 1008.55 s  of  1010.0 s
+
+Step: Snap | Increment: 2905, Iterations: 3
+      Simulation Time: 1008.565 s  of  1010.0 s
+
+Step: Snap | Increment: 2910, Iterations: 3
+      Simulation Time: 1008.58 s  of  1010.0 s
+
+Step: Snap | Increment: 2915, Iterations: 3
+      Simulation Time: 1008.595 s  of  1010.0 s
+
+Step: Snap | Increment: 2920, Iterations: 3
+      Simulation Time: 1008.61 s  of  1010.0 s
+
+Step: Snap | Increment: 2925, Iterations: 3
+      Simulation Time: 1008.625 s  of  1010.0 s
+
+Step: Snap | Increment: 2930, Iterations: 3
+      Simulation Time: 1008.64 s  of  1010.0 s
+
+Step: Snap | Increment: 2935, Iterations: 3
+      Simulation Time: 1008.655 s  of  1010.0 s
+
+Step: Snap | Increment: 2940, Iterations: 3
+      Simulation Time: 1008.67 s  of  1010.0 s
+
+Step: Snap | Increment: 2945, Iterations: 3
+      Simulation Time: 1008.685 s  of  1010.0 s
+
+Step: Snap | Increment: 2950, Iterations: 3
+      Simulation Time: 1008.7 s  of  1010.0 s
+
+Step: Snap | Increment: 2955, Iterations: 3
+      Simulation Time: 1008.715 s  of  1010.0 s
+
+Step: Snap | Increment: 2960, Iterations: 3
+      Simulation Time: 1008.73 s  of  1010.0 s
+
+Step: Snap | Increment: 2965, Iterations: 3
+      Simulation Time: 1008.745 s  of  1010.0 s
+
+Step: Snap | Increment: 2970, Iterations: 3
+      Simulation Time: 1008.76 s  of  1010.0 s
+
+Step: Snap | Increment: 2975, Iterations: 3
+      Simulation Time: 1008.775 s  of  1010.0 s
+
+Step: Snap | Increment: 2980, Iterations: 3
+      Simulation Time: 1008.79 s  of  1010.0 s
+
+Step: Snap | Increment: 2985, Iterations: 3
+      Simulation Time: 1008.805 s  of  1010.0 s
+
+Step: Snap | Increment: 2990, Iterations: 3
+      Simulation Time: 1008.82 s  of  1010.0 s
+
+Step: Snap | Increment: 2995, Iterations: 3
+      Simulation Time: 1008.835 s  of  1010.0 s
+
+Step: Snap | Increment: 3000, Iterations: 3
+      Simulation Time: 1008.85 s  of  1010.0 s
+
+Step: Snap | Increment: 3005, Iterations: 3
+      Simulation Time: 1008.865 s  of  1010.0 s
+
+Step: Snap | Increment: 3010, Iterations: 3
+      Simulation Time: 1008.88 s  of  1010.0 s
+
+Step: Snap | Increment: 3015, Iterations: 3
+      Simulation Time: 1008.895 s  of  1010.0 s
+
+Step: Snap | Increment: 3020, Iterations: 3
+      Simulation Time: 1008.91 s  of  1010.0 s
+
+Step: Snap | Increment: 3025, Iterations: 3
+      Simulation Time: 1008.925 s  of  1010.0 s
+
+Step: Snap | Increment: 3030, Iterations: 3
+      Simulation Time: 1008.94 s  of  1010.0 s
+
+Step: Snap | Increment: 3035, Iterations: 3
+      Simulation Time: 1008.955 s  of  1010.0 s
+
+Step: Snap | Increment: 3040, Iterations: 3
+      Simulation Time: 1008.97 s  of  1010.0 s
+
+Step: Snap | Increment: 3045, Iterations: 3
+      Simulation Time: 1008.985 s  of  1010.0 s
+
+Step: Snap | Increment: 3050, Iterations: 3
+      Simulation Time: 1009.0 s  of  1010.0 s
+
+Step: Snap | Increment: 3055, Iterations: 3
+      Simulation Time: 1009.015 s  of  1010.0 s
+
+Step: Snap | Increment: 3060, Iterations: 3
+      Simulation Time: 1009.03 s  of  1010.0 s
+
+Step: Snap | Increment: 3065, Iterations: 3
+      Simulation Time: 1009.045 s  of  1010.0 s
+
+Step: Snap | Increment: 3070, Iterations: 3
+      Simulation Time: 1009.06 s  of  1010.0 s
+
+Step: Snap | Increment: 3075, Iterations: 3
+      Simulation Time: 1009.075 s  of  1010.0 s
+
+Step: Snap | Increment: 3080, Iterations: 3
+      Simulation Time: 1009.09 s  of  1010.0 s
+
+Step: Snap | Increment: 3085, Iterations: 3
+      Simulation Time: 1009.105 s  of  1010.0 s
+
+Step: Snap | Increment: 3090, Iterations: 3
+      Simulation Time: 1009.12 s  of  1010.0 s
+
+Step: Snap | Increment: 3095, Iterations: 3
+      Simulation Time: 1009.135 s  of  1010.0 s
+
+Step: Snap | Increment: 3100, Iterations: 3
+      Simulation Time: 1009.15 s  of  1010.0 s
+
+Step: Snap | Increment: 3105, Iterations: 3
+      Simulation Time: 1009.165 s  of  1010.0 s
+
+Step: Snap | Increment: 3110, Iterations: 3
+      Simulation Time: 1009.18 s  of  1010.0 s
+
+Step: Snap | Increment: 3115, Iterations: 3
+      Simulation Time: 1009.195 s  of  1010.0 s
+
+Step: Snap | Increment: 3120, Iterations: 3
+      Simulation Time: 1009.21 s  of  1010.0 s
+
+Step: Snap | Increment: 3125, Iterations: 3
+      Simulation Time: 1009.225 s  of  1010.0 s
+
+Step: Snap | Increment: 3130, Iterations: 3
+      Simulation Time: 1009.24 s  of  1010.0 s
+
+Step: Snap | Increment: 3135, Iterations: 3
+      Simulation Time: 1009.255 s  of  1010.0 s
+
+Step: Snap | Increment: 3140, Iterations: 3
+      Simulation Time: 1009.27 s  of  1010.0 s
+
+Step: Snap | Increment: 3145, Iterations: 3
+      Simulation Time: 1009.285 s  of  1010.0 s
+
+Step: Snap | Increment: 3150, Iterations: 3
+      Simulation Time: 1009.3 s  of  1010.0 s
+
+Step: Snap | Increment: 3155, Iterations: 3
+      Simulation Time: 1009.315 s  of  1010.0 s
+
+Step: Snap | Increment: 3160, Iterations: 3
+      Simulation Time: 1009.33 s  of  1010.0 s
+
+Step: Snap | Increment: 3165, Iterations: 3
+      Simulation Time: 1009.345 s  of  1010.0 s
+
+Step: Snap | Increment: 3170, Iterations: 3
+      Simulation Time: 1009.36 s  of  1010.0 s
+
+Step: Snap | Increment: 3175, Iterations: 3
+      Simulation Time: 1009.375 s  of  1010.0 s
+
+Step: Snap | Increment: 3180, Iterations: 3
+      Simulation Time: 1009.39 s  of  1010.0 s
+
+Step: Snap | Increment: 3185, Iterations: 3
+      Simulation Time: 1009.405 s  of  1010.0 s
+
+Step: Snap | Increment: 3190, Iterations: 3
+      Simulation Time: 1009.42 s  of  1010.0 s
+
+Step: Snap | Increment: 3195, Iterations: 3
+      Simulation Time: 1009.435 s  of  1010.0 s
+
+Step: Snap | Increment: 3200, Iterations: 3
+      Simulation Time: 1009.45 s  of  1010.0 s
+
+Step: Snap | Increment: 3205, Iterations: 3
+      Simulation Time: 1009.465 s  of  1010.0 s
+
+Step: Snap | Increment: 3210, Iterations: 3
+      Simulation Time: 1009.48 s  of  1010.0 s
+
+Step: Snap | Increment: 3215, Iterations: 3
+      Simulation Time: 1009.495 s  of  1010.0 s
+
+Step: Snap | Increment: 3220, Iterations: 3
+      Simulation Time: 1009.51 s  of  1010.0 s
+
+Step: Snap | Increment: 3225, Iterations: 3
+      Simulation Time: 1009.525 s  of  1010.0 s
+
+Step: Snap | Increment: 3230, Iterations: 3
+      Simulation Time: 1009.54 s  of  1010.0 s
+
+Step: Snap | Increment: 3235, Iterations: 3
+      Simulation Time: 1009.555 s  of  1010.0 s
+
+Step: Snap | Increment: 3240, Iterations: 3
+      Simulation Time: 1009.57 s  of  1010.0 s
+
+Step: Snap | Increment: 3245, Iterations: 3
+      Simulation Time: 1009.585 s  of  1010.0 s
+
+Step: Snap | Increment: 3250, Iterations: 3
+      Simulation Time: 1009.6 s  of  1010.0 s
+
+Step: Snap | Increment: 3255, Iterations: 3
+      Simulation Time: 1009.615 s  of  1010.0 s
+
+Step: Snap | Increment: 3260, Iterations: 3
+      Simulation Time: 1009.63 s  of  1010.0 s
+
+Step: Snap | Increment: 3265, Iterations: 3
+      Simulation Time: 1009.645 s  of  1010.0 s
+
+Step: Snap | Increment: 3270, Iterations: 3
+      Simulation Time: 1009.66 s  of  1010.0 s
+
+Step: Snap | Increment: 3275, Iterations: 3
+      Simulation Time: 1009.675 s  of  1010.0 s
+
+Step: Snap | Increment: 3280, Iterations: 3
+      Simulation Time: 1009.69 s  of  1010.0 s
+
+Step: Snap | Increment: 3285, Iterations: 3
+      Simulation Time: 1009.705 s  of  1010.0 s
+
+Step: Snap | Increment: 3290, Iterations: 3
+      Simulation Time: 1009.72 s  of  1010.0 s
+
+Step: Snap | Increment: 3295, Iterations: 3
+      Simulation Time: 1009.735 s  of  1010.0 s
+
+Step: Snap | Increment: 3300, Iterations: 3
+      Simulation Time: 1009.75 s  of  1010.0 s
+
+Step: Snap | Increment: 3305, Iterations: 3
+      Simulation Time: 1009.765 s  of  1010.0 s
+
+Step: Snap | Increment: 3310, Iterations: 3
+      Simulation Time: 1009.78 s  of  1010.0 s
+
+Step: Snap | Increment: 3315, Iterations: 3
+      Simulation Time: 1009.795 s  of  1010.0 s
+
+Step: Snap | Increment: 3320, Iterations: 3
+      Simulation Time: 1009.81 s  of  1010.0 s
+
+Step: Snap | Increment: 3325, Iterations: 3
+      Simulation Time: 1009.825 s  of  1010.0 s
+
+Step: Snap | Increment: 3330, Iterations: 3
+      Simulation Time: 1009.84 s  of  1010.0 s
+
+Step: Snap | Increment: 3335, Iterations: 3
+      Simulation Time: 1009.855 s  of  1010.0 s
+
+Step: Snap | Increment: 3340, Iterations: 3
+      Simulation Time: 1009.87 s  of  1010.0 s
+
+Step: Snap | Increment: 3345, Iterations: 3
+      Simulation Time: 1009.885 s  of  1010.0 s
+
+Step: Snap | Increment: 3350, Iterations: 3
+      Simulation Time: 1009.9 s  of  1010.0 s
+
+Step: Snap | Increment: 3355, Iterations: 3
+      Simulation Time: 1009.915 s  of  1010.0 s
+
+Step: Snap | Increment: 3360, Iterations: 3
+      Simulation Time: 1009.93 s  of  1010.0 s
+
+Step: Snap | Increment: 3365, Iterations: 3
+      Simulation Time: 1009.945 s  of  1010.0 s
+
+Step: Snap | Increment: 3370, Iterations: 3
+      Simulation Time: 1009.96 s  of  1010.0 s
+
+Step: Snap | Increment: 3375, Iterations: 3
+      Simulation Time: 1009.975 s  of  1010.0 s
+
+Step: Snap | Increment: 3380, Iterations: 3
+      Simulation Time: 1009.99 s  of  1010.0 s
+
+-----------------------------------------
+End computation
+------------------------------------------
+Elapsed real time:  0:11:58.591244
+------------------------------------------
 </pre></div>
 </div>
 </div>
@@ -3939,6 +4713,9 @@ Step: Snap | Increment: 2185, Iterations: 3
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/f054b50249a567c224098bf6e62e5d22c32e5c9a497b29df00ea5e9658b7342f.png" src="../_images/f054b50249a567c224098bf6e62e5d22c32e5c9a497b29df00ea5e9658b7342f.png" />
+</div>
 </div>
 </section>
 
@@ -3986,7 +4763,7 @@ Step: Snap | Increment: 2185, Iterations: 3
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hemisphere eversion snap-through</p>
+        <p class="prev-next-title">Magneto-viscoelasticity of hard-magnetic soft-elastomers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -4020,6 +4797,7 @@ Step: Snap | Increment: 2185, Iterations: 3
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-time-control-related-params">Simulation time-control related params</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-conditions">Initial conditions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subroutines-for-kinematics-and-constitutive-equations">Subroutines for kinematics and constitutive equations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-kinematics-and-constitutive-relations">Evaluate kinematics and constitutive relations</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-forms">Weak forms</a></li>
